@@ -4,15 +4,19 @@
     "slug": "tourlink-mobile",
     "version": "1.0.0",
     "scheme": "tourlink-mobile",
+    "backgroundColor": "#171717",
     "web": {
       "bundler": "metro",
       "output": "static",
       "favicon": "./assets/favicon.png"
     },
-    "plugins": ["expo-router", "expo-secure-store"],
+    "plugins": ["expo-router", "expo-secure-store", "expo-av"],
     "experiments": {
       "typedRoutes": true,
       "tsconfigPaths": true
+    },
+    "expo": {
+      "userInterfaceStyle": "dark"
     },
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -20,7 +24,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#171717"
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
@@ -29,7 +33,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#171717"
       },
       "package": "com.anonymous.tourlinkmobile"
     }
