@@ -1,38 +1,45 @@
-import { Link, Tabs } from 'expo-router';
+import { Tabs } from 'expo-router';
+import { View } from 'react-native';
 
-import { HeaderButton } from '../../components/HeaderButton';
-import { TabBarIcon } from '../../components/TabBarIcon';
+import { UserRound, HomeIcon, Search, Heart } from 'lucide-react-native';
 
 export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: 'black',
+        tabBarActiveTintColor: '#D5036D',
+        tabBarBackground: () => <View className='bg-tab-bg' />,
       }}>
       <Tabs.Screen
         name='index'
         options={{
           headerShown: false,
-          tabBarIcon: ({ color }) => <TabBarIcon name='code' color={color} />,
-          // headerRight: () => (
-          //   <Link href="/modal" asChild>
-          //     <HeaderButton />
-          //   </Link>
-          // ),
+          title: 'Home',
+          tabBarIcon: ({ color }) => <HomeIcon color={color} />,
         }}
       />
       <Tabs.Screen
-        name='two'
+        name='categories'
         options={{
+          title: 'Pesquisar',
           headerShown: false,
-          tabBarIcon: ({ color }) => <TabBarIcon name='code' color={color} />,
+          tabBarIcon: ({ color }) => <Search color={color} />,
         }}
       />
       <Tabs.Screen
-        name='three'
+        name='dynamic'
         options={{
+          title: 'Meus roteiros',
           headerShown: false,
-          tabBarIcon: ({ color }) => <TabBarIcon name='code' color={color} />,
+          tabBarIcon: ({ color }) => <Heart color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name='profile'
+        options={{
+          title: 'Perfil',
+          headerShown: false,
+          tabBarIcon: ({ color }) => <UserRound color={color} />,
         }}
       />
     </Tabs>
