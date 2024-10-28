@@ -1,9 +1,12 @@
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
+import { LinearGradient } from 'expo-linear-gradient';
 import { View, StyleSheet } from 'react-native';
 import Animated from 'react-native-reanimated';
 import { colors } from 'src/common/utils/colors';
 import { TabBarItem } from 'src/components/TabBar/TabBarItem/TabBarItem';
 import { useTabBarViewModel } from 'src/components/TabBar/TabBarViewModel';
+
+const AnimatedLinearGradient = Animated.createAnimatedComponent(LinearGradient);
 
 export function TabBar({ state, navigation, descriptors, insets }: BottomTabBarProps) {
   const { Dimensions, animatedTabPositionStyle, buttonWidth, onTabBarLayout, tabs } =
@@ -21,8 +24,11 @@ export function TabBar({ state, navigation, descriptors, insets }: BottomTabBarP
 
   return (
     <View onLayout={onTabBarLayout} style={styles.TabBar}>
-      <Animated.View
+      <AnimatedLinearGradient
         style={[dynamicAnimatedTabBgStyle, animatedTabPositionStyle, styles.AnimatedBg]}
+        colors={['#F50437', '#9400DA']}
+        start={{ x: 0, y: 0.5 }}
+        end={{ x: 1, y: 0.5 }}
       />
       {tabs.map(({ label, onPress, onLongPress, isFocused, routeName }) => (
         <TabBarItem
@@ -48,11 +54,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginHorizontal: 30,
     paddingVertical: 15,
-    borderRadius: 35,
+    borderRadius: 50,
   },
   AnimatedBg: {
     position: 'absolute',
-    borderRadius: 30,
+    borderRadius: 50,
     marginHorizontal: 12,
     backgroundColor: colors.TabActive,
   },
