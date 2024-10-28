@@ -1,12 +1,6 @@
-import { Stack } from 'expo-router';
-import { View, Text } from 'react-native';
+const Index = () => {
+  return null;
+  // expo router bugado demasiado
+};
 
-import { ScreenContent } from '~/components/ScreenContent';
-
-export default function Home() {
-  return (
-    <View className='flex-1 p-8'>
-      <Text>Home Screen</Text>
-    </View>
-  );
-}
+export default Index;
