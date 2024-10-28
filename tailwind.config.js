@@ -13,6 +13,11 @@ module.exports = {
         'tl-red-2': '#bf0028',
         'tl-purple-2': '#7d00b8',
       },
+      fontFamily: {
+        poppins200: 'Poppins_200ExtraLight',
+        poppins400: 'Poppins_400Regular',
+        poppins600: 'Poppins_600SemiBold',
+      },
     },
   },
   plugins: [],
