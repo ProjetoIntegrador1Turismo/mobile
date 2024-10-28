@@ -11,7 +11,7 @@ export default function LoginView() {
           pathname: '/(auth)/register',
         }}
         asChild>
-        <Pressable className='border-black border p-3'>
+        <Pressable className='border border-black p-3'>
           <Text>registro</Text>
         </Pressable>
       </Link>

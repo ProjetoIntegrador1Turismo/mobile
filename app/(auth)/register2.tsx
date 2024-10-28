@@ -8,7 +8,7 @@ export default function Register2() {
     <SafeAreaView className='flex-1 items-center justify-center'>
       <Text className='text-3xl text-white'>register 2</Text>
       <Pressable
-        className='border-black border p-3'
+        className='border border-black p-3'
         onPress={() => {
           console.log(email, phone);
         }}>
