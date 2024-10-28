@@ -17,7 +17,7 @@ export const useTabBarItemViewModel = (isFocused: boolean) => {
 
   const animatedIconStyle = useAnimatedStyle(() => {
     const scaleValue = interpolate(scale.value, [0, 1], [1, 1.3]);
-    const top = interpolate(scale.value, [0, 1], [0, 9]);
+    const top = interpolate(scale.value, [0, 1], [0, 12]);
 
     return {
       transform: [{ scale: scaleValue }],
