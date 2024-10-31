@@ -3,6 +3,7 @@ export const colors = {
   AppBg: '#171717',
   TlRed: '#f50437',
   TlPurple: '#9400da',
-  TabActive: '#D5036D',
+  TLRedActive: '#c7022c',
+  TLPurpleActive: '#6b039c',
   white: '#FFF',
 };
