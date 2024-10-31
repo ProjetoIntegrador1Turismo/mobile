@@ -1,7 +1,7 @@
 import { Image, StyleSheet, View, Text } from "react-native"
 import { CustomText } from "../Text/CustomText"
 
-import hotel from '../../../assets/category-card-hotel.png'
+import hotel from '~/assets/category-card-hotel.png'
 
 interface CategoryCardProps {
     title: string;
@@ -10,11 +10,12 @@ interface CategoryCardProps {
 
 export function CategoryCard({ title } : CategoryCardProps){
     return (
-        <View style={style.container}>
+        <View className="w-[362px] h-[90px] rounded-2xl overflow-hidden"
+        >
             <Image 
             source={hotel}
             />
-            <View style={style.overlay}>
+            <View className="absolute left-[25px] top-[8px]">
                 <CustomText 
                 weight='bold'
                 size={24}
@@ -26,28 +27,4 @@ export function CategoryCard({ title } : CategoryCardProps){
     )
 }
 
-
-const style = StyleSheet.create({
-    
-    container:{
-        borderWidth: 1,
-        width: 362,
-        height: 90,
-        borderColor: 'black',
-        borderRadius: 11,
-        margin: 5,
-        overflow: 'hidden',
-    }, 
-
-    overlay: {
-        position: "absolute",
-        top: 8,
-        left: 25,
-    },
-    
-
-
-    
-
-})
 
