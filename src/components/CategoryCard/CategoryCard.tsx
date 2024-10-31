@@ -14,7 +14,7 @@ export function CategoryCard({ title } : CategoryCardProps){
         >
             <Image 
             source={hotel}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover opacity-80"
             />
             <View className="absolute left-[25px] top-[8px]">
                 <CustomText 
