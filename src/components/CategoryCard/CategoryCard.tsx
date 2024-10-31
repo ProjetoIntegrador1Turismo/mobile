@@ -14,6 +14,7 @@ export function CategoryCard({ title } : CategoryCardProps){
         >
             <Image 
             source={hotel}
+            className="w-full h-full object-cover"
             />
             <View className="absolute left-[25px] top-[8px]">
                 <CustomText 
@@ -21,8 +22,7 @@ export function CategoryCard({ title } : CategoryCardProps){
                 size={24}
                 color='#FFFFFF'
                 >{title}</CustomText>
-            </View> 
-
+            </View>
         </View>
     )
 }
