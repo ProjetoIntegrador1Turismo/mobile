@@ -2,24 +2,30 @@ import { Text, StyleSheet } from 'react-native';
 import { CustomTextProps, TextComponentMapData } from 'src/components/Text/CustomText.types';
 
 const TextComponent: Record<string, TextComponentMapData> = {
-  regular: ({ size, color, children }) => (
-    <Text style={[styles.regular, { fontSize: size, color }]}>{children}</Text>
+  regular: ({ size, children, className }) => (
+    <Text className={className} style={[styles.regular, { fontSize: size }]}>
+      {children}
+    </Text>
   ),
-  light: ({ size, color, children }) => (
-    <Text style={[styles.light, { fontSize: size, color }]}>{children}</Text>
+  light: ({ size, children, className }) => (
+    <Text className={className} style={[styles.light, { fontSize: size }]}>
+      {children}
+    </Text>
   ),
-  bold: ({ size, color, children }) => (
-    <Text style={[styles.bold, { fontSize: size, color }]}>{children}</Text>
+  bold: ({ size, children, className }) => (
+    <Text className={className} style={[styles.bold, { fontSize: size }]}>
+      {children}
+    </Text>
   ),
 };
 
 export function CustomText({
   size = 14,
   weight = 'regular',
-  color = '#000',
+  className = '',
   children,
 }: CustomTextProps) {
-  return TextComponent[weight]({ size, color, children });
+  return TextComponent[weight]({ size, children, className });
 }
 
 const styles = StyleSheet.create({

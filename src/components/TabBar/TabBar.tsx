@@ -26,7 +26,7 @@ export function TabBar({ state, navigation, descriptors, insets }: BottomTabBarP
     <View onLayout={onTabBarLayout} style={styles.TabBar}>
       <AnimatedLinearGradient
         style={[dynamicAnimatedTabBgStyle, animatedTabPositionStyle, styles.AnimatedBg]}
-        colors={['#F50437', '#9400DA']}
+        colors={[colors.TlRed, colors.TlPurple]}
         start={{ x: 0, y: 0.5 }}
         end={{ x: 1, y: 0.5 }}
       />
@@ -60,6 +60,5 @@ const styles = StyleSheet.create({
     position: 'absolute',
     borderRadius: 50,
     marginHorizontal: 12,
-    backgroundColor: colors.TabActive,
   },
 });

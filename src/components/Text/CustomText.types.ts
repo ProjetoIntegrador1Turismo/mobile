@@ -1,14 +1,19 @@
 export interface CustomTextProps {
-  size?: 14 | 24 | 36;
+  size?: 10 | 12 | 14 | 16 | 18 | 20 | 22 | 24 | 36;
   weight?: 'regular' | 'light' | 'bold';
   color?: string;
+  className?: string;
   children?: React.ReactNode;
 }
 
 interface TextComponentProps {
   size: number;
-  color: string;
   children: React.ReactNode;
+  className: string;
 }
 
-export type TextComponentMapData = ({ size, color, children }: TextComponentProps) => JSX.Element;
+export type TextComponentMapData = ({
+  size,
+  children,
+  className,
+}: TextComponentProps) => JSX.Element;
