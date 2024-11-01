@@ -5,12 +5,12 @@ import { CustomText } from 'src/components/Text/CustomText';
 
 export function ControlledInput({ label, placeholder, error }: ControlledInputProps) {
   return (
-    <View className='flex gap-2'>
+    <View className='flex gap-3'>
       <CustomText size={16} className='text-white'>
         {label}
       </CustomText>
       <TextInput
-        className='min-w-[90%] rounded-lg bg-white p-3 font-poppins400'
+        className='min-w-[90%] rounded-xl bg-white px-3 py-4 font-poppins400'
         placeholder={placeholder}
       />
       <InputError>{error}</InputError>
