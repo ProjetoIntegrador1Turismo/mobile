@@ -1,22 +1,17 @@
-import { Image, StyleSheet, View, Text } from "react-native"
-import { CustomText } from "../Text/CustomText"
+import { Image, View } from 'react-native'
+import { CustomText } from '~/src/components/Text/CustomText'
 
-import hotel from '~/assets/category-card-hotel.png'
+import { CategoryCardProps } from '~/src/components/CategoryCard/CategoryCard.types'
 
-interface CategoryCardProps {
-    title: string;
-    // imgSource?: string;
-}
-
-export function CategoryCard({ title } : CategoryCardProps){
+export function CategoryCard({ title, imgSource } : CategoryCardProps){
     return (
-        <View className="w-[362px] h-[90px] rounded-2xl overflow-hidden"
+        <View className='w-[362px] h-[90px] rounded-2xl overflow-hidden'
         >
             <Image 
-            source={hotel}
-            className="w-full h-full object-cover opacity-80"
+            source={imgSource}
+            className='w-full h-full object-cover opacity-90'
             />
-            <View className="absolute left-[25px] top-[8px]">
+            <View className='absolute left-[25px] top-[8px]'>
                 <CustomText 
                 weight='bold'
                 size={24}
