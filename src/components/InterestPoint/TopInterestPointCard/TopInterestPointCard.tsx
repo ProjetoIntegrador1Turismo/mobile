@@ -13,16 +13,16 @@ export function TopInterestPointCard(props: TopInterestPointCardProps) {
         <Image
           source={{ uri: props.imageCover }}
           style={{ width: '100%', height: '100%' }}
-          className='object-cover'
+          className='object-cover opacity-95'
         />
         <View className='absolute right-2 top-2 shadow-lg'>
-          <FontAwesome5 name='medal' size={16} color={getMedalColor[props.medal]} />
+          <FontAwesome5 name='medal' size={24} color={getMedalColor[props.medal]} />
         </View>
       </View>
 
-      <View className='flex flex-row items-start justify-between rounded-b-xl bg-white px-4 py-2'>
-        <View style={{ maxWidth: '65%' }}>
-          <CustomText weight='bold' size={18}>
+      <View className='flex max-h-[60px] flex-row items-start justify-between overflow-hidden rounded-b-xl bg-white px-4 py-2'>
+        <View className='max-w-[65%]'>
+          <CustomText className='text-black' weight='bold' size={16}>
             {props.name}
           </CustomText>
         </View>
