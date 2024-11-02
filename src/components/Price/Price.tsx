@@ -11,7 +11,7 @@ export function Price({ priceLevel }: PriceProps) {
           key={index}
           name='dollar-sign'
           size={12}
-          color={index < priceLevel ? 'black' : 'gray'}
+          color={index < priceLevel ? 'black' : '#B9B9B9'}
         />
       ))}
     </View>
