@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Image, Text } from 'react-native';
 import { InterestPointCardProps } from 'src/components/InterestPoint/InterestPointCard/InterestPointCard.types';
+import { CustomText } from 'src/components/Text/CustomText';
 
 export function InterestPointCard({ id, name, imageCover }: InterestPointCardProps) {
   return (
@@ -11,7 +12,9 @@ export function InterestPointCard({ id, name, imageCover }: InterestPointCardPro
         className='object-cover opacity-95'
       />
       <View className='absolute bottom-4 w-full px-2'>
-        <Text className='text-center text-lg font-bold text-white'>{name}</Text>
+        <CustomText className='text-center text-2xl font-bold text-white' weight='regular'>
+          {name}
+        </CustomText>
       </View>
     </View>
   );
