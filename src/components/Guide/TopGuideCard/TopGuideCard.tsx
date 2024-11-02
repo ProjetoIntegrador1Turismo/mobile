@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image, Text } from 'react-native';
+import { View, Image, Text, Pressable } from 'react-native';
 import { AntDesign, Entypo } from '@expo/vector-icons';
 import { useTopGuideCardViewModel } from './TopGuideCardViewModel';
 import { TopGuideCardProps } from 'src/components/Guide/TopGuideCard/TopGuideCard.types';
@@ -17,7 +17,7 @@ export function TopGuideCard({ id, profileImage, name, rating }: TopGuideCardPro
       />
 
       <View className='ml-4  flex-1 overflow-hidden'>
-        <CustomText size={14} color='white' weight='regular'>
+        <CustomText size={14} weight='regular' className='text-white '>
           {name}
         </CustomText>
       </View>
@@ -31,7 +31,9 @@ export function TopGuideCard({ id, profileImage, name, rating }: TopGuideCardPro
         </View>
       </View>
 
-      <Entypo name='dots-three-horizontal' size={20} color='white' className='ml-4' />
+      <Pressable onPress={() => {}}>
+        <Entypo name='dots-three-horizontal' size={20} color='white' className='ml-4' />
+      </Pressable>
     </View>
   );
 }
