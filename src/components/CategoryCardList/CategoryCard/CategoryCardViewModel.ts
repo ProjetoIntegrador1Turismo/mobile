@@ -1,5 +1,5 @@
 
-import { CategoryCardProps } from '~/src/components/CategoryCard/CategoryCard.types'
+import { CategoryCardProps } from '~/src/components/CategoryCardList/CategoryCard/CategoryCard.types'
 
 import categoryHotelImg from '~/assets/category-card-hotel.png'
 import categoryExperienceImg from '~/assets/category-card-experience.png'
