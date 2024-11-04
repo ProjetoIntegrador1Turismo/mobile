@@ -14,3 +14,8 @@ export const CategoryCardData: CategoryCardProps[] = [
     { title: 'Ponto Turístico', imgSource: categoryTouristPointlImg },
     { title: 'Restaurante', imgSource: categoryRestaurantImg },
 ]
+
+//Aqui busca os dados na api vai para a tela com os dados ?
+export function onPressCategoryCard(categoryTitle: String){
+    console.log(`Card press -: ${categoryTitle}`)
+}
