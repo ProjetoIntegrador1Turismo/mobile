@@ -2,6 +2,7 @@ import { Pressable, SafeAreaView } from 'react-native';
 import { useAppRouter } from 'src/common/lib/router';
 import { CustomText } from 'src/components/Text/CustomText';
 import { CategoryCardList } from '~/src/components/CategoryCardList/CategoryCardList';
+import { SearchTextInputBar } from '~/src/components/SearchTextInputBar/SearchTextInputBar';
 
 export default function Search() {
   const { push } = useAppRouter();
@@ -16,6 +17,7 @@ export default function Search() {
       <Pressable onPress={handlePress} className='rounded-lg border border-black p-3'>
         <CustomText>Go to Point</CustomText>
       </Pressable> */}
+      <SearchTextInputBar />
       <CategoryCardList />
     </SafeAreaView>
   );
