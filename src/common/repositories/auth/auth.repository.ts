@@ -10,7 +10,12 @@ export const Login = async ({ username, password }: LoginDTO): Promise<UserModel
     JSON.stringify({
       username,
       password,
-    })
+    }),
+    {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }
   );
   return data;
 };
@@ -21,6 +26,14 @@ export const Register = async (data: RegisterDTO | RegisterGuideDTO): Promise<Re
     ...rest,
     ...(isGuide && 'cadastur' in data ? { cadastur: data.cadastur } : {}),
   };
-  const { data: UserData } = await api.post<RegisterModel>('/user/create', JSON.stringify(payload));
+  const { data: UserData } = await api.post<RegisterModel>(
+    '/user/create',
+    JSON.stringify(payload),
+    {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }
+  );
   return UserData;
 };
