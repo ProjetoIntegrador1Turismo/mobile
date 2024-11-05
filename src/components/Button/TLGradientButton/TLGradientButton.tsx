@@ -10,9 +10,9 @@ import { CustomText } from 'src/components/Text/CustomText';
 //   lg: 'min-w-[90%]',
 // };
 
-export function TLGradientButton({ title, className }: TLGradientButtonProps) {
+export function TLGradientButton({ title, className, onPress, disabled }: TLGradientButtonProps) {
   return (
-    <Pressable className={className}>
+    <Pressable className={className} onPress={onPress} disabled={disabled}>
       {({ pressed }) => (
         <LinearGradient
           style={{ borderRadius: 12 }}
