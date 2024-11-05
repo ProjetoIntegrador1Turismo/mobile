@@ -12,5 +12,9 @@ export const useAppRouter = () => {
     router.push(path);
   };
 
-  return { goBack, push };
+  const replace = (path: Href<string | object>) => {
+    router.replace(path);
+  };
+
+  return { goBack, push, replace };
 };
