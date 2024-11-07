@@ -1,5 +1,6 @@
+import { Feather } from '@expo/vector-icons';
 import { FieldValues } from 'react-hook-form';
-import { View, TextInput } from 'react-native';
+import { View, TextInput, TouchableOpacity, Pressable } from 'react-native';
 import { ControlledInputProps } from 'src/components/Auth/ControlledInput/ControlledInput.types';
 import { useControlledInputViewModel } from 'src/components/Auth/ControlledInput/ControlledInputViewModel';
 import { InputError } from 'src/components/Auth/InputError/InputError';
@@ -10,23 +11,39 @@ export function ControlledInput<T extends FieldValues>({
   placeholder,
   control,
   name,
+  password,
 }: ControlledInputProps<T>) {
-  const { fieldValue, errorMsg, fieldOnChange } = useControlledInputViewModel<T>({
-    control,
-    name,
-  });
+  const { fieldValue, errorMsg, fieldOnChange, showPassword, togglePasswordVisibility } =
+    useControlledInputViewModel<T>({
+      control,
+      name,
+    });
 
   return (
     <View className='flex gap-3'>
       <CustomText size={16} className='text-white'>
         {label}
       </CustomText>
-      <TextInput
-        value={fieldValue}
-        onChangeText={fieldOnChange}
-        className='min-w-[90%] rounded-xl bg-white px-3 py-4 font-poppins400'
-        placeholder={placeholder}
-      />
+      <View className='relative flex-row items-center'>
+        <TextInput
+          value={fieldValue}
+          onChangeText={fieldOnChange}
+          className={`min-w-[90%] rounded-xl bg-white font-poppins400 ${
+            password ? 'pl-4 pr-14' : 'px-4'
+          } py-4`}
+          placeholder={placeholder}
+          secureTextEntry={password && !showPassword}
+        />
+        {password && (
+          <Pressable onPress={togglePasswordVisibility} className='absolute right-4'>
+            {showPassword ? (
+              <Feather name='eye-off' size={24} color='#666' />
+            ) : (
+              <Feather name='eye' size={24} color='#666' />
+            )}
+          </Pressable>
+        )}
+      </View>
       <InputError>{errorMsg}</InputError>
     </View>
   );

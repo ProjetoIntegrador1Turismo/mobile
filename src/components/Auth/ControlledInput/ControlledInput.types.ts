@@ -4,6 +4,7 @@ export interface ControlledInputProps<T extends FieldValues> {
   label: string;
   placeholder: string;
   error?: string;
+  password?: boolean;
   name: FieldPath<T>;
   control: Control<T>;
 }
