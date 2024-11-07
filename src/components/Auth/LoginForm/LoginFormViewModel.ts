@@ -1,16 +1,16 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useTransition } from 'react';
+import { useEffect, useTransition } from 'react';
 import { useForm } from 'react-hook-form';
+import { useAppRouter } from 'src/common/lib/router';
 import LoginSchema from 'src/common/schemas/Login/LoginSchema';
 import { useAuthStore } from 'src/common/stores/AuthStore';
 import { LoginFormData } from 'src/components/Auth/LoginForm/LoginForm.types';
-import { useAppRouter } from '~/src/common/lib/router';
 
 export const useLoginFormViewModel = () => {
   const [isLoading, startTransition] = useTransition();
-  const { replace } = useAppRouter();
+  const { replace, push } = useAppRouter();
 
-  const login = useAuthStore().login;
+  const { login, isAuthenticated } = useAuthStore();
 
   const { control, handleSubmit } = useForm<LoginFormData>({
     resolver: zodResolver(LoginSchema),
@@ -24,13 +24,17 @@ export const useLoginFormViewModel = () => {
     startTransition(() => {
       handleLoginAction(data);
     });
-    // login(data);
-    console.log(data);
-    // if (error) {
-    //   //do smthing
-    // }
-    replace('/(home)/')
   };
 
-  return { control, onPressLogin, handleSubmit, isLoading };
+  const onPressRegister = () => {
+    push('/(auth)/register');
+  };
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      replace('/(home)/');
+    }
+  }, [isAuthenticated]);
+
+  return { control, onPressLogin, handleSubmit, isLoading, onPressRegister };
 };
