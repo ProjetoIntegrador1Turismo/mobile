@@ -1,4 +1,4 @@
-import { SafeAreaView, StyleSheet, Text } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 
 import { useAppRouter } from '~/src/common/lib/router';
 import { useAuthStore } from '~/src/common/stores/AuthStore';
@@ -18,7 +18,11 @@ export default function Profile() {
     );
   }
 
-  return <LoginView />;
+  return (
+    <Container className='items-center justify-center'>
+      <Text>Voce esta autenticado!</Text>
+    </Container>
+  );
 }
 
 const styles = StyleSheet.create({
