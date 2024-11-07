@@ -7,7 +7,7 @@ interface UserModel {
   authTokenExpiresIn: string;
   refreshToken: string;
   refreshTokenExpiresIn: string;
-  cadasturCode: string;
+  cadasturCode: string | null;
   profileImageUrl: string;
   phone: string;
 }
