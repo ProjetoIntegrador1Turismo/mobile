@@ -1,4 +1,5 @@
-import * as SecureStore from 'expo-secure-store';
+import { Alert } from 'react-native';
+import { deleteEntry, getObject, storeObject } from 'src/common/lib/storage';
 import UserModel from 'src/common/models/user.model';
 import { Login } from 'src/common/repositories/auth/auth.repository';
 import { LoginDTO } from 'src/common/repositories/auth/auth.types';
@@ -18,15 +19,16 @@ export const useAuthStore = create<AuthState>((set) => ({
   error: null,
   login: async ({ username, password }: LoginDTO) => {
     try {
+      set({ error: null });
       const userData = await Login({ username, password });
       set({ user: userData, isAuthenticated: true });
-      await SecureStore.setItemAsync('user', JSON.stringify(userData));
+      await storeObject('user', userData);
     } catch (error) {
-      set({ error: `Erro ao fazer login! ${error}` });
+      Alert.alert('Erro', 'E-mail ou senha incorreto!');
     }
   },
   logout: async () => {
     set({ user: null, isAuthenticated: false });
-    await SecureStore.deleteItemAsync('user');
+    await deleteEntry('user');
   },
 }));
