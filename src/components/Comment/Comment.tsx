@@ -21,7 +21,7 @@ export default function Comment(props: CommentProps) {
             {name}
           </CustomText>
           <CustomText className='text-gray-400' size={10}>
-            Feita em: {date}
+            Comentou em: {date}
           </CustomText>
         </View>
         <View className='flex flex-col items-center'>
