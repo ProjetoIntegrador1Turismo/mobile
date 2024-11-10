@@ -17,10 +17,10 @@ export default function Comment(props: CommentProps) {
           <Avatar imageUrl={avatarUrl} size={48} />
         </View>
         <View className='flex-1'>
-          <CustomText className='font-semibold text-white' size={16}>
+          <CustomText className='text-white' weight='regular' size={16}>
             {name}
           </CustomText>
-          <CustomText className='text-gray-400' size={10}>
+          <CustomText className='text-gray-400' weight='regular' size={10}>
             Comentou em: {date}
           </CustomText>
         </View>
@@ -31,7 +31,8 @@ export default function Comment(props: CommentProps) {
       <View className='mt-2 flex flex-row items-center p-2'>
         <CustomText
           className='mr-auto line-clamp-4 max-w-[240px] break-words text-gray-200'
-          size={12}>
+          size={12}
+          weight='regular'>
           {text}
         </CustomText>
         <Pressable onPress={() => {}} className='ml-2'>
