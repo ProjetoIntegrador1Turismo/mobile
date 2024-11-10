@@ -10,6 +10,7 @@ import { AddressLabel } from 'src/components/InterestPoint/AddressLabel/AddressL
 import { Stars } from 'src/components/Stars/Stars';
 import { Price } from 'src/components/Price/Price';
 import Comment from 'src/components/Comment/Comment';
+import { GuideItineraryCard } from 'src/components/Guide/GuideItineraryCard/GuideItineraryCard';
 
 export default function Home() {
   const { push } = useAppRouter();
@@ -26,6 +27,17 @@ export default function Home() {
       <AddressLabel address='Rua Belo Horizonte, 123 - Vila C, Foz do Iguaçu, PR' />
       <Stars rating={1} />
       <Price priceLevel={0} />
+
+      <GuideItineraryCard
+        backgroundImage='https://www.cnnbrasil.com.br/viagemegastronomia/wp-content/uploads/sites/5/2021/05/cataratas.jpg?w=1200&h=900&crop=1'
+        guide={{
+          name: 'Jackson Lentinho',
+          profileImage:
+            'https://images.pexels.com/photos/837358/pexels-photo-837358.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        }}
+        title='Roteiro 1'
+        onPress={() => {}}
+      />
 
       <Comment
         name='Jackson Lentinho'
