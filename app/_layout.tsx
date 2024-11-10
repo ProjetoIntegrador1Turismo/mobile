@@ -3,6 +3,8 @@ import { Stack } from 'expo-router';
 
 import '../global.css';
 
+import { StatusBar } from 'expo-status-bar';
+
 import { useSplashStore } from '~/src/common/stores/SplashStore';
 import { SplashView } from '~/src/screens/Splash/SplashView';
 
@@ -15,20 +17,32 @@ export default function RootLayout() {
   // splash screen code
   const splashComplete = useSplashStore((state) => state.splashComplete);
 
+  // return splashComplete ? (
+  //   <Stack screenOptions={{ headerShown: false }}>
+  //     {/* <Stack.Screen name='(auth)' options={{ headerShown: false }} /> */}
+  //     <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
+  //     <Stack.Screen name='(auth)' options={{ headerShown: false }} />
+  //     {/* <Stack.Screen
+  //       name='(modals)'
+  //       options={{
+  //         presentation: 'modal',
+  //         headerShown: false,
+  //         fullScreenGestureEnabled: true
+  //       }}
+  //     /> */}
+  //   </Stack>
+  // ) : (
+  //   <SplashView />
+  // );
+
   return splashComplete ? (
-    <Stack screenOptions={{ headerShown: false }}>
-      {/* <Stack.Screen name='(auth)' options={{ headerShown: false }} /> */}
-      <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
-      <Stack.Screen name='(auth)' options={{ headerShown: false }} />
-      {/* <Stack.Screen
-        name='(modals)'
-        options={{
-          presentation: 'modal',
-          headerShown: false,
-          fullScreenGestureEnabled: true
-        }}
-      /> */}
-    </Stack>
+    <>
+      <StatusBar style='light' />
+      <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
+        <Stack.Screen name='(auth)' options={{ headerShown: false }} />
+      </Stack>
+    </>
   ) : (
     <SplashView />
   );
