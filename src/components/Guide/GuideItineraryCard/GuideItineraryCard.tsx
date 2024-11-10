@@ -12,28 +12,31 @@ export function GuideItineraryCard(props: GuideItineraryCardProps) {
   const { guide, title, backgroundImage, onPress } = useGuideItineraryCardViewModel(props);
 
   return (
-    <View className='flex h-[160px] w-full items-center justify-center overflow-hidden rounded-xl bg-[#1C1C1E] shadow-lg'>
+    <View className='flex h-[160px] w-full items-center justify-center overflow-hidden rounded-xl bg-gradient-to-b from-[#1C1C1E] to-black shadow-lg'>
       <Image
         source={{ uri: backgroundImage }}
         style={{ width: '100%', height: '100%' }}
         className='object-cover opacity-25'
       />
 
-      <View className='absolute inset-0 flex items-center justify-between gap-3 p-4'>
-        <View className='flex-row items-center justify-center'>
+      <View className='absolute inset-0 flex items-center justify-between p-4'>
+        <View className='flex-row items-center justify-center mb-2'>
           <Avatar imageUrl={guide.profileImage} size={35} />
           <CustomText className='ml-2 text-white' weight='regular'>
-            Guia: <CustomText className='text-white' weight='bold'>{guide.name}</CustomText>
+            Guia:{' '}
+            <CustomText className='text-white' weight='bold'>
+              {guide.name}
+            </CustomText>
           </CustomText>
         </View>
 
-        <CustomText className='mb-2 text-2xl text-white' weight='bold' size={24}>
+        <CustomText className='mb-2 text-white' weight='bold' size={24}>
           {title}
         </CustomText>
 
         <Pressable
           onPress={onPress}
-          className='flex-row items-center justify-center rounded-md bg-blue-600 px-2 py-2'>
+          className='flex-row items-center justify-center rounded-md bg-blue-600 px-2 py-1'>
           <CustomText className='mr-2 text-white' weight='regular' size={16}>
             Conhecer Roteiro
           </CustomText>
