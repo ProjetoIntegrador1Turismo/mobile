@@ -10,7 +10,7 @@ export function Avatar({ imageUrl, size = 40 }: AvatarProps) {
   return (
     <Image
         source={{ uri: imageUrl }}
-        style={{ width: 41, height: 41 }}
+        style={{ width: size, height: size }}
         className='rounded-full'
       />
   );
