@@ -1,4 +1,4 @@
-import { CommentProps } from './Comment.types';
+import { CommentProps } from 'src/components/Comment/Comment.types';
 
 export const useCommentViewModel = (props: CommentProps) => {
   return {
