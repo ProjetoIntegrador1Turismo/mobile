@@ -1,7 +1,6 @@
-import { ImageSourcePropType } from "react-native";
-
 export interface UserAvatarProps {
     userName: string,
-    imgSource?: string
+    maxUserNameLength?: number,
+    imageUrl: string,
 }
 
