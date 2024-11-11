@@ -1,16 +1,18 @@
-import { Image, Text, View } from 'react-native';
+import { View } from 'react-native';
 import { UserAvatarProps } from '~/src/components/User/UserAvatar.types';
+import { Avatar } from '~/src/components/Avatar/Avatar';
+import { truncatedUserName } from '~/src/components/User/UserAvatarViewModel';
+import { CustomText } from '../Text/CustomText';
 
 
-export function UserAvatar({userName, imgSource}: UserAvatarProps){
+export function UserAvatar({ userName, imageUrl, maxUserNameLength = 19 }: UserAvatarProps){ 
+
     return (
-    <View className='border-2 flex flex-row overflow-hidden'>
-        <View className='border-2  w-[41px] h-[41px] m-[5px] rounded-[20.5px]'>
-            <Image
-                src={imgSource}
-            />
-        </View>
-        <Text className='align-middle'>{userName}</Text>
+    <View className='flex flex-row h-[45px] items-center'>       
+        <Avatar imageUrl={imageUrl}/>
+        <CustomText
+            className='ml-[7px]'
+        >{truncatedUserName(userName, maxUserNameLength)}</CustomText>
     </View>
     )
 }
