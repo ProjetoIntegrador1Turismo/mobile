@@ -24,15 +24,8 @@ export default function Search() {
       userName='Carlos Alberto de Nobrega'
       imageUrl='https://images.pexels.com/photos/837358/pexels-photo-837358.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
       phone='(45) 99999-1111'
-      email='pracaenossa@gmail.com'
+      email='carlinhos@gmail.com'
       itineraryTitle='Aventura nas Cataratas' />
     </SafeAreaView>
   );
 }
-
-
-// userName: string,
-//     imageUrl: string,
-//     phone?: string,
-//     email?: string,
-//     itineraryTitle?: string
