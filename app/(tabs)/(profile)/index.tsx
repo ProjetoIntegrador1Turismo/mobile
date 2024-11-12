@@ -12,8 +12,19 @@ export default function Profile() {
 
   if (!isAuthenticated) {
     return (
-      <Container className='items-center justify-center'>
-        <SolidButton onPress={() => push('/(auth)/login')} title='Login' color='black' />
+      <Container className='items-center justify-center gap-3'>
+        <SolidButton
+          onPress={() => push('/(auth)/login')}
+          title='Login'
+          color='black'
+          className='rounded-lg border border-black px-2'
+        />
+        <SolidButton
+          onPress={() => push('/(auth)/register2')}
+          title='Go to register2'
+          color='black'
+          className='rounded-lg border border-black px-3'
+        />
       </Container>
     );
   }
