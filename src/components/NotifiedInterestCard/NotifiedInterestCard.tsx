@@ -1,8 +1,8 @@
-import { View } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
 import { NotifiedInterestCardProps } from '~/src/components/NotifiedInterestCard/NotifiedInterestCard.types';
 import { UserAvatar } from '../User/UserAvatar';
 import { CustomText } from '../Text/CustomText';
-
+import EvilIcons from '@expo/vector-icons/EvilIcons';
 
 
 export function NotifiedInterestCard({ userName, imageUrl, email, itineraryTitle, phone }: NotifiedInterestCardProps){
@@ -13,13 +13,16 @@ export function NotifiedInterestCard({ userName, imageUrl, email, itineraryTitle
             </View>
             <View className='ml-[22px] mt-[11px]'>
                 <CustomText className='text-white' weight='bold' size={12}>Telefone:  
-                    <CustomText size={12}>{phone}</CustomText>
+                    <CustomText size={12}> {phone}</CustomText>
                 </CustomText>
                 <CustomText className='text-white' weight='bold' size={12}>Email:
-                <CustomText size={12}>{email}</CustomText>
+                <CustomText size={12}> {email}</CustomText>
                 </CustomText>
-                <CustomText className='text-white' weight='bold' size={12}>Roteiro:</CustomText>
-                <CustomText className='text-white' size={16}>{itineraryTitle}</CustomText>
+                <CustomText className='text-white' weight='bold' size={12}>Roteiro:</CustomText>                
+                <TouchableOpacity className='flex flex-row items-center'>
+                    <CustomText className='text-white' size={16}>{itineraryTitle}</CustomText>
+                    <EvilIcons name="external-link" size={30} color='#3371E3'/>
+                </TouchableOpacity>                
             </View>
         </View>
     )
