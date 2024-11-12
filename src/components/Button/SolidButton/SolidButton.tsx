@@ -18,7 +18,7 @@ export function SolidButton({
     <Pressable onPress={onPress} className={className}>
       {({ pressed }) => (
         <View
-          className={`flex items-center justify-center rounded-xl py-4 bg-${color} ${
+          className={`flex max-h-[50px] min-h-[50px] items-center justify-center rounded-xl py-4 bg-${color} ${
             pressed ? 'opacity-75' : 'opacity-100'
           }`}>
           <CustomText color={TextColorMap[color]} weight='bold' size={14}>

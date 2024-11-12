@@ -1,6 +1,6 @@
 import { Feather } from '@expo/vector-icons';
 import { FieldValues } from 'react-hook-form';
-import { View, TextInput, TouchableOpacity, Pressable } from 'react-native';
+import { View, TextInput, Pressable } from 'react-native';
 import { ControlledInputProps } from 'src/components/Auth/ControlledInput/ControlledInput.types';
 import { useControlledInputViewModel } from 'src/components/Auth/ControlledInput/ControlledInputViewModel';
 import { InputError } from 'src/components/Auth/InputError/InputError';

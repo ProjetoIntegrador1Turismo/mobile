@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import { AuthFormHeader } from 'src/components/Auth/AuthFormHeader/AuthFormHeader';
 import { FormContainer } from 'src/components/Auth/FormContainer/FormContainer';
 import { RegisterFormStepOne } from 'src/components/Auth/RegisterForm/RegisterFormStepOne/RegisterFormStepOne';
