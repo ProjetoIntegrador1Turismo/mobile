@@ -4,6 +4,7 @@ import { UserAvatar } from '../User/UserAvatar';
 import { CustomText } from '../Text/CustomText';
 import EvilIcons from '@expo/vector-icons/EvilIcons';
 
+import { handleOnPressItineraryRef } from '~/src/components/NotifiedInterestCard/NotifiedInterestCardViewModel';
 
 export function NotifiedInterestCard({ userName, imageUrl, email, itineraryTitle, phone }: NotifiedInterestCardProps){
     return (
@@ -19,7 +20,9 @@ export function NotifiedInterestCard({ userName, imageUrl, email, itineraryTitle
                 <CustomText size={12}> {email}</CustomText>
                 </CustomText>
                 <CustomText className='text-white' weight='bold' size={12}>Roteiro:</CustomText>                
-                <TouchableOpacity className='flex flex-row items-center'>
+                <TouchableOpacity className='flex flex-row items-center'
+                onPress={() => handleOnPressItineraryRef(1)}
+                >
                     <CustomText className='text-white' size={16}>{itineraryTitle}</CustomText>
                     <EvilIcons name="external-link" size={30} color='#3371E3'/>
                 </TouchableOpacity>                
