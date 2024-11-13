@@ -13,8 +13,10 @@ export function RegisterStepOneView() {
         <GoBackButton />
         <AuthFormHeader title='Criar Conta' label='Crie uma conta com suas informações!' />
       </View>
-      <RegisterFormStepOne />
-      <View className='mt-[60px] '>
+      <View className='mt-10'>
+        <RegisterFormStepOne />
+      </View>
+      <View className='mt-[45px] '>
         <TLLogoWhite className='h-[100px] w-[150px] object-cover' />
       </View>
     </FormContainer>
