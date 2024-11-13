@@ -13,7 +13,7 @@ export function SearchTextInputBar(){
 
     return (
         <TouchableWithoutFeedback onPress={handleFocus}> 
-        <View className='flex-row items-center w-[362px] h-[40px] bg-[#0A0A0A] rounded-[7px]'>
+        <View className='flex-row items-center w-[362px] h-[40px] bg-[#0A0A0A] rounded-[7px] mt-[60px]'>
             <TextInput
             ref={textInputRef} 
             placeholder='Pesquisar'
