@@ -10,23 +10,11 @@ import { CustomText } from 'src/components/Text/CustomText';
 import { ControlledCheckbox } from '../../ControlledCheckbox/ControlledCheckbox';
 
 export function RegisterFormStepOne() {
-  const { control, handleSubmit, onPressContinue, watch, errors } = useRegisterStepOneViewModel();
-
-  const isGuide = watch('isGuide');
+  const { control, handleSubmit, onPressContinue, isGuide } = useRegisterStepOneViewModel();
 
   return (
-    <View className='flex items-center gap-1'>
+    <View className='flex items-center gap-3'>
       <View>
-        <CustomText className='text-white'>{JSON.stringify(watch(), null, 2)}</CustomText>
-        <CustomText className='text-white'>
-          {JSON.stringify(
-            Object.values(errors).map((item) => item.message),
-            null,
-            2
-          )}
-        </CustomText>
-      </View>
-      <View className='mb-7 mt-10'>
         <ControlledInput<RegisterStepOneFormData>
           label='Nome'
           placeholder='Digite seu nome'
@@ -40,12 +28,15 @@ export function RegisterFormStepOne() {
           mask={PhoneMask}
           name='phone'
         />
-        <ControlledCheckbox<RegisterStepOneFormData>
-          control={control}
-          label='É um guia?'
-          name='isGuide'
-        />
-        {isGuide && (
+        <View className='my-3 ml-2'>
+          <ControlledCheckbox<RegisterStepOneFormData>
+            control={control}
+            label='É um guia?'
+            name='isGuide'
+          />
+        </View>
+
+        {isGuide ? (
           <ControlledMaskedInput<RegisterStepOneFormData>
             control={control}
             mask={CadasturMask}
@@ -53,13 +44,13 @@ export function RegisterFormStepOne() {
             label='Cadastur'
             placeholder='insira seu cadastur'
           />
+        ) : (
+          <View className='flex h-[113px] items-center justify-center'>
+            <CustomText className='text-white'>Só mais um pouco e já estara pronto!</CustomText>
+          </View>
         )}
       </View>
-
-      <View className='mb-10 flex justify-center'>
-        <CustomText className='text-white'>Só mais um pouco e já estará pronto!</CustomText>
-      </View>
-      <View className='flex w-[90%] flex-row justify-between'>
+      <View className='flex w-[95%] flex-row justify-between'>
         <TLGradientButton
           title='Acessar'
           className='w-full'

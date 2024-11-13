@@ -26,7 +26,7 @@ export function LoginForm() {
         name='password'
         password
       />
-      <View className='mb-10 flex w-[90%] flex-row justify-center'>
+      <View className='my-8 flex w-[90%] flex-row justify-center'>
         <CustomText className='text-white'>Esqueci minha senha</CustomText>
       </View>
       <View className='flex w-[90%] flex-row justify-between'>
