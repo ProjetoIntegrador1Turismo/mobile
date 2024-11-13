@@ -8,7 +8,7 @@ export function AuthFormHeader({ label, title }: AuthFormHeaderProps) {
       <CustomText className='text-white' size={36} weight='bold'>
         {title}
       </CustomText>
-      <CustomText size={20} className='text-white'>
+      <CustomText size={16} className='text-white'>
         {label}
       </CustomText>
     </View>
