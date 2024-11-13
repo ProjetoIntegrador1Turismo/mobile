@@ -21,7 +21,7 @@ const RegisterStepOneGuideSchema = z.object({
   cadastur: z
     .string({ required_error: 'Cadastur é obrigatório para cadastro de guia!' })
     .regex(/^[0-9]{2}[.]?[0-9]{3}[.]?[0-9]{3}[/]?[0-9]{4}[-]?[0-9]{2}$/, {
-      message: 'O número de Cadastur deve estar no formato 99.999.999/9999-99',
+      message: 'Insira um cadastur válido!',
     }),
 });
 
