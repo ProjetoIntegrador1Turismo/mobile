@@ -6,7 +6,7 @@ import { CustomText } from '~/src/components/Text/CustomText';
 
 export function CategoryCardList() {
   return (
-    <View className='w-[362px]'>
+    <View className='min-w-[362px]'>
       <CustomText size={36}>Categorias:</CustomText>
       <FlatList
         data={CategoryCardData}
@@ -15,6 +15,7 @@ export function CategoryCardList() {
           <CategoryCard title={item.title} imgSource={item.imgSource} className='mb-[20px]'/>
         )}
         showsVerticalScrollIndicator={false}
+        ListFooterComponent={<View className='h-[200px]' />}
       />
     </View>
   );
