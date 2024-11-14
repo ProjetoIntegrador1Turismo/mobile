@@ -6,6 +6,7 @@ import categoryExperienceImg from '~/assets/category-card-experience.png'
 import categoryEventImg from '~/assets/category-card-event.png'
 import categoryTouristPointlImg from '~/assets/category-card-tourist-point.png'
 import categoryRestaurantImg from '~/assets/category-card-restaurant.png'
+import { useAppRouter } from '~/src/common/lib/router'
 
 export const CategoryCardData: CategoryCardProps[] = [
     { title: 'Hotel', imgSource: categoryHotelImg },
@@ -16,6 +17,12 @@ export const CategoryCardData: CategoryCardProps[] = [
 ]
 
 //Aqui busca os dados na api vai para a tela com os dados ?
-export function onPressCategoryCard(categoryTitle: String){
-    console.log(`Card press -: ${categoryTitle}`)
-}
+export function onPressCategoryCard(){
+    const { push } = useAppRouter();    
+    function handlePressCategoryCard(title: string) {
+        push('/(search)/point');
+    }
+    return {
+        handlePressCategoryCard,
+    };
+};
