@@ -6,15 +6,11 @@ import { useRef } from "react";
 export function SearchTextInputBar(){
     const textInputRef = useRef<TextInput>(null);
 
-    const handleFocus = () => {
-        textInputRef.current?.focus();
-    };
-
     const handlePressOutside = () => {
         if (textInputRef.current?.isFocused()) {
-          Keyboard.dismiss(); // Fecha o teclado se o TextInput estiver focado
+          Keyboard.dismiss(); 
         } else {
-          textInputRef.current?.focus(); // Foca no TextInput se não estiver focado
+          textInputRef.current?.focus();
         }
     };
 
