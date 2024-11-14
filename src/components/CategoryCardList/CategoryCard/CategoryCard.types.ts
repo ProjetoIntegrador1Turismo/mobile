@@ -5,4 +5,5 @@ export interface CategoryCardProps {
     title: string;
     imgSource: ImageSourcePropType;
     className?: string;
+    onPres?: () => void;
 }
