@@ -10,10 +10,18 @@ export function SearchTextInputBar(){
         textInputRef.current?.focus();
     };
 
+    const handlePressOutside = () => {
+        if (textInputRef.current?.isFocused()) {
+          Keyboard.dismiss(); // Fecha o teclado se o TextInput estiver focado
+        } else {
+          textInputRef.current?.focus(); // Foca no TextInput se não estiver focado
+        }
+    };
+
 
     return (
-        <TouchableWithoutFeedback onPress={handleFocus}> 
-        <View className='flex-row items-center w-[362px] h-[40px] bg-[#0A0A0A] rounded-[7px] mt-[60px]'>
+        <TouchableWithoutFeedback onPress={handlePressOutside}> 
+        <View className='flex-row items-center w-[362px] h-[40px] bg-[#0A0A0A] rounded-[7px] mt-[72px]'>
             <TextInput
             ref={textInputRef} 
             placeholder='Pesquisar'
