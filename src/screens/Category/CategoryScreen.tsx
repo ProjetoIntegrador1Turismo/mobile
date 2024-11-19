@@ -5,7 +5,7 @@ import { SearchTextInputBar } from "~/src/components/SearchTextInputBar/SearchTe
 
 export default function CategoryScreen(){
     return (
-        <View>
+        <View className='mt-[60px]'>
         <SearchTextInputBar/>
         <CategoryCardList />
         </View>
