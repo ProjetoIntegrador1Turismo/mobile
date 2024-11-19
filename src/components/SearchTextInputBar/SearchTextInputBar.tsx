@@ -17,7 +17,7 @@ export function SearchTextInputBar(){
 
     return (
         <TouchableWithoutFeedback onPress={handlePressOutside}> 
-        <View className='flex-row items-center w-[362px] h-[40px] bg-[#0A0A0A] rounded-[7px] mt-[72px]'>
+        <View className='flex-row items-center w-[362px] h-[40px] bg-[#0A0A0A] rounded-[7px]'>
             <TextInput
             ref={textInputRef} 
             placeholder='Pesquisar'
