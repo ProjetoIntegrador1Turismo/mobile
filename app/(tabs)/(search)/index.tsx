@@ -23,7 +23,7 @@ export default function Search() {
     //     <CustomText>Go to Point</CustomText>
     //   </Pressable>            
     // </SafeAreaView>
-    <Container className='items-center justify-center p-8 bg-[#464646]'>
+    <Container className='flex-1 items-center justify-center p-8'>
       <CategoryScreen />
     </Container>
   );
