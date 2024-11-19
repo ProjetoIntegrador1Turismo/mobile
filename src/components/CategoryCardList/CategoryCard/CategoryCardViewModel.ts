@@ -7,6 +7,7 @@ import categoryEventImg from '~/assets/category-card-event.png'
 import categoryTouristPointlImg from '~/assets/category-card-tourist-point.png'
 import categoryRestaurantImg from '~/assets/category-card-restaurant.png'
 import { useAppRouter } from '~/src/common/lib/router'
+import { fetchPaginatedPoints } from '~/src/common/repositories/paginated/paginated.repository'
 
 export const CategoryCardData: CategoryCardProps[] = [
     { title: 'Hotel', imgSource: categoryHotelImg },
@@ -16,11 +17,11 @@ export const CategoryCardData: CategoryCardProps[] = [
     { title: 'Restaurante', imgSource: categoryRestaurantImg },
 ]
 
-//Aqui busca os dados na api vai para a tela com os dados ?
+//Direciona para a tela paginada enviando o parâmetro necessário para a rota da API
 export function onPressCategoryCard(){
     const { push } = useAppRouter();    
-    function handlePressCategoryCard(title: string) {
-        push('/(search)/point');
+    async function handlePressCategoryCard(title: string) {
+        push(`/(search)/paginated?pointType=${title}`)        
     }
     return {
         handlePressCategoryCard,
