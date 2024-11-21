@@ -5,9 +5,10 @@ import { Avatar } from '~/src/components/Avatar/Avatar';
 import { CategoryCardList } from '~/src/components/CategoryCardList/CategoryCardList';
 import { Container } from '~/src/components/Container/Container';
 import { NotifiedInterestCard } from '~/src/components/NotifiedInterestCard/NotifiedInterestCard';
+import { BasicPointCard } from '~/src/components/Point/BasicPoint/BasicPointCard';
 import { SearchTextInputBar } from '~/src/components/SearchTextInputBar/SearchTextInputBar';
 import { UserAvatar } from '~/src/components/User/UserAvatar';
-import CategoryScreen from '~/src/screens/Category/CategoryScreen';
+import CategoryView from '~/src/screens/Category/CategoryView';
 
 export default function Search() {
   const { push } = useAppRouter();
@@ -23,8 +24,8 @@ export default function Search() {
     //     <CustomText>Go to Point</CustomText>
     //   </Pressable>            
     // </SafeAreaView>
-    <Container className='flex-1 items-center justify-center p-8'>
-      <CategoryScreen />
+    <Container className='flex-1 items-center justify-center p-8 bg-tl-bg'>
+      <CategoryView />
     </Container>
   );
 }
