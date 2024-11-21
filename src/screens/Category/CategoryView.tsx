@@ -3,7 +3,7 @@ import { CategoryCardList } from "~/src/components/CategoryCardList/CategoryCard
 import { SearchTextInputBar } from "~/src/components/SearchTextInputBar/SearchTextInputBar";
 
 
-export default function CategoryScreen(){
+export default function CategoryView(){
     return (
         <View className='mt-[60px]'>
         <SearchTextInputBar/>
