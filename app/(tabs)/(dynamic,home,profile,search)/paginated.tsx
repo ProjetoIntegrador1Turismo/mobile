@@ -3,6 +3,7 @@ import { Pressable } from 'react-native';
 import { useAppRouter } from 'src/common/lib/router';
 import { Container } from 'src/components/Container/Container';
 import { CustomText } from 'src/components/Text/CustomText';
+import CategoryDetailsView from '~/src/screens/Category/CategoryDetailsView';
 
 export default function Paginated() {
   const segments = useSegments();
@@ -10,20 +11,13 @@ export default function Paginated() {
   const currentTab = segments[1];
   const { pointType } = useLocalSearchParams();
 
+  function normalizeToString(value: string | string[]): string {
+    return Array.isArray(value) ? value[0] : value;
+  }
+
   return (
-    <Container className='items-center justify-center'>
-      <CustomText size={36} weight='bold'>
-        Paginated Page
-      </CustomText>
-      <CustomText>
-        Viewing from <CustomText weight='bold'>{currentTab}</CustomText> tab
-      </CustomText>
-      <CustomText>
-        Parametro enviado <CustomText weight='bold'>{pointType}</CustomText> 
-      </CustomText>
-      <Pressable className='rounded-lg border border-black p-3' onPress={goBack}>
-        <CustomText>Voltar</CustomText>
-      </Pressable>
+    <Container className='p-8 bg-tl-bg'>
+      <CategoryDetailsView categoryTitle={normalizeToString(pointType)}/>
     </Container>
   );
 }
