@@ -9,7 +9,7 @@ export function InterestPointCard({ id, name, imageCover }: InterestPointCardPro
       <Image
         source={{ uri: imageCover }}
         style={{ width: '100%', height: '100%' }}
-        className='object-cover opacity-95'
+        className='object-cover opacity-75'
       />
       <View className='absolute bottom-4 w-full px-2'>
         <CustomText className='text-center text-2xl font-bold text-white' weight='regular'>
