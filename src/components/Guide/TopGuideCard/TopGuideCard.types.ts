@@ -1,5 +1,5 @@
 export interface TopGuideCardProps {
-  id: string;
+  id: number;
   profileImage: string;
   name: string;
   rating: number;

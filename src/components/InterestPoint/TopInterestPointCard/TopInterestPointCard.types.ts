@@ -1,4 +1,5 @@
 export interface TopInterestPointCardProps {
+  id: number;
   name: string;
   imageCover: string;
   medal: 1 | 2 | 3;

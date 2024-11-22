@@ -1,5 +1,5 @@
 export interface InterestPointCardProps {
-  id: string;
+  id: number;
   name: string;
   imageCover: string;
 }
