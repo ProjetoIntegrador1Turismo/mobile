@@ -1,6 +1,7 @@
 import { Pressable, SafeAreaView } from 'react-native';
 import { useAppRouter } from 'src/common/lib/router';
 import { CustomText } from 'src/components/Text/CustomText';
+import { Container } from '~/src/components/Container/Container';
 
 import { TopInterestPointCard } from 'src/components/InterestPoint/TopInterestPointCard/TopInterestPointCard';
 import { InterestPointCard } from 'src/components/InterestPoint/InterestPointCard/InterestPointCard';
@@ -11,6 +12,8 @@ import { Stars } from 'src/components/Stars/Stars';
 import { Price } from 'src/components/Price/Price';
 import Comment from 'src/components/Comment/Comment';
 import { GuideItineraryCard } from 'src/components/Guide/GuideItineraryCard/GuideItineraryCard';
+import { TagToggle } from 'src/components/Comment/TagToggle/TagToggle';
+import { HomeScreen } from '~/src/screens/Home/HomeScreen';
 
 export default function Home() {
   const { push } = useAppRouter();
@@ -20,8 +23,10 @@ export default function Home() {
   };
 
   return (
-    <SafeAreaView className='flex-1 items-center justify-center bg-tl-bg p-8'>
-      <CustomText>Home</CustomText>
+    <SafeAreaView className='flex-1 bg-tl-bg'>
+      <HomeScreen />
+
+      {/* <CustomText>Home</CustomText>
 
       <Divider text='Components' />
       <AddressLabel address='Rua Belo Horizonte, 123 - Vila C, Foz do Iguaçu, PR' />
@@ -35,8 +40,14 @@ export default function Home() {
           profileImage:
             'https://images.pexels.com/photos/837358/pexels-photo-837358.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         }}
-        title='Roteiro 1'
+        title='Cataratas com Idosos'
         onPress={() => {}}
+      />
+
+      <TagToggle
+        title='Do que você gostou?'
+        tags={['simpático', 'legal', 'bom', 'ruim', 'péssimo', 'otimo', 'muito bom', 'muito ruim']}
+        onTagsChange={(selectedTags) => console.log('Selected tags:', selectedTags)}
       />
 
       <Comment
@@ -74,7 +85,8 @@ export default function Home() {
 
       <Pressable onPress={handlePress} className='rounded-lg border border-black p-3'>
         <CustomText>Go to Point</CustomText>
-      </Pressable>
+      </Pressable> */}
+      
     </SafeAreaView>
   );
 }
