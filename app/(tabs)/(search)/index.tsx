@@ -21,9 +21,9 @@ export default function Search() {
     //   <CustomText>Categories/Search Screen</CustomText>
     //   <Pressable onPress={handlePress} className='rounded-lg border border-black p-3'>
     //     <CustomText>Go to Point</CustomText>
-    //   </Pressable>            
+    //   </Pressable>
     // </SafeAreaView>
-    <Container className='flex-1 items-center justify-center p-8'>
+    <Container className='flex-1 items-center justify-center bg-tl-bg p-8'>
       <CategoryScreen />
     </Container>
   );

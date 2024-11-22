@@ -9,7 +9,7 @@ import { cn } from 'src/common/utils/cn';
 export function Stars({ 
   rating, 
   label = 'Avaliação:', 
-  starSize = 14, 
+  starSize = 14,
   starColor = '#FF007F',
   className,
 }: StarsProps) {
