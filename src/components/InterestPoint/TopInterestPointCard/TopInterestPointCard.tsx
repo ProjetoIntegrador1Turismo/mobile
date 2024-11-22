@@ -15,8 +15,13 @@ export function TopInterestPointCard(props: TopInterestPointCardProps) {
           style={{ width: '100%', height: '100%' }}
           className='object-cover opacity-95'
         />
-        <View className='absolute right-2 top-2 shadow-lg'>
-          <FontAwesome5 name='medal' size={24} color={getMedalColor[props.medal]} />
+        <View className='absolute right-2 top-2'>
+          <FontAwesome5
+            name='medal'
+            size={24}
+            color={getMedalColor[props.medal]}
+            className='shadow-lg'
+          />
         </View>
       </View>
 
