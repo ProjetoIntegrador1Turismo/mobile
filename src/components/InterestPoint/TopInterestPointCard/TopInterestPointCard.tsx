@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image } from 'react-native';
+import { View, Image, Text } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { TopInterestPointCardProps } from 'src/components/InterestPoint/TopInterestPointCard/TopInterestPointCard.types';
 import { getMedalColor } from 'src/components/InterestPoint/TopInterestPointCard/TopInterestPointCardViewModel';
@@ -25,11 +25,17 @@ export function TopInterestPointCard(props: TopInterestPointCardProps) {
         </View>
       </View>
 
-      <View className='flex max-h-[60px] flex-row items-start justify-between overflow-hidden rounded-b-xl bg-white px-4 py-2'>
+      <View className='flex h-[60px] flex-row items-start justify-between rounded-b-xl bg-white px-4 py-2'>
         <View className='max-w-[65%]'>
-          <CustomText className='text-black' weight='bold' size={16}>
-            {props.name}
-          </CustomText>
+          <Text numberOfLines={2} ellipsizeMode="tail">
+            <CustomText 
+              className='text-black' 
+              weight='regular' 
+              size={16}
+            >
+              {props.name}
+            </CustomText>
+          </Text>
         </View>
 
         <View className='flex flex-col items-start'>
