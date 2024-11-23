@@ -1,11 +1,12 @@
 import { TopInterestPointCardProps } from '../TopInterestPointCard.types';
 
-export class TopInterestPointSliderViewModel {
-  private medalOrder = { 1: 0, 2: -1, 3: 1 };
+const MEDAL_ORDER = { 1: 0, 2: -1, 3: 1 } as const;
 
-  organizeByMedalRanking(items: TopInterestPointCardProps[]): TopInterestPointCardProps[] {
-    return [...items].sort((a, b) => {
-      return this.medalOrder[a.medal] - this.medalOrder[b.medal];
-    });
-  }
-}
+export const useTopInterestPointSliderViewModel = () => {
+  
+  const organizeByMedalRanking = (items: TopInterestPointCardProps[]): TopInterestPointCardProps[] => {
+    return [...items].sort((a, b) => MEDAL_ORDER[a.medal] - MEDAL_ORDER[b.medal]);
+  };
+
+  return { organizeByMedalRanking };
+};
