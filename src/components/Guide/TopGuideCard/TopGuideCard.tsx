@@ -17,7 +17,7 @@ export function TopGuideCard({ id, profileImage, name, rating }: TopGuideCardPro
         </CustomText>
       </View>
 
-      <Stars rating={rating} />
+      <Stars rating={rating} starSize={12}/>
 
       <Pressable onPress={() => {}}>
         <Entypo name='dots-three-horizontal' size={20} color='white' className='ml-4' />
