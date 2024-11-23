@@ -7,6 +7,8 @@ import { Divider } from 'src/components/Divider/Divider';
 import { CardSlider } from 'src/components/Slider/CardSlider';
 import { InterestPointCard } from '~/src/components/InterestPoint/InterestPointCard/InterestPointCard';
 import TopGuidesSection from '~/src/components/Guide/TopGuidesSection/TopGuidesSection';
+import { SolidButton } from '~/src/components/Button/SolidButton/SolidButton';
+import { useHomeScreenViewModel } from 'src/screens/Home/HomeScreenViewModel';
 
 const sampleTopInterestPoints: TopInterestPointCardProps[] = [
   {
@@ -44,66 +46,143 @@ const sampleTopGuides = [
     name: 'Jackson Lentinho',
     profileImage:
       'https://images.pexels.com/photos/837358/pexels-photo-837358.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    rating: 4.5,
+    rating: 5,
   },
   {
     id: 2,
-    name: 'Jackson Lentinho',
+    name: 'Allan Chungus',
     profileImage:
-      'https://images.pexels.com/photos/837358/pexels-photo-837358.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      'https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     rating: 4.5,
   },
   {
     id: 3,
-    name: 'Jackson Lentinho',
+    name: 'Bernardo Agro',
     profileImage:
-      'https://images.pexels.com/photos/837358/pexels-photo-837358.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    rating: 4.5,
+      'https://images.pexels.com/photos/2382665/pexels-photo-2382665.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    rating: 4,
   },
   {
     id: 4,
-    name: 'Jackson Lentinho',
+    name: 'Doc.',
     profileImage:
-      'https://images.pexels.com/photos/837358/pexels-photo-837358.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    rating: 4.5,
+      'https://images.pexels.com/photos/2678059/pexels-photo-2678059.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    rating: 3,
   },
   {
     id: 5,
-    name: 'Jackson Lentinho',
+    name: 'Big chungus',
     profileImage:
-      'https://images.pexels.com/photos/837358/pexels-photo-837358.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    rating: 4.5,
+      'https://sm.ign.com/ign_pt/news/b/big-chungu/big-chungus-might-be-coming-to-multiversus_atg6.jpg',
+    rating: 2,
+  },
+];
+
+const sampleRestaurantsEventsTours = [
+  {
+    id: 1,
+    name: 'Gramadão da Vila A',
+    imageCover: 'https://i.ytimg.com/vi/gkETYrzN3fA/maxresdefault.jpg',
+    duration: '2h',
+    priceLevel: 1,
+  },
+  {
+    id: 2,
+    name: 'Sky Bar',
+    imageCover:
+      'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1f/15/70/a8/vista-para-o-rio-parana.jpg?w=1200&h=-1&s=1',
+    duration: '1h',
+    priceLevel: 2,
+  },
+  {
+    id: 3,
+    name: 'Semana do livro',
+    imageCover:
+      'https://jornaldigitalcanela.com.br/wp-content/uploads/2023/10/Colcha-feira-do-livro-2.webp',
+    duration: '1h',
+    priceLevel: 0,
+  },
+];
+
+const sampleItinerariesHotelExperiences = [
+  {
+    id: 1,
+    name: 'Eco Turismo sustentável',
+    imageCover: 'https://i.imgur.com/rSW3vW5.png',
+    duration: '2h',
+    priceLevel: 1,
+  },
+  {
+    id: 2,
+    name: 'Romance na terra das cataratas',
+    imageCover: 'https://i.imgur.com/rubYDru.png',
+    duration: '2h',
+    priceLevel: 1,
+  },
+  {
+    id: 3,
+    name: 'Adrenalina e passeios radicais',
+    imageCover: 'https://i.imgur.com/OhNwC9o.png',
+    duration: '2h',
+    priceLevel: 1,
+  },
+  {
+    id: 4,
+    name: 'Explorando culturas',
+    imageCover: 'https://i.imgur.com/SX0CAf7.png',
+    duration: '2h',
+    priceLevel: 1,
+  },
+  {
+    id: 5,
+    name: 'Aventura com família nas cataratas',
+    imageCover: 'https://i.imgur.com/M1qMu2I.png',
+    duration: '2h',
+    priceLevel: 1,
   },
 ];
 
 export function HomeScreen() {
+  const { handleInterestPointPress } = useHomeScreenViewModel();
+
   return (
     <ScrollView
       className='flex-1'
       showsVerticalScrollIndicator={false}
-      contentContainerStyle={{ paddingBottom: 20 }}>
+      contentContainerStyle={{ paddingBottom: 120 }}
+      automaticallyAdjustContentInsets={false}>
       <View className='flex-1 items-center px-4 pt-12'>
         <LogoTl className='mb-2' />
         <View className='w-full'>
           <Divider text='Top Atrativos' />
-          <TopInterestPointSlider items={sampleTopInterestPoints} className='w-full' />
+          <TopInterestPointSlider items={sampleTopInterestPoints} className='w-full mb-2' />
 
-          <Divider text='Restaurantes, eventos e passeios' />
+          <Divider text='Restaurantes, Eventos e Passeios' />
           <CardSlider
-            data={sampleTopInterestPoints}
+            data={sampleRestaurantsEventsTours}
             renderItem={({ item }) => (
-              <InterestPointCard id={item.id} name={item.name} imageCover={item.imageCover} />
+              <InterestPointCard 
+                id={item.id} 
+                name={item.name} 
+                imageCover={item.imageCover} 
+                onPress={() => handleInterestPointPress(item.id)} 
+              />
             )}
             className='my-2 w-full'
             ItemSeparatorComponent={() => <View className='w-4' />}
             initialIndex={1}
           />
 
-          <Divider text='Roteiros, hotéis e experiências' />
+          <Divider text='Roteiros, Hotéis e Experiências' />
           <CardSlider
-            data={sampleTopInterestPoints}
+            data={sampleItinerariesHotelExperiences}
             renderItem={({ item }) => (
-              <InterestPointCard id={item.id} name={item.name} imageCover={item.imageCover} />
+              <InterestPointCard 
+                id={item.id} 
+                name={item.name} 
+                imageCover={item.imageCover} 
+                onPress={() => handleInterestPointPress(item.id)} 
+              />
             )}
             className='my-2 w-full'
             ItemSeparatorComponent={() => <View className='w-4' />}
@@ -111,11 +190,10 @@ export function HomeScreen() {
           />
         </View>
       </View>
-      <View className='flex items-start px-4 mt-8'>
+      <View className='mt-8 flex items-center px-4'>
         <TopGuidesSection topGuides={sampleTopGuides} />
+        <SolidButton title='Ver mais' size='sm' className='mt-4' py={2} />
       </View>
-
-      <View className='h-24' />
     </ScrollView>
   );
 }
