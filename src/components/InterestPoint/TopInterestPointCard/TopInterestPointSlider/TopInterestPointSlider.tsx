@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { CardSlider } from 'src/components/Slider/CardSlider';
 import { TopInterestPointCard } from 'src/components/InterestPoint/TopInterestPointCard/TopInterestPointCard';
 import { TopInterestPointCardProps } from 'src/components/InterestPoint/TopInterestPointCard/TopInterestPointCard.types';
-import { TopInterestPointSliderViewModel } from 'src/components/InterestPoint/TopInterestPointCard/TopInterestPointSliderViewModel';
+import { TopInterestPointSliderViewModel } from '~/src/components/InterestPoint/TopInterestPointCard/TopInterestPointSlider/TopInterestPointSliderViewModel';
 
 interface TopInterestPointSliderProps {
   items: TopInterestPointCardProps[];

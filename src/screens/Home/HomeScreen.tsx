@@ -1,6 +1,6 @@
 import { View, Image, ScrollView } from 'react-native';
 import React from 'react';
-import { TopInterestPointSlider } from 'src/components/InterestPoint/TopInterestPointCard/TopInterestPointSlider';
+import { TopInterestPointSlider } from '~/src/components/InterestPoint/TopInterestPointCard/TopInterestPointSlider/TopInterestPointSlider';
 import { TopInterestPointCardProps } from 'src/components/InterestPoint/TopInterestPointCard/TopInterestPointCard.types';
 import { LogoTl } from 'src/components/Logo/LogoTL';
 import { Divider } from 'src/components/Divider/Divider';
@@ -155,17 +155,17 @@ export function HomeScreen() {
         <LogoTl className='mb-2' />
         <View className='w-full'>
           <Divider text='Top Atrativos' />
-          <TopInterestPointSlider items={sampleTopInterestPoints} className='w-full mb-2' />
+          <TopInterestPointSlider items={sampleTopInterestPoints} className='mb-2 w-full' />
 
           <Divider text='Restaurantes, Eventos e Passeios' />
           <CardSlider
             data={sampleRestaurantsEventsTours}
             renderItem={({ item }) => (
-              <InterestPointCard 
-                id={item.id} 
-                name={item.name} 
-                imageCover={item.imageCover} 
-                onPress={() => handleInterestPointPress(item.id)} 
+              <InterestPointCard
+                id={item.id}
+                name={item.name}
+                imageCover={item.imageCover}
+                onPress={() => handleInterestPointPress(item.id)}
               />
             )}
             className='my-2 w-full'
@@ -177,11 +177,11 @@ export function HomeScreen() {
           <CardSlider
             data={sampleItinerariesHotelExperiences}
             renderItem={({ item }) => (
-              <InterestPointCard 
-                id={item.id} 
-                name={item.name} 
-                imageCover={item.imageCover} 
-                onPress={() => handleInterestPointPress(item.id)} 
+              <InterestPointCard
+                id={item.id}
+                name={item.name}
+                imageCover={item.imageCover}
+                onPress={() => handleInterestPointPress(item.id)}
               />
             )}
             className='my-2 w-full'

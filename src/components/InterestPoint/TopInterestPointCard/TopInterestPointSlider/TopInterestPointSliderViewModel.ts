@@ -1,4 +1,4 @@
-import { TopInterestPointCardProps } from './TopInterestPointCard.types';
+import { TopInterestPointCardProps } from '../TopInterestPointCard.types';
 
 export class TopInterestPointSliderViewModel {
   private medalOrder = { 1: 0, 2: -1, 3: 1 };
