@@ -28,7 +28,7 @@ export function TopInterestPointSlider({ items, className }: TopInterestPointSli
             medal={item.medal}
           />
         )}
-        className='px-4'
+        className=''
         ItemSeparatorComponent={() => <View className='w-4' />}
         initialIndex={1}
       />
