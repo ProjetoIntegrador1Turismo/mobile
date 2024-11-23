@@ -7,7 +7,12 @@ export const useHomeScreenViewModel = () => {
     router.push(`/(home)/point/${id}`);
   };
 
+  const handleTopInterestPointPress = (id: number) => {
+    router.push(`/(home)/point/${id}`);
+  };
+
   return {
     handleInterestPointPress,
+    handleTopInterestPointPress,
   };
 };

@@ -143,7 +143,7 @@ const sampleItinerariesHotelExperiences = [
 ];
 
 export function HomeScreen() {
-  const { handleInterestPointPress } = useHomeScreenViewModel();
+  const { handleTopInterestPointPress, handleInterestPointPress } = useHomeScreenViewModel();
 
   return (
     <ScrollView
@@ -155,7 +155,11 @@ export function HomeScreen() {
         <LogoTl className='mb-2' />
         <View className='w-full'>
           <Divider text='Top Atrativos' />
-          <TopInterestPointSlider items={sampleTopInterestPoints} className='mb-2 w-full' />
+          <TopInterestPointSlider 
+            items={sampleTopInterestPoints} 
+            className='mb-2 w-full'
+            onItemPress={handleTopInterestPointPress}
+          />
 
           <Divider text='Restaurantes, Eventos e Passeios' />
           <CardSlider
