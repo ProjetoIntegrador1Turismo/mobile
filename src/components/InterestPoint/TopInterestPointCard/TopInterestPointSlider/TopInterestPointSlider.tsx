@@ -1,18 +1,17 @@
 import React from 'react';
 import { View } from 'react-native';
-import { CardSlider } from 'src/components/Slider/CardSlider';
 import { TopInterestPointCard } from 'src/components/InterestPoint/TopInterestPointCard/TopInterestPointCard';
-import { TopInterestPointCardProps } from 'src/components/InterestPoint/TopInterestPointCard/TopInterestPointCard.types';
-import { TopInterestPointSliderViewModel } from '~/src/components/InterestPoint/TopInterestPointCard/TopInterestPointSlider/TopInterestPointSliderViewModel';
+import { useTopInterestPointSliderViewModel } from 'src/components/InterestPoint/TopInterestPointCard/TopInterestPointSlider/TopInterestPointSliderViewModel';
+import { TopInterestPointSliderProps } from 'src/components/InterestPoint/TopInterestPointCard/TopInterestPointSlider/TopInterestPointSlider.types';
+import { CardSlider } from 'src/components/Slider/CardSlider';
 
-interface TopInterestPointSliderProps {
-  items: TopInterestPointCardProps[];
-  className?: string;
-}
-
-export function TopInterestPointSlider({ items, className }: TopInterestPointSliderProps) {
-  const viewModel = new TopInterestPointSliderViewModel();
-  const organizedItems = viewModel.organizeByMedalRanking(items);
+export function TopInterestPointSlider({
+  items,
+  className,
+  onItemPress,
+}: TopInterestPointSliderProps) {
+  const { organizeByMedalRanking } = useTopInterestPointSliderViewModel();
+  const organizedItems = organizeByMedalRanking(items);
 
   return (
     <View className={className}>
@@ -23,9 +22,10 @@ export function TopInterestPointSlider({ items, className }: TopInterestPointSli
             id={item.id}
             name={item.name}
             imageCover={item.imageCover}
+            medal={item.medal}
             duration={item.duration}
             priceLevel={item.priceLevel}
-            medal={item.medal}
+            onPress={() => onItemPress?.(item.id)}
           />
         )}
         className=''
