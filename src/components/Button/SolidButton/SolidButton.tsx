@@ -1,6 +1,7 @@
 import { Pressable, View } from 'react-native';
 import { SolidButtonProps } from '~/src/components/Button/SolidButton/SolidButton.types';
 import { CustomText } from 'src/components/Text/CustomText';
+import { cn } from 'src/common/utils/cn';
 
 const ButtonSizeMap: Record<string, string> = {
   sm: 'min-w-[30%]',
@@ -13,11 +14,24 @@ const TextColorMap: Record<string, string> = {
   black: '#FFF',
 };
 
-export function SolidButton({ title, size = 'sm', color = 'white', onPress }: SolidButtonProps) {
+export function SolidButton({
+  title,
+  size = 'sm',
+  color = 'white',
+  py = 4,
+  onPress,
+  className,
+}: SolidButtonProps) {
   return (
     <Pressable className={ButtonSizeMap[size]} onPress={onPress}>
       {({ pressed }) => (
-        <View className={`flex items-center justify-center rounded-xl bg-${color} py-4 `}>
+        <View
+          className={cn(
+            `flex items-center justify-center rounded-xl`,
+            `bg-${color}`,
+            `py-${py}`,
+            className
+          )}>
           <CustomText color={TextColorMap[color]} weight='bold' size={14}>
             {title}
           </CustomText>
