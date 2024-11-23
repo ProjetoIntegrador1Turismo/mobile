@@ -4,7 +4,7 @@ export interface InterestPoint {
     description?: string;
     imageCover: string;
 
-    imageGallery?: string[];
+    imageGallery: string[];
     duration: string;
     priceLevel: number;
 }
