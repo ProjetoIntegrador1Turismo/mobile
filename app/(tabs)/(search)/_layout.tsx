@@ -5,6 +5,7 @@ export default function SearchLayout() {
     <Stack screenOptions={{ headerShown: false }}>
       <Stack.Screen name='index' />
       <Stack.Screen name='point' />
+      <Stack.Screen name='point/[id]' />
     </Stack>
   );
 }
