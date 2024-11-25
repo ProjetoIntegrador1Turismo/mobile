@@ -11,7 +11,7 @@ export function ControlledMaskedInput<T extends FieldValues>({
   placeholder,
   control,
   name,
-  mask
+  mask,
 }: ControlledMaskedInputProps<T>) {
   const { fieldValue, errorMsg, fieldOnChange } = useControlledMaskedInputViewModel<T>({
     control,

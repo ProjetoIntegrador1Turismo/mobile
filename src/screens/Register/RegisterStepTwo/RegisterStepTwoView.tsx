@@ -8,7 +8,6 @@ import { RegisterFormStepOne } from '~/src/components/Auth/RegisterForm/Register
 import { GoBackButton } from '~/src/components/Button/GoBackButton/GoBackButton';
 
 export function RegisterStepTwoView() {
-
   return (
     <FormContainer className='items-center bg-tl-bg'>
       <View className='mt-10 flex w-full flex-row items-center gap-36'>
@@ -18,7 +17,6 @@ export function RegisterStepTwoView() {
         </View>
       </View>
       <View>
-        
         <RegisterFormStepOne />
       </View>
     </FormContainer>

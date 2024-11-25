@@ -13,4 +13,3 @@ export interface ControlledMaskedInputViewModelParams<T extends FieldValues> {
   control: Control<T>;
   name: FieldPath<T>;
 }
-
