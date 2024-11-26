@@ -6,4 +6,5 @@ export interface BasicPointCardProps {
     onPress?: () => void,
     averageRating: number,
     averageValue: number,
+    imageCover: string
 }
