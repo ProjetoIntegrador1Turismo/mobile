@@ -1,18 +1,29 @@
 import { Divider } from "~/src/components/Divider/Divider";
-import { CategoryDetailsProps } from '~/src/screens/Category/CategoryDetails/CategoryDetailsView.types';
-import { TouchableOpacity, View } from "react-native";
+import { ActivityIndicator, Image, TouchableOpacity, View } from "react-native";
 import { CustomText } from "~/src/components/Text/CustomText";
 import AntDesign from '@expo/vector-icons/AntDesign';
 import { SearchTextInputBar } from "~/src/components/SearchTextInputBar/SearchTextInputBar";
 import { useAppRouter } from 'src/common/lib/router';
+import { useCategoryDetailsScreenViewModel } from "./CategoryDetailsScreenViewModel";
 import { BasicPointCard } from "~/src/components/Point/BasicPoint/BasicPointCard";
 
+interface CategoryDetailsProps {
+    categoryTitle: string;
+}
 
 
-export default function CategoryDetailsView({ categoryTitle }:CategoryDetailsProps){
-    
+export default function CategoryDetailsScreen({ categoryTitle }:CategoryDetailsProps){
+    const { data, loading } = useCategoryDetailsScreenViewModel(categoryTitle);
     const { goBack } = useAppRouter();
 
+
+    if (loading) {
+        return (
+          <View className='flex-1 items-center justify-center'>
+            <ActivityIndicator size='large' />
+          </View>
+        );
+    }
 
     return (
         <View>
@@ -28,8 +39,7 @@ export default function CategoryDetailsView({ categoryTitle }:CategoryDetailsPro
                     {categoryTitle}
                 </CustomText>
             <Divider text='Com base na categoria' ></Divider>
-            </View>
-            <BasicPointCard id={5} pointName='Cataratas do Iguaçu do parque' />
+            </View>            
         </View>    
     )
 }
