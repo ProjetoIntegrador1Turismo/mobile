@@ -1,15 +1,20 @@
 import React from 'react';
-import { View, Image, Text, Pressable } from 'react-native';
+import { View, Image, Text, Pressable, Animated } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { TopInterestPointCardProps } from 'src/components/InterestPoint/TopInterestPointCard/TopInterestPointCard.types';
-import { getMedalColor } from 'src/components/InterestPoint/TopInterestPointCard/TopInterestPointCardViewModel';
+import { getMedalColor, useTopInterestPointCardViewModel } from './TopInterestPointCardViewModel';
 import { CustomText } from 'src/components/Text/CustomText';
 import { Price } from 'src/components/Price/Price';
 
 export function TopInterestPointCard(props: TopInterestPointCardProps) {
+  const { scaleAnim, handlePressIn, handlePressOut } = useTopInterestPointCardViewModel();
+
   return (
-    <Pressable onPress={props.onPress}>
-      <View className='flex w-[250px] rounded-xl bg-[#1C1C1E] shadow-lg'>
+    <Pressable onPress={props.onPress} onPressIn={handlePressIn} onPressOut={handlePressOut}>
+      <Animated.View 
+        className='flex w-[250px] rounded-xl bg-[#1C1C1E] shadow-lg'
+        style={{ transform: [{ scale: scaleAnim }] }}
+      >
         <View className='relative h-[150px] w-full overflow-hidden rounded-t-xl'>
           <Image
             source={{ uri: props.imageCover }}
@@ -55,7 +60,7 @@ export function TopInterestPointCard(props: TopInterestPointCardProps) {
             </View>
           </View>
         </View>
-      </View>
+      </Animated.View>
     </Pressable>
   );
 }

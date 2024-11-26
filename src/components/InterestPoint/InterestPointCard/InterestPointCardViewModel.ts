@@ -1,13 +1,7 @@
 import { useCallback } from 'react';
 import { Animated } from 'react-native';
 
-export const getMedalColor = {
-  1: '#FFD700', 
-  2: '#C0C0C0', 
-  3: '#CD7F32', 
-} as const;
-
-export function useTopInterestPointCardViewModel() {
+export function useInterestPointCardViewModel() {
   const scaleAnim = new Animated.Value(1);
 
   const handlePressIn = useCallback(() => {
