@@ -11,6 +11,7 @@ export function Stars({
   label = 'Avaliação:',
   starSize = 14,
   starColor = '#FF007F',
+  textSize = 12,
   className,
 }: StarsProps) {
   const { stars } = useStarsViewModel(rating);
@@ -18,7 +19,7 @@ export function Stars({
   return (
     <View className={cn('flex flex-col items-center space-x-1', className)}>
       {label && (
-        <CustomText className='text-white' size={12} weight='regular'>
+        <CustomText className='text-white' size={textSize} weight='regular'>
           {label}
         </CustomText>
       )}
