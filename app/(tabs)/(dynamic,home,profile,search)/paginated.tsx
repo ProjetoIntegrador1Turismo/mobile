@@ -3,7 +3,7 @@ import { Pressable } from 'react-native';
 import { useAppRouter } from 'src/common/lib/router';
 import { Container } from 'src/components/Container/Container';
 import { CustomText } from 'src/components/Text/CustomText';
-import CategoryDetailsView from '~/src/screens/Category/CategoryDetailsView';
+import CategoryDetailsView from '~/src/screens/Category/CategoryDetails/CategoryDetailsView';
 
 export default function Paginated() {
   const segments = useSegments();
@@ -16,8 +16,8 @@ export default function Paginated() {
   }
 
   return (
-    <Container className='p-8 bg-tl-bg'>
-      <CategoryDetailsView categoryTitle={normalizeToString(pointType)}/>
+    <Container className='bg-tl-bg p-8'>
+      <CategoryDetailsView categoryTitle={normalizeToString(pointType)} />
     </Container>
   );
 }
