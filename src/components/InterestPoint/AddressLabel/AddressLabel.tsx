@@ -7,11 +7,13 @@ import { cn } from 'src/common/utils/cn';
 
 export function AddressLabel({ address, className }: AddressLabelProps) {
   return (
-    <View className={cn('my-4 flex flex-row items-center justify-start', className)}>
-      <FontAwesome5 name='map-marker-alt' size={24} color='white' />
-      <CustomText className='mx-2 text-white' size={10} weight='bold'>
-        {address}
-      </CustomText>
+    <View className={cn('flex flex-col', className)}>
+      <View className='flex-row items-start max-w-[300px]'>
+        <FontAwesome5 name='map-marker-alt' size={24} color='white' className='mr-2' />
+        <CustomText className='text-white' size={16} weight='bold'>
+          {address}
+        </CustomText>
+      </View>
     </View>
   );
 }
