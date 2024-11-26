@@ -10,7 +10,7 @@ import { AverageValue } from '~/src/components/Price/AverageValue/AverageValue';
 export function BasicPointCard({pointName, maxPointNameLength = 22, averageRating, averageValue, onPress }:BasicPointCardProps) {
     return (
         <TouchableOpacity onPress={onPress}>            
-            <View className='border-2 h-[85px] w-[100%] rounded-2xl flex-row border-white justify-between'>
+            <View className='border-2 h-[85px] w-[100%] rounded-2xl flex-row border-white justify-between'>                
                 <View className='ml-[10px]'>
                     <CustomText
                         className='text-white mt-[5px]'  
@@ -21,7 +21,7 @@ export function BasicPointCard({pointName, maxPointNameLength = 22, averageRatin
                     <View className='flex-row'>
                         <Entypo name="star" size={16} color='white'/>
                         <View>
-                            <CustomText className='text-white mt-[-3px]' size={16} weight='light'>
+                            <CustomText className='text-white mt-[-4px] ml-[2px]' size={16} weight='bold'>
                                 {averageRating}
                             </CustomText>
                         </View>
@@ -33,7 +33,7 @@ export function BasicPointCard({pointName, maxPointNameLength = 22, averageRatin
                 </View>
                 <View className='items-center justify-center mr-[4px]'>
                     <AntDesign name='arrowright' size={30} color='white' />
-                </View>
+                </View>                
             </View>
         </TouchableOpacity>
     );
