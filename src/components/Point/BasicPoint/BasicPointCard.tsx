@@ -1,4 +1,4 @@
-import { TouchableOpacity, View } from 'react-native';
+import { Image, TouchableOpacity, View } from 'react-native';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import { CustomText } from '~/src/components/Text/CustomText';
 import { BasicPointCardProps } from '~/src/components/Point/BasicPoint/BasicPointCard.types'
@@ -7,33 +7,43 @@ import { truncatedPointName } from '~/src/components/Point/BasicPoint/BasicPoint
 import { AverageValue } from '~/src/components/Price/AverageValue/AverageValue';
 
 
-export function BasicPointCard({pointName, maxPointNameLength = 22, averageRating, averageValue, onPress }:BasicPointCardProps) {
-    return (
-        <TouchableOpacity onPress={onPress}>            
-            <View className='border-2 h-[85px] w-[100%] rounded-2xl flex-row border-white justify-between'>                
-                <View className='ml-[10px]'>
-                    <CustomText
-                        className='text-white mt-[5px]'  
-                        weight='bold'
-                        size={20}
-                        >{truncatedPointName(pointName, maxPointNameLength)}
-                    </CustomText>
-                    <View className='flex-row'>
-                        <Entypo name="star" size={16} color='white'/>
-                        <View>
-                            <CustomText className='text-white mt-[-4px] ml-[2px]' size={16} weight='bold'>
+export function BasicPointCard({pointName, maxPointNameLength = 20, averageRating, averageValue, imageCover, onPress }:BasicPointCardProps) {
+    return (        
+        <TouchableOpacity onPress={onPress}>
+            <View className='relative border-2 h-[85px] w-[100%] rounded-2xl flex-row'>
+                <Image
+                    source={{ uri: imageCover }}
+                    className='w-full h-full rounded-2xl opacity-60'
+                    resizeMode='cover'
+                />
+                <View className='absolute flex-row items-center justify-between w-full h-full px-4'>
+                    <View className='flex-col'>
+                        <CustomText
+                            className='text-white mt-[5px]'
+                            weight='bold'
+                            size={20}
+                        >
+                            {truncatedPointName(pointName, maxPointNameLength)}
+                        </CustomText>
+                        <View className='flex-row mt-1'>
+                            <Entypo name='star' size={16} color='#FF007F' />
+                            <CustomText
+                                className='text-white ml-[2px] mt-[-4px]'
+                                size={16}
+                                weight='bold'
+                            >
                                 {averageRating}
                             </CustomText>
-                        </View>
-                        <View className='flex-row ml-[20px] mt-[1px]'>
-                            <AntDesign name="right" size={16} color='white' />
-                            <AverageValue value={averageValue} />
+                            <View className='flex-row ml-[20px] items-center mb-[8px]'>
+                                <AntDesign name='right' size={12} color='white' />
+                                <AverageValue value={averageValue} />
+                            </View>
                         </View>
                     </View>
+                    <View>
+                        <AntDesign name='arrowright' size={30} color='white' />
+                    </View>
                 </View>
-                <View className='items-center justify-center mr-[4px]'>
-                    <AntDesign name='arrowright' size={30} color='white' />
-                </View>                
             </View>
         </TouchableOpacity>
     );
