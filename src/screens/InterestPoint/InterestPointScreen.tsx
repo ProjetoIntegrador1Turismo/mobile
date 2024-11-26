@@ -21,7 +21,14 @@ interface InterestPointScreenProps {
 }
 
 export function InterestPointScreen({ pointId }: InterestPointScreenProps) {
-  const { point, loading, selectedImage, handleImagePress, handleCloseViewer } = useInterestPointScreenViewModel(pointId);
+  const { 
+    point, 
+    loading, 
+    selectedImage, 
+    isModalOpen,
+    handleImagePress, 
+    handleCloseViewer 
+  } = useInterestPointScreenViewModel(pointId);
   const { goBack } = useAppRouter();
 
   if (loading) {
@@ -81,7 +88,7 @@ export function InterestPointScreen({ pointId }: InterestPointScreenProps) {
         </View>
       </View>
       <ImageViewer
-        visible={!!selectedImage}
+        visible={isModalOpen}
         imageUrl={selectedImage || ''}
         onClose={handleCloseViewer}
       />

@@ -6,13 +6,14 @@ export function useInterestPointScreenViewModel(pointId: number) {
   const [loading, setLoading] = useState(true);
   const [point, setPoint] = useState<InterestPoint | null>(null);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const fetchPoint = async () => {
       try {
         const mockPoint: InterestPoint = {
           id: pointId,
-          name: 'Sample Point',
+          name: `Sample Point ${pointId}`,
           description: 'Sample description',
           imageCover:
             'https://plus.unsplash.com/premium_photo-1697729979889-31ec7ecf6f06?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
@@ -36,9 +37,11 @@ export function useInterestPointScreenViewModel(pointId: number) {
 
   const handleImagePress = (image: string) => {
     setSelectedImage(image);
+    setIsModalOpen(true);
   };
 
   const handleCloseViewer = () => {
+    setIsModalOpen(false);
     setSelectedImage(null);
   };
 
@@ -46,6 +49,7 @@ export function useInterestPointScreenViewModel(pointId: number) {
     point,
     loading,
     selectedImage,
+    isModalOpen,
     handleImagePress,
     handleCloseViewer,
   };

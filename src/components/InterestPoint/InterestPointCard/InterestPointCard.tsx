@@ -1,12 +1,18 @@
 import React from 'react';
-import { View, Image, Pressable, Text } from 'react-native';
+import { View, Image, Pressable, Text, Animated } from 'react-native';
 import { InterestPointCardProps } from 'src/components/InterestPoint/InterestPointCard/InterestPointCard.types';
 import { CustomText } from 'src/components/Text/CustomText';
+import { useInterestPointCardViewModel } from './InterestPointCardViewModel';
 
 export function InterestPointCard({ id, name, imageCover, onPress }: InterestPointCardProps) {
+  const { scaleAnim, handlePressIn, handlePressOut } = useInterestPointCardViewModel();
+
   return (
-    <Pressable onPress={onPress}>
-      <View className='h-[206px] w-[162px] overflow-hidden rounded-xl bg-black shadow-lg'>
+    <Pressable onPress={onPress} onPressIn={handlePressIn} onPressOut={handlePressOut}>
+      <Animated.View 
+        className='h-[206px] w-[162px] overflow-hidden rounded-xl bg-black shadow-lg'
+        style={{ transform: [{ scale: scaleAnim }] }}
+      >
         <Image
           source={{ uri: imageCover }}
           style={{ width: '100%', height: '100%' }}
@@ -19,7 +25,7 @@ export function InterestPointCard({ id, name, imageCover, onPress }: InterestPoi
             </CustomText>
           </Text>
         </View>
-      </View>
+      </Animated.View>
     </Pressable>
   );
 }
