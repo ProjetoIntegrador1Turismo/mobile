@@ -1,21 +1,27 @@
-import { TouchableOpacity, View } from 'react-native';
+import { TouchableOpacity, View, Touchable } from 'react-native';
 import { NotifiedInterestCardProps } from '~/src/components/NotifiedInterestCard/NotifiedInterestCard.types';
 import { UserAvatar } from '../User/UserAvatar';
 import { CustomText } from '../Text/CustomText';
 import EvilIcons from '@expo/vector-icons/EvilIcons';
-
-import { handleOnPressItineraryRef } from '~/src/components/NotifiedInterestCard/NotifiedInterestCardViewModel';
+import { useNotifiedInterestCardViewModel } from '~/src/components/NotifiedInterestCard/NotifiedInterestCardViewModel';
 
 export function NotifiedInterestCard({ userName, imageUrl, email, itineraryTitle, phone }: NotifiedInterestCardProps){
+
+    const { handleOnPressItineraryRef, openWhatsApp } = useNotifiedInterestCardViewModel();
+
+
     return (
         <View className='border-2 w-[300px] h-[185px] bg-black rounded-[9px]'>
             <View className='ml-[15px] mt-[11px]'>
                 <UserAvatar userName={userName} imageUrl={imageUrl} />
             </View>
             <View className='ml-[22px] mt-[11px]'>
-                <CustomText className='text-white' weight='bold' size={12}>Telefone:  
-                    <CustomText size={12}> {phone}</CustomText>
-                </CustomText>
+                <View className='flex flex-row'>
+                    <CustomText className='text-white w-[70px]' weight='bold' size={12}>Telefone:</CustomText>
+                    <TouchableOpacity onPress={() => openWhatsApp(phone)}>
+                        <CustomText className='text-blue-500' size={12}> {phone}</CustomText>                
+                    </TouchableOpacity>
+                </View>                
                 <CustomText className='text-white' weight='bold' size={12}>Email:
                 <CustomText size={12}> {email}</CustomText>
                 </CustomText>
