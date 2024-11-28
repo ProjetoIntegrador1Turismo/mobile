@@ -5,12 +5,15 @@ import { BasicPointCardProps } from '~/src/components/Point/BasicPoint/BasicPoin
 import Entypo from '@expo/vector-icons/Entypo';
 import { truncatedPointName } from '~/src/components/Point/BasicPoint/BasicPointCardViewModel'
 import { AverageValue } from '~/src/components/Price/AverageValue/AverageValue';
+import { cn } from '~/src/common/utils/cn';
 
+export function BasicPointCard({ data, className }: { data: BasicPointCardProps, className?: string }) {
 
-export function BasicPointCard({pointName, maxPointNameLength = 20, averageRating, averageValue, imageCover, onPress }:BasicPointCardProps) {
+    const {pointName, maxPointNameLength = 20, averageRating, averageValue, imageCover, onPress } = data;
+
     return (        
         <TouchableOpacity onPress={onPress}>
-            <View className='relative border-2 h-[85px] w-[100%] rounded-2xl flex-row'>
+            <View className={cn('relative border-2 h-[85px] w-[100%] rounded-2xl flex-row', className)}>
                 <Image
                     source={{ uri: imageCover }}
                     className='w-full h-full rounded-2xl opacity-60'
