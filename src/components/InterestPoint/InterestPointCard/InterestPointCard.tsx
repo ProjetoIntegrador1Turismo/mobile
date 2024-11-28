@@ -4,7 +4,7 @@ import { InterestPointCardProps } from 'src/components/InterestPoint/InterestPoi
 import { CustomText } from 'src/components/Text/CustomText';
 import { useInterestPointCardViewModel } from './InterestPointCardViewModel';
 
-export function InterestPointCard({ id, name, imageCover, onPress }: InterestPointCardProps) {
+export function InterestPointCard({ id, name, imageCover, interestPointType, onPress }: InterestPointCardProps) {
   const { scaleAnim, handlePressIn, handlePressOut } = useInterestPointCardViewModel();
 
   return (
