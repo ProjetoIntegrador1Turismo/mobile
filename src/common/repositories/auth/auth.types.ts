@@ -4,13 +4,13 @@ export interface LoginDTO {
 }
 
 export interface RegisterDTO {
-  username: string;
+  email: string;
   password: string;
-  fullName: string;
+  firstName: string;
+  lastName: string;
   phone: string;
-  isGuide: boolean;
 }
 
 export interface RegisterGuideDTO extends RegisterDTO {
-  cadastur: string;
+  cadasturCode?: string;
 }

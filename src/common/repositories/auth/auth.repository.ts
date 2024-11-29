@@ -21,10 +21,9 @@ export const Login = async ({ username, password }: LoginDTO): Promise<UserModel
 };
 
 export const Register = async (data: RegisterDTO | RegisterGuideDTO): Promise<RegisterModel> => {
-  const { isGuide, ...rest } = data;
   const payload = {
-    ...rest,
-    ...(isGuide && 'cadastur' in data ? { cadastur: data.cadastur } : {}),
+    ...data,
+    ...('cadasturCode' in data ? { cadasturCode: data.cadasturCode } : {}),
   };
   const { data: UserData } = await api.post<RegisterModel>(
     '/user/create',
