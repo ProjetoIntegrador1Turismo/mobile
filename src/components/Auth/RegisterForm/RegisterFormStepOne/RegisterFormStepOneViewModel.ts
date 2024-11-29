@@ -1,14 +1,13 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import { Alert } from 'react-native';
 import { useAppRouter } from 'src/common/lib/router';
 import RegisterStepOneSchema from 'src/common/schemas/Register/RegisterStepOneSchema';
-import { RegisterStepOneFormData } from 'src/components/Auth/RegisterForm/RegisterFormStepOne/RegisterFormStepOne.types';
+import { RegisterFormStepOneFormData } from 'src/components/Auth/RegisterForm/RegisterFormStepOne/RegisterFormStepOne.types';
 
-export const useRegisterStepOneViewModel = () => {
-  const { push } = useAppRouter();
+export const useRegisterFormStepOneViewModel = () => {
+  const { push, dismiss } = useAppRouter();
 
-  const { control, handleSubmit, watch } = useForm<RegisterStepOneFormData>({
+  const { control, handleSubmit, watch } = useForm<RegisterFormStepOneFormData>({
     resolver: zodResolver(RegisterStepOneSchema),
     shouldUnregister: true,
     defaultValues: {
@@ -18,7 +17,14 @@ export const useRegisterStepOneViewModel = () => {
 
   const isGuide = watch('isGuide');
 
-  const onPressContinue = (data: RegisterStepOneFormData) => {
+  const onPressContinue = (data: RegisterFormStepOneFormData) => {
+    if (data.isGuide) {
+      dismiss();
+      push(`/(auth)/register2?name=${data.name}&phone=${data.phone}&cadastur=${data.cadastur}`);
+      return;
+    }
+
+    dismiss();
     push(`/(auth)/register2?name=${data.name}&phone=${data.phone}`);
   };
 
