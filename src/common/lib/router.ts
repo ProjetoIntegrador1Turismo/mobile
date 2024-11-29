@@ -8,6 +8,10 @@ export const useAppRouter = () => {
     router.back();
   };
 
+  const dismiss = (count?: number) => {
+    router.dismiss(count);
+  };
+
   const push = (path: Href<string | object>) => {
     router.push(path);
   };
@@ -16,5 +20,5 @@ export const useAppRouter = () => {
     router.replace(path);
   };
 
-  return { goBack, push, replace };
+  return { goBack, push, replace, dismiss };
 };
