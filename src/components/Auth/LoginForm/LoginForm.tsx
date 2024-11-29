@@ -20,7 +20,7 @@ export function LoginForm() {
         name='username'
       />
       <ControlledInput<LoginFormData>
-        label='Password'
+        label='Senha'
         placeholder='Digite sua senha'
         control={control}
         name='password'
@@ -34,6 +34,7 @@ export function LoginForm() {
           title='Acessar'
           className='min-w-[40%]'
           onPress={handleSubmit(onPressLogin)}
+          isLoading={isLoading}
         />
         <SolidButton
           title='Criar conta'
