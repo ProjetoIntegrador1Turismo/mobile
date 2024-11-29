@@ -1,12 +1,9 @@
-/* eslint-disable prettier/prettier */
 import { Stack } from 'expo-router';
-
 import '../global.css';
-
 import { StatusBar } from 'expo-status-bar';
-
-import { useSplashStore } from '~/src/common/stores/SplashStore';
-import { SplashView } from '~/src/screens/Splash/SplashView';
+import { ReactQueryProvider } from 'src/common/providers/ReactQuery/ReactQueryProvider';
+import { useSplashStore } from 'src/common/stores/SplashStore';
+import { SplashView } from 'src/screens/Splash/SplashView';
 
 export const unstable_settings = {
   // Ensure that reloading on `/modal` keeps a back button present.
@@ -36,15 +33,17 @@ export default function RootLayout() {
   // );
 
   return splashComplete ? (
-    <>
+    <ReactQueryProvider>
       <StatusBar style='light' />
       <Stack screenOptions={{ headerShown: false }}>
         <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
         <Stack.Screen name='(auth)' options={{ headerShown: false }} />
       </Stack>
-    </>
+    </ReactQueryProvider>
   ) : (
-    <SplashView />
+    <ReactQueryProvider>
+      <SplashView />
+    </ReactQueryProvider>
   );
 
   // return (
