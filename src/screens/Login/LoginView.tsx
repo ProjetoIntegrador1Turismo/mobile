@@ -6,7 +6,7 @@ import { LoginForm } from 'src/components/Auth/LoginForm/LoginForm';
 import TLLogoWhite from 'src/components/Auth/TLLogoWhite/TLLogoWhite';
 import { GoBackButton } from 'src/components/Button/GoBackButton/GoBackButton';
 
-export default function LoginView() {
+export function LoginView() {
   return (
     <FormContainer className='items-center bg-tl-bg'>
       <View className='mt-14 flex w-11/12 gap-6'>
