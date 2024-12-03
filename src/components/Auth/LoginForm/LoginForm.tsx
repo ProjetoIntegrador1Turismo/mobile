@@ -1,14 +1,13 @@
-import { View } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
 import { ControlledInput } from 'src/components/Auth/ControlledInput/ControlledInput';
+import { LoginFormData } from 'src/components/Auth/LoginForm/LoginForm.types';
 import { useLoginFormViewModel } from 'src/components/Auth/LoginForm/LoginFormViewModel';
 import { SolidButton } from 'src/components/Button/SolidButton/SolidButton';
 import { TLGradientButton } from 'src/components/Button/TLGradientButton/TLGradientButton';
 import { CustomText } from 'src/components/Text/CustomText';
 
-import { LoginFormData } from './LoginForm.types';
-
 export function LoginForm() {
-  const { handleSubmit, onPressLogin, control, isLoading, onPressRegister } =
+  const { handleSubmit, onPressLogin, control, isLoading, onPressRegister, onPressForgotPassword } =
     useLoginFormViewModel();
 
   return (
@@ -27,7 +26,9 @@ export function LoginForm() {
         password
       />
       <View className='my-8 flex w-[90%] flex-row justify-center'>
-        <CustomText className='text-white'>Esqueci minha senha</CustomText>
+        <TouchableOpacity onPress={onPressForgotPassword}>
+          <CustomText className='text-white underline '>Esqueci minha senha</CustomText>
+        </TouchableOpacity>
       </View>
       <View className='flex w-[90%] flex-row justify-between'>
         <TLGradientButton
