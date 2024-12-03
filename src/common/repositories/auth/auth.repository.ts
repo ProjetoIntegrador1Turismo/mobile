@@ -1,5 +1,10 @@
 import UserModel from 'src/common/models/user.model';
-import { LoginDTO, RegisterDTO, RegisterGuideDTO } from 'src/common/repositories/auth/auth.types';
+import {
+  LoginDTO,
+  RecoveryDTO,
+  RegisterDTO,
+  RegisterGuideDTO,
+} from 'src/common/repositories/auth/auth.types';
 import { api } from 'src/common/repositories/client';
 
 import RegisterModel from '../../models/register.model';
@@ -35,4 +40,9 @@ export const Register = async (data: RegisterDTO | RegisterGuideDTO): Promise<Re
     }
   );
   return UserData;
+};
+
+export const Recovery = async ({ email }: RecoveryDTO) => {
+  const { data } = await api.post(`/user/recovery?email=${email}`);
+  return data;
 };

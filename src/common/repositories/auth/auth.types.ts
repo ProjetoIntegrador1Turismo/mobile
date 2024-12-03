@@ -14,3 +14,7 @@ export interface RegisterDTO {
 export interface RegisterGuideDTO extends RegisterDTO {
   cadasturCode?: string;
 }
+
+export interface RecoveryDTO {
+  email: string;
+}
