@@ -1,16 +1,15 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useEffect } from 'react';
+import * as Haptics from 'expo-haptics';
 import { useForm } from 'react-hook-form';
-import { Alert } from 'react-native';
+import Toast from 'react-native-toast-message';
+import { useRegisterMutation } from 'src/common/hooks/mutations/useRegisterMutation';
 import { useAppRouter } from 'src/common/lib/router';
 import RegisterStepTwoSchema from 'src/common/schemas/Register/RegisterStepTwoSchema';
+import { nameSplit } from 'src/common/utils/nameSplit';
 import {
   RegisterFormStepTwoViewModelParams,
   RegisterStepTwoFormData,
 } from 'src/components/Auth/RegisterForm/RegisterFormStepTwo/RegisterFormStepTwo.types';
-
-import { useRegisterMutation } from '~/src/common/hooks/mutations/useRegisterMutation';
-import { nameSplit } from '~/src/common/utils/nameSplit';
 
 export const useRegisterFormStepTwoViewModel = ({
   StepOneData,
@@ -38,10 +37,20 @@ export const useRegisterFormStepTwoViewModel = ({
       {
         onSuccess: () => {
           goBack();
+          Toast.show({
+            type: 'success',
+            text1: 'Sucesso!',
+            text2: 'Sua conta foi criada com sucesso!!',
+          });
           // replace('/(auth)/login');
         },
         onError: () => {
-          Alert.alert('Erro ao criar conta!');
+          Toast.show({
+            type: 'error',
+            text1: 'Erro!',
+            text2: 'Não foi possivel criar sua conta!',
+          });
+          Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
         },
       }
     );
