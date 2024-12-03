@@ -29,7 +29,7 @@ export const useAuthStore = create<AuthState>((set) => ({
       Toast.show({
         type: 'error',
         text1: 'Erro!',
-        text2: 'Não foi possivel criar sua conta!',
+        text2: 'Usuário ou senha incorreto!',
       });
       Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
     }
