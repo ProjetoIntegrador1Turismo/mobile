@@ -26,6 +26,10 @@ export const useLoginFormViewModel = () => {
     });
   };
 
+  const onPressForgotPassword = () => {
+    push('/(auth)/recovery');
+  };
+
   const onPressRegister = () => {
     push('/(auth)/register');
   };
@@ -36,5 +40,5 @@ export const useLoginFormViewModel = () => {
     }
   }, [isAuthenticated]);
 
-  return { control, onPressLogin, handleSubmit, isLoading, onPressRegister };
+  return { control, onPressLogin, handleSubmit, isLoading, onPressRegister, onPressForgotPassword };
 };
