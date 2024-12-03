@@ -5,6 +5,7 @@
     "version": "1.0.0",
     "scheme": "tourlink-mobile",
     "backgroundColor": "#171717",
+    "newArchEnabled": true,
     "web": {
       "bundler": "metro",
       "output": "static",
