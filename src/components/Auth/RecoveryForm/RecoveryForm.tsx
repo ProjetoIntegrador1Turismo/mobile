@@ -1,11 +1,10 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
+import { ControlledInput } from 'src/components/Auth/ControlledInput/ControlledInput';
 import { RecoveryFormData } from 'src/components/Auth/RecoveryForm/RecoveryForm.types';
-
-import { useRecoveryFormViewModel } from './RecoveryFormViewModel';
-import { TLGradientButton } from '../../Button/TLGradientButton/TLGradientButton';
-import { CustomText } from '../../Text/CustomText';
-import { ControlledInput } from '../ControlledInput/ControlledInput';
+import { useRecoveryFormViewModel } from 'src/components/Auth/RecoveryForm/RecoveryFormViewModel';
+import { TLGradientButton } from 'src/components/Button/TLGradientButton/TLGradientButton';
+import { CustomText } from 'src/components/Text/CustomText';
 
 export function RecoveryForm() {
   const { control, handleSubmit, onPressRecoverPassword, isPending } = useRecoveryFormViewModel();

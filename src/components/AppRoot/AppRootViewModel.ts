@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
- import { useAuthStore } from 'src/common/stores/AuthStore';
+import { useAuthStore } from 'src/common/stores/AuthStore';
 import { useSplashStore } from 'src/common/stores/SplashStore';
 
 export const useAppRootViewModel = () => {

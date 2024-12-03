@@ -10,7 +10,7 @@ export function ControlledCheckbox<T extends FieldValues>({
   control,
   name,
 }: ControlledCheckboxProps<T>) {
-  const { fieldValue, errorMsg, fieldOnChange } = useControlledCheckboxViewModel<T>({
+  const { fieldValue, fieldOnChange } = useControlledCheckboxViewModel<T>({
     control,
     name,
   });

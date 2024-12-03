@@ -1,6 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import { Alert } from 'react-native';
 import Toast from 'react-native-toast-message';
 import { useRecoveryMutation } from 'src/common/hooks/mutations/useRecoveryMutation';
 import { useAppRouter } from 'src/common/lib/router';
