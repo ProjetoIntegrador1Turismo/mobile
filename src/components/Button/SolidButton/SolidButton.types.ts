@@ -5,5 +5,7 @@ export interface SolidButtonProps {
   className?: string;
   size?: 'sm' | 'md' | 'lg';
   color?: 'white' | 'black';
+  className?: string;
+  py?: number;
   onPress?: (event: GestureResponderEvent) => void;
 }
