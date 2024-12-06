@@ -9,9 +9,9 @@ interface AvatarProps {
 export function Avatar({ imageUrl, size = 40 }: AvatarProps) {
   return (
     <Image
-        source={{ uri: imageUrl }}
-        style={{ width: size, height: size }}
-        className='rounded-full'
-      />
+      source={{ uri: imageUrl }}
+      style={{ width: size, height: size }}
+      className='rounded-full'
+    />
   );
 }

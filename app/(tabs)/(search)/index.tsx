@@ -17,7 +17,7 @@ export default function Search() {
     //     <CustomText>Go to Point</CustomText>
     //   </Pressable>
     // </SafeAreaView>
-    <Container className='flex-1 items-center justify-center bg-tl-bg p-8 bg-tl-bg'>
+    <Container className='flex-1 items-center justify-center bg-tl-bg bg-tl-bg p-8'>
       <CategoryView />
     </Container>
   );

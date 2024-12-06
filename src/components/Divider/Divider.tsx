@@ -5,12 +5,14 @@ import { CustomText } from '../Text/CustomText';
 
 export function Divider({ text, weight }: DividerProps) {
   return (
-    <View className="flex flex-row items-center my-4">
-      <View className="flex-1 h-[1px] bg-white"/>
+    <View className='my-4 flex flex-row items-center'>
+      <View className='h-[1px] flex-1 bg-white' />
 
-      <CustomText className="text-white mx-2" size={14} weight={weight || 'regular'}>{text}</CustomText>
+      <CustomText className='mx-2 text-white' size={14} weight={weight || 'regular'}>
+        {text}
+      </CustomText>
 
-      <View className="flex-1 h-[1px] bg-white" />
+      <View className='h-[1px] flex-1 bg-white' />
     </View>
   );
 }

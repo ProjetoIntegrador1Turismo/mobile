@@ -1,5 +1,5 @@
 export interface Tourist {
-    id: number;
-    touristName: string;
-    profileImageUrl: string;
+  id: number;
+  touristName: string;
+  profileImageUrl: string;
 }

@@ -1,4 +1,4 @@
 export interface LogoTLProps {
-    color?: string;
-    className?: string;
+  color?: string;
+  className?: string;
 }

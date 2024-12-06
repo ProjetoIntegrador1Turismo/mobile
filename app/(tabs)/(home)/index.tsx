@@ -79,7 +79,6 @@ export default function Home() {
       <Pressable onPress={handlePress} className='rounded-lg border border-black p-3'>
         <CustomText>Go to Point</CustomText>
       </Pressable> */}
-      
     </SafeAreaView>
   );
 }

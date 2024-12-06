@@ -18,11 +18,12 @@ export function useInterestPointScreenViewModel(pointId: number) {
               street: 'Avenida das Cataratas',
               city: 'Foz do Iguaçu',
               state: 'PR',
-              zipCode: '85855-750'
+              zipCode: '85855-750',
             },
-            averageValue: 150.00,
+            averageValue: 150.0,
             shortDescription: 'Uma das mais impressionantes maravilhas naturais do mundo',
-            longDescription: 'As Cataratas do Iguaçu são um espetáculo natural único, com mais de 275 quedas d\'água espalhadas ao longo de 2,7 km no Rio Iguaçu. É uma das maiores e mais impressionantes quedas d\'água do mundo, sendo considerada uma das Novas 7 Maravilhas da Natureza.',
+            longDescription:
+              "As Cataratas do Iguaçu são um espetáculo natural único, com mais de 275 quedas d'água espalhadas ao longo de 2,7 km no Rio Iguaçu. É uma das maiores e mais impressionantes quedas d'água do mundo, sendo considerada uma das Novas 7 Maravilhas da Natureza.",
             starsNumber: 5,
             isResort: false,
             breakfastIncluded: false,
@@ -30,12 +31,13 @@ export function useInterestPointScreenViewModel(pointId: number) {
             date: '2024-01-20',
             duration: '4h',
             requiredAge: '5+',
-            imageCoverUrl: 'https://plus.unsplash.com/premium_photo-1697729979889-31ec7ecf6f06?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            imageCoverUrl:
+              'https://plus.unsplash.com/premium_photo-1697729979889-31ec7ecf6f06?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
             images: [
               'https://images.unsplash.com/photo-1559668396-7dfc173152ca?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-              'https://images.unsplash.com/photo-1559668396-7dfc173152ca?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+              'https://images.unsplash.com/photo-1559668396-7dfc173152ca?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
             ],
-            averageRating: '4.8'
+            averageRating: '4.8',
           },
           guidesWhoOfferThisTour: [
             {
@@ -43,15 +45,15 @@ export function useInterestPointScreenViewModel(pointId: number) {
               firstName: 'João',
               lastName: 'Silva',
               averageRating: 4.9,
-              profileImageUrl: 'https://i.pravatar.cc/150?img=1'
+              profileImageUrl: 'https://i.pravatar.cc/150?img=1',
             },
             {
               id: 2,
               firstName: 'Maria',
               lastName: 'Santos',
               averageRating: 4.7,
-              profileImageUrl: 'https://i.pravatar.cc/150?img=2'
-            }
+              profileImageUrl: 'https://i.pravatar.cc/150?img=2',
+            },
           ],
           comments: [
             {
@@ -62,10 +64,10 @@ export function useInterestPointScreenViewModel(pointId: number) {
               tourist: {
                 id: 1,
                 touristName: 'Carlos Oliveira',
-                profileImageUrl: 'https://i.pravatar.cc/150?img=3'
-              }
-            }
-          ]
+                profileImageUrl: 'https://i.pravatar.cc/150?img=3',
+              },
+            },
+          ],
         };
         setPageData(mockData);
       } catch (error) {

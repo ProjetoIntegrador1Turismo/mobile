@@ -126,10 +126,6 @@ export function InterestPointScreen({ pointId }: InterestPointScreenProps) {
                   {point.longDescription}
                 </CustomText>
               </View>
-
-              
-
-
             </View>
           </View>
         </View>

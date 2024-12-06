@@ -1,5 +1,3 @@
-
-
-export interface AverageValueProps{
-    value: number
+export interface AverageValueProps {
+  value: number;
 }

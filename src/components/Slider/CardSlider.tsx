@@ -29,7 +29,7 @@ export function CardSlider<T>({
       setTimeout(() => {
         flatListRef.current?.scrollToIndex({
           index: initialIndex,
-          animated: false
+          animated: false,
         });
       }, 100);
     }

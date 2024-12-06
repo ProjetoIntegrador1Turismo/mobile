@@ -9,12 +9,11 @@ import TopGuidesSection from '~/src/components/Guide/TopGuidesSection/TopGuidesS
 import { SolidButton } from '~/src/components/Button/SolidButton/SolidButton';
 import { useHomeScreenViewModel } from 'src/screens/Home/HomeScreenViewModel';
 
-
 export function HomeScreen() {
-  const { 
-    handleTopInterestPointPress, 
-    handleInterestPointPress, 
-    isLoading, 
+  const {
+    handleTopInterestPointPress,
+    handleInterestPointPress,
+    isLoading,
     isError,
     topPoints,
     firstSlider,
@@ -24,15 +23,15 @@ export function HomeScreen() {
 
   if (isLoading) {
     return (
-      <View className="flex-1 items-center justify-center">
-        <ActivityIndicator size="large" />
+      <View className='flex-1 items-center justify-center'>
+        <ActivityIndicator size='large' />
       </View>
     );
   }
 
   if (isError || !topPoints || !firstSlider || !secondSlider || !guides) {
     return (
-      <View className="flex-1 items-center justify-center">
+      <View className='flex-1 items-center justify-center'>
         <Text>Error loading data</Text>
       </View>
     );
@@ -48,7 +47,7 @@ export function HomeScreen() {
         <LogoTl className='mb-2' />
         <View className='w-full'>
           <Divider text='Top Atrativos' />
-          <TopInterestPointSlider 
+          <TopInterestPointSlider
             items={topPoints}
             className='mb-2 w-full'
             onItemPress={handleTopInterestPointPress}
@@ -58,10 +57,7 @@ export function HomeScreen() {
           <CardSlider
             data={firstSlider}
             renderItem={({ item }) => (
-              <InterestPointCard
-                {...item}
-                onPress={() => handleInterestPointPress(item.id)}
-              />
+              <InterestPointCard {...item} onPress={() => handleInterestPointPress(item.id)} />
             )}
             className='my-2 w-full'
             ItemSeparatorComponent={() => <View className='w-4' />}
@@ -72,10 +68,7 @@ export function HomeScreen() {
           <CardSlider
             data={secondSlider}
             renderItem={({ item }) => (
-              <InterestPointCard
-                {...item}
-                onPress={() => handleInterestPointPress(item.id)}
-              />
+              <InterestPointCard {...item} onPress={() => handleInterestPointPress(item.id)} />
             )}
             className='my-2 w-full'
             ItemSeparatorComponent={() => <View className='w-4' />}
