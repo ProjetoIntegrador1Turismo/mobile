@@ -7,7 +7,7 @@ import { TopGuideCard } from '../TopGuideCard/TopGuideCard';
 
 export default function TopGuidesSection({ topGuides }: { topGuides: TopGuideCardProps[] }) {
   return (
-    <View className='flex flex-col'>
+    <View className='flex flex-col w-full'>
       <CustomText className='text-white' size={24} weight='bold'>
         Top Guias da semana:
       </CustomText>
