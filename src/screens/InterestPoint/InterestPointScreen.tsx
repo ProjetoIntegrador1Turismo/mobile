@@ -20,6 +20,7 @@ import { TLGradientButton } from 'src/components/Button/TLGradientButton/TLGradi
 import { AddressLabel } from '~/src/components/InterestPoint/AddressLabel/AddressLabel';
 import { Stars } from '~/src/components/Stars/Stars';
 import { Price } from '~/src/components/Price/Price';
+import { BASE_URL } from 'src/common/repositories/client';
 
 import TopGuidesSection from '~/src/components/Guide/TopGuidesSection/TopGuidesSection';
 
@@ -30,16 +31,17 @@ interface InterestPointScreenProps {
 export function InterestPointScreen({ pointId }: InterestPointScreenProps) {
   const {
     point,
-    loading,
+    isLoading,
+    isError,
+    buildFullAddress,
     selectedImage,
     isModalOpen,
-    buildFullAddress,
     handleImagePress,
     handleCloseViewer,
   } = useInterestPointScreenViewModel(pointId);
   const { goBack } = useAppRouter();
 
-  if (loading) {
+  if (isLoading) {
     return (
       <View className='flex-1 items-center justify-center'>
         <ActivityIndicator size='large' />
@@ -47,10 +49,10 @@ export function InterestPointScreen({ pointId }: InterestPointScreenProps) {
     );
   }
 
-  if (!point) {
+  if (isError || !point) {
     return (
       <View className='flex-1 items-center justify-center'>
-        <Text>Point not found</Text>
+        <Text>Error: Point not found</Text>
       </View>
     );
   }
@@ -83,7 +85,7 @@ export function InterestPointScreen({ pointId }: InterestPointScreenProps) {
                     className='mx-4 overflow-hidden rounded-2xl'
                     onPress={() => handleImagePress(item)}>
                     <Image
-                      source={{ uri: item }}
+                      source={{ uri: `${BASE_URL}${item}` }}
                       style={{ width: 260, height: 200 }}
                       className='rounded-2xl'
                     />
@@ -126,10 +128,6 @@ export function InterestPointScreen({ pointId }: InterestPointScreenProps) {
                   {point.longDescription}
                 </CustomText>
               </View>
-
-              
-
-
             </View>
           </View>
         </View>
