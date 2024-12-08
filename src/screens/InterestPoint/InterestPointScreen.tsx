@@ -124,6 +124,9 @@ export function InterestPointScreen({ pointId }: InterestPointScreenProps) {
                 <CustomText size={20} weight='bold' className='mb-2 text-white'>
                   Descrição
                 </CustomText>
+                <CustomText size={16} weight='regular' className='mb-4 text-gray-300'>
+                  {point.shortDescription}
+                </CustomText>
                 <CustomText size={16} weight='regular' className='text-gray-300'>
                   {point.longDescription}
                 </CustomText>
