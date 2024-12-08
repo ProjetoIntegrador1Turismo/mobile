@@ -77,7 +77,6 @@ export function HomeScreen() {
         </View>
         <View className='mt-8 flex items-center px-2'>
           <TopGuidesSection topGuides={guides} />
-          <SolidButton title='Ver mais' size='sm' className='mt-4' py={2} />
         </View>
       </View>
     </ScrollView>
