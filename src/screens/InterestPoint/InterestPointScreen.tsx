@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   ScrollView,
   View,
@@ -23,6 +23,7 @@ import { Price } from '~/src/components/Price/Price';
 import { BASE_URL } from 'src/common/repositories/client';
 
 import TopGuidesSection from '~/src/components/Guide/TopGuidesSection/TopGuidesSection';
+import InterestPointGuidesSection from '~/src/components/Guide/InterestPointGuidesSection/InterestPointGuidesSection';
 
 interface InterestPointScreenProps {
   pointId: number;
@@ -31,6 +32,8 @@ interface InterestPointScreenProps {
 export function InterestPointScreen({ pointId }: InterestPointScreenProps) {
   const {
     point,
+    guides,
+    comments,
     isLoading,
     isError,
     buildFullAddress,
@@ -131,6 +134,11 @@ export function InterestPointScreen({ pointId }: InterestPointScreenProps) {
                   {point.longDescription}
                 </CustomText>
               </View>
+
+              <View className='mt-8'>
+                <InterestPointGuidesSection guides={guides || []} />
+              </View>
+              
             </View>
           </View>
         </View>
