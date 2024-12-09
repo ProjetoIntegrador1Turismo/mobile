@@ -11,7 +11,7 @@ interface InterestPointGuidesSectionProps {
   pointId: number;
 }
 
-export default function InterestPointGuidesSection({ guides, pointId }: InterestPointGuidesSectionProps) {
+export function InterestPointGuidesSection({ guides, pointId }: InterestPointGuidesSectionProps) {
   const hasGuides = guides.length > 0;
   const router = useAppRouter();
 

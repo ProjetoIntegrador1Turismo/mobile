@@ -20,7 +20,7 @@ import { Stars } from '~/src/components/Stars/Stars';
 import { Price } from '~/src/components/Price/Price';
 import { BASE_URL } from 'src/common/repositories/client';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import InterestPointGuidesSection from '~/src/components/Guide/InterestPointGuidesSection/InterestPointGuidesSection';
+import { InterestPointGuidesSection } from '~/src/components/Guide/InterestPointGuidesSection/InterestPointGuidesSection';
 
 interface InterestPointScreenProps {
   pointId: number;
