@@ -5,7 +5,7 @@ import { Container } from 'src/components/Container/Container';
 import { CustomText } from 'src/components/Text/CustomText';
 
 export default function Profile() {
-  const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
+  const { isAuthenticated, logout } = useAuthStore();
   const { push } = useAppRouter();
 
   if (!isAuthenticated) {
@@ -14,8 +14,7 @@ export default function Profile() {
         <SolidButton
           onPress={() => push('/(auth)/login')}
           title='Login'
-          color='black'
-          className='rounded-lg border border-black px-2'
+          className='rounded-lg px-2'
         />
       </Container>
     );
@@ -24,6 +23,12 @@ export default function Profile() {
   return (
     <Container className='items-center justify-center bg-tl-bg'>
       <CustomText className='text-white'>Voce esta autenticado!</CustomText>
+      <SolidButton
+        onPress={() => logout()}
+        title='logout'
+        color='black'
+        className='rounded-lg border border-white px-2'
+      />
     </Container>
   );
 }
