@@ -5,7 +5,6 @@ export default function HomeLayout() {
     <Stack screenOptions={{ headerShown: false }}>
       <Stack.Screen name='index' />
       <Stack.Screen name='point/[id]' />
-      <Stack.Screen name='guideprofile' />
     </Stack>
   );
 }
