@@ -5,9 +5,7 @@ import {
   Text,
   ActivityIndicator,
   TouchableOpacity,
-  Dimensions,
   Image,
-  Pressable,
 } from 'react-native';
 import { useInterestPointScreenViewModel } from './InterestPointScreenViewModel';
 import { CustomText } from 'src/components/Text/CustomText';
@@ -21,8 +19,7 @@ import { AddressLabel } from '~/src/components/InterestPoint/AddressLabel/Addres
 import { Stars } from '~/src/components/Stars/Stars';
 import { Price } from '~/src/components/Price/Price';
 import { BASE_URL } from 'src/common/repositories/client';
-
-import TopGuidesSection from '~/src/components/Guide/TopGuidesSection/TopGuidesSection';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 import InterestPointGuidesSection from '~/src/components/Guide/InterestPointGuidesSection/InterestPointGuidesSection';
 
 interface InterestPointScreenProps {
@@ -118,11 +115,26 @@ export function InterestPointScreen({ pointId }: InterestPointScreenProps) {
                 textSize={16}
               />
 
-              <CustomText size={20} weight='regular' className='mt-4 text-white'>
-                Preço:
-              </CustomText>
-              <Price priceLevel={Math.ceil(point.averageValue / 50)} size={24} variant='dark' />
+              <View className='mb-4 mt-6 flex w-full flex-row gap-x-12'>
+                <View>
+                  <CustomText size={20} weight='regular' className='text-white'>
+                    Preço:
+                  </CustomText>
 
+                  <Price priceLevel={Math.ceil(point.averageValue / 50)} size={24} variant='dark' />
+                </View>
+                <View>
+                  <CustomText size={20} weight='regular' className='text-white'>
+                    Duração:
+                  </CustomText>
+                  <View className='flex flex-row items-center gap-x-2'>
+                    <FontAwesome name='clock-o' size={24} color='white' />
+                    <CustomText size={18} weight='regular' className='text-white'>
+                      {point.duration}
+                    </CustomText>
+                  </View>
+                </View>
+              </View>
               <View className='mt-4'>
                 <CustomText size={20} weight='bold' className='mb-2 text-white'>
                   Descrição
@@ -136,9 +148,8 @@ export function InterestPointScreen({ pointId }: InterestPointScreenProps) {
               </View>
 
               <View className='mt-8'>
-                <InterestPointGuidesSection guides={guides || []} />
+                <InterestPointGuidesSection guides={guides || []} pointId={pointId} />
               </View>
-              
             </View>
           </View>
         </View>
