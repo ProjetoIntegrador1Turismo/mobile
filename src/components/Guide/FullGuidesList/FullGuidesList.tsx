@@ -15,12 +15,11 @@ export function FullGuidesList({ guides, onClose }: FullGuidesListProps) {
 
   const handleGuidePress = () => {
     onClose();
-    router.push(`/(search)/point/4`);
+    router.replace(`/(search)/point/4`);
   };
 
   return (
     <View className='flex-1 bg-[#171717] pt-12'>
-
       <View className='flex-row items-center justify-between border-b border-gray-800 px-4 py-4'>
         <TouchableOpacity onPress={onClose}>
           <AntDesign name='close' size={24} color='white' />
@@ -30,7 +29,6 @@ export function FullGuidesList({ guides, onClose }: FullGuidesListProps) {
         </CustomText>
         <View style={{ width: 24 }} />
       </View>
-
 
       <ScrollView 
         className='flex-1 px-4'
@@ -43,18 +41,15 @@ export function FullGuidesList({ guides, onClose }: FullGuidesListProps) {
 
         {guides && guides.length > 0 ? (
           guides.map((guide) => (
-            <TouchableOpacity 
-              key={guide.id} 
-              className='mb-3'
-              onPress={handleGuidePress}
-            >
+            <View key={guide.id} className='mb-3'>
               <TopGuideCard
                 id={guide.id}
                 profileImage={guide.profileImageUrl}
                 name={`${guide.firstName} ${guide.lastName}`}
                 rating={guide.averageRating}
+                onClick={handleGuidePress}
               />
-            </TouchableOpacity>
+            </View>
           ))
         ) : (
           <View className='mt-2 rounded-xl border border-gray-700 bg-[#1C1C1E] p-4'>
