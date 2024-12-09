@@ -3,5 +3,5 @@ import { TopInterestPointCardProps } from 'src/components/InterestPoint/TopInter
 export interface TopInterestPointSliderProps {
   items: TopInterestPointCardProps[];
   className?: string;
-  onItemPress?: (id: number) => void;
+  onItemPress: (id: number) => void;
 }
