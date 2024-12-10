@@ -30,11 +30,10 @@ export function FullGuidesList({ guides, onClose }: FullGuidesListProps) {
         <View style={{ width: 24 }} />
       </View>
 
-      <ScrollView 
+      <ScrollView
         className='flex-1 px-4'
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ paddingVertical: 20 }}
-      >
+        contentContainerStyle={{ paddingVertical: 20 }}>
         <CustomText size={16} weight='regular' className='mb-4 text-gray-300'>
           Todos os guias que incluíram este local em seus roteiros
         </CustomText>

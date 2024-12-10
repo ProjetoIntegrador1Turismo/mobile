@@ -19,7 +19,6 @@ export function InterestPointGuidesSection({ guides, pointId }: InterestPointGui
     router.push(`/(modals)/full-guides-list?pointId=${pointId}`);
   };
 
-
   return (
     <View className='flex w-full flex-col'>
       <CustomText className='text-white' size={24} weight='bold'>
@@ -37,15 +36,15 @@ export function InterestPointGuidesSection({ guides, pointId }: InterestPointGui
                 <TopGuideCard
                   id={guide.id}
                   profileImage={guide.profileImageUrl}
-                  name={guide.firstName + " " + guide.lastName}
+                  name={guide.firstName + ' ' + guide.lastName}
                   rating={guide.averageRating}
                 />
               </View>
             ))}
-            <SolidButton 
+            <SolidButton
               title={`Ver ${guides.length > 2 ? 'mais' : 'todos'} os guias`}
-              size='sm' 
-              className='mt-4 self-center px-6' 
+              size='sm'
+              className='mt-4 self-center px-6'
               py={2}
               onPress={handleSeeMorePress}
             />
