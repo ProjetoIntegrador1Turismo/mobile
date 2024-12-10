@@ -3,4 +3,5 @@ export interface TopGuideCardProps {
   profileImage: string;
   name: string;
   rating: number;
+  onClick?: () => void;
 }

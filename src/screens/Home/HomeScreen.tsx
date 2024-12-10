@@ -15,6 +15,10 @@ export function HomeScreen() {
     handleTopInterestPointPress,
     handleInterestPointPress,
     isLoading,
+  const {
+    handleTopInterestPointPress,
+    handleInterestPointPress,
+    isLoading,
     isError,
     topPoints,
     firstSlider,
@@ -32,6 +36,7 @@ export function HomeScreen() {
 
   if (isError || !topPoints || !firstSlider || !secondSlider || !guides) {
     return (
+      <View className='flex-1 items-center justify-center'>
       <View className='flex-1 items-center justify-center'>
         <Text>Error loading data</Text>
       </View>

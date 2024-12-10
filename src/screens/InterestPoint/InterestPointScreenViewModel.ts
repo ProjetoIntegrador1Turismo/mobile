@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react';
-import { TourPageData } from 'src/screens/InterestPoint/interestPointScreen.types';
+import { useState } from 'react';
+import { useTourPageQuery } from 'src/common/hooks/queries/useTourPageQuery';
+import { BASE_URL } from '~/src/common/repositories/client';
 
 export function useInterestPointScreenViewModel(pointId: number) {
-  const [loading, setLoading] = useState(true);
-  const [pageData, setPageData] = useState<TourPageData | null>(null);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -80,10 +79,10 @@ export function useInterestPointScreenViewModel(pointId: number) {
     fetchPoint();
   }, [pointId]);
 
-  const buildFullAddress = `${pageData?.interestPoint.address.street} - ${pageData?.interestPoint.address.city}, ${pageData?.interestPoint.address.state}`;
+  const buildFullAddress = `${pageData?.interestPoint.address.road} - ${pageData?.interestPoint.address.number}, ${pageData?.interestPoint.address.zipCode}`;
 
   const handleImagePress = (image: string) => {
-    setSelectedImage(image);
+    setSelectedImage(`${BASE_URL}${image}`);
     setIsModalOpen(true);
   };
 
@@ -96,7 +95,8 @@ export function useInterestPointScreenViewModel(pointId: number) {
     point: pageData?.interestPoint,
     guides: pageData?.guidesWhoOfferThisTour,
     comments: pageData?.comments,
-    loading,
+    isLoading,
+    isError,
     selectedImage,
     isModalOpen,
     buildFullAddress,
@@ -104,3 +104,4 @@ export function useInterestPointScreenViewModel(pointId: number) {
     handleCloseViewer,
   };
 }
+

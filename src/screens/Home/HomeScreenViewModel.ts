@@ -38,7 +38,7 @@ export const useHomeScreenViewModel = () => {
   const transformedGuides = homeData?.topGuides.map((guide) => ({
     id: guide.id,
     name: `${guide.firstName} ${guide.lastName}`,
-    profileImage: BASE_URL + guide.profileImageUrl,
+    profileImage: guide.profileImageUrl,
     rating: guide.averageRating,
   }));
 

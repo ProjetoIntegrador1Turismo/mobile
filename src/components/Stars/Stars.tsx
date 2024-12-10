@@ -17,15 +17,22 @@ export function Stars({
   const { stars } = useStarsViewModel(rating);
 
   return (
-    <View className={cn('flex flex-col items-center space-x-1', className)}>
+    <View className={cn('flex flex-col items-center', className)}>
       {label && (
-        <CustomText className='text-white' size={textSize} weight='regular'>
-          {label}
-        </CustomText>
+        <View className='mb-1'>
+          <CustomText className='text-white' size={textSize} weight='regular'>
+            {label}
+          </CustomText>
+        </View>
       )}
-      <View className='flex flex-row'>
+      <View className='flex flex-row space-x-1'>
         {stars.map((filled, index) => (
-          <AntDesign key={index} name='star' size={starSize} color={filled ? starColor : 'gray'} />
+          <AntDesign 
+            key={index} 
+            name='star' 
+            size={starSize} 
+            color={filled ? starColor : 'gray'} 
+          />
         ))}
       </View>
     </View>

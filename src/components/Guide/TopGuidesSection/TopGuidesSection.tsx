@@ -3,11 +3,12 @@ import React from 'react';
 import { TopGuideCardProps } from '../TopGuideCard/TopGuideCard.types';
 import { CustomText } from 'src/components/Text/CustomText';
 import { AntDesign } from '@expo/vector-icons';
-import { TopGuideCard } from '../TopGuideCard/TopGuideCard';
+import { TopGuideCard } from 'src/components/Guide/TopGuideCard/TopGuideCard';
+import { SolidButton } from '~/src/components/Button/SolidButton/SolidButton';
 
 export default function TopGuidesSection({ topGuides }: { topGuides: TopGuideCardProps[] }) {
   return (
-    <View className='flex flex-col'>
+    <View className='flex w-full flex-col'>
       <CustomText className='text-white' size={24} weight='bold'>
         Top Guias da semana:
       </CustomText>
@@ -30,6 +31,7 @@ export default function TopGuidesSection({ topGuides }: { topGuides: TopGuideCar
           </View>
         ))}
       </View>
+      <SolidButton title='Ver mais' size='sm' className='mt-4 self-center px-6' py={2} />
     </View>
   );
 }
