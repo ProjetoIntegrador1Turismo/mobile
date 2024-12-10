@@ -1,19 +1,12 @@
-import { Link, useLocalSearchParams } from 'expo-router';
-import { View, Text, Pressable, SafeAreaView } from 'react-native';
+import { useLocalSearchParams } from 'expo-router';
+import { RegisterStepTwoView } from 'src/screens/Register/RegisterStepTwo/RegisterStepTwoView';
 
 export default function Register2() {
-  const { email, phone } = useLocalSearchParams();
+  const { name, phone, cadastur } = useLocalSearchParams<{
+    name: string;
+    phone: string;
+    cadastur: string;
+  }>();
 
-  return (
-    <SafeAreaView className='flex-1 items-center justify-center'>
-      <Text className='text-3xl text-white'>register 2</Text>
-      <Pressable
-        className='border border-black p-3'
-        onPress={() => {
-          console.log(email, phone);
-        }}>
-        <Text>continuar</Text>
-      </Pressable>
-    </SafeAreaView>
-  );
+  return <RegisterStepTwoView StepOneData={{ name, phone, cadastur }} />;
 }

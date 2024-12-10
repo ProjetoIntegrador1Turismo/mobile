@@ -1,20 +1,21 @@
-import React from 'react';
-import { View, Image, Text, Pressable, Animated } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
+import { View, Image, Text, Pressable, Animated } from 'react-native';
 import { TopInterestPointCardProps } from 'src/components/InterestPoint/TopInterestPointCard/TopInterestPointCard.types';
-import { getMedalColor, useTopInterestPointCardViewModel } from './TopInterestPointCardViewModel';
-import { CustomText } from 'src/components/Text/CustomText';
+import {
+  getMedalColor,
+  useTopInterestPointCardViewModel,
+} from 'src/components/InterestPoint/TopInterestPointCard/TopInterestPointCardViewModel';
 import { Price } from 'src/components/Price/Price';
+import { CustomText } from 'src/components/Text/CustomText';
 
 export function TopInterestPointCard(props: TopInterestPointCardProps) {
   const { scaleAnim, handlePressIn, handlePressOut } = useTopInterestPointCardViewModel();
 
   return (
     <Pressable onPress={props.onPress} onPressIn={handlePressIn} onPressOut={handlePressOut}>
-      <Animated.View 
-        className='flex w-[250px] rounded-xl bg-[#1C1C1E] shadow-lg'
-        style={{ transform: [{ scale: scaleAnim }] }}
-      >
+      <Animated.View
+        className='flex w-[370px] rounded-xl bg-[#1C1C1E] shadow-lg'
+        style={{ transform: [{ scale: scaleAnim }] }}>
         <View className='relative h-[150px] w-full overflow-hidden rounded-t-xl'>
           <Image
             source={{ uri: props.imageCover }}
@@ -33,12 +34,8 @@ export function TopInterestPointCard(props: TopInterestPointCardProps) {
 
         <View className='flex h-[60px] flex-row items-start justify-between rounded-b-xl bg-white px-4 py-2'>
           <View className='max-w-[65%]'>
-            <Text numberOfLines={2} ellipsizeMode="tail">
-              <CustomText 
-                className='text-black' 
-                weight='regular' 
-                size={16}
-              >
+            <Text numberOfLines={2} ellipsizeMode='tail'>
+              <CustomText className='text-black' weight='regular' size={16}>
                 {props.name}
               </CustomText>
             </Text>

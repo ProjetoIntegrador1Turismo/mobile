@@ -1,39 +1,38 @@
-
 //Interface com os dados do ponto de interesse
 export interface GenericPoint {
-    id: string;
-    name: string;
-    shortDescription: string;
-    imageCoverUrl: string;
-    interestPointType: string;
+  id: string;
+  name: string;
+  shortDescription: string;
+  imageCoverUrl: string;
+  interestPointType: string;
 }
 
 //Interface com os dados sobre paginas
 export interface Pageable {
-    pageNumber: number; //Numero atual da pagina - inicia em 0
-    pageSize: number; //Qtd de itens na pagina - padrão é 5    
+  pageNumber: number; //Numero atual da pagina - inicia em 0
+  pageSize: number; //Qtd de itens na pagina - padrão é 5
 }
 
 // Interface com a resposta "completa" (retirei alguns dados)
 export interface PaginatedResponse {
-    content: GenericPoint[]; 
-    pageable: Pageable;
-    totalElements: number; //Qtd total de itens no banco
-    totalPages: number; //Qtd total de paginas
-    last: boolean; //É última pagina ?
-    numberOfElements: number;
-    size: number;
-    number: number; //Numero da pagina
-    first: boolean;
-    empty: boolean;
+  content: GenericPoint[];
+  pageable: Pageable;
+  totalElements: number; //Qtd total de itens no banco
+  totalPages: number; //Qtd total de paginas
+  last: boolean; //É última pagina ?
+  numberOfElements: number;
+  size: number;
+  number: number; //Numero da pagina
+  first: boolean;
+  empty: boolean;
 }
 
 export const pointRouteMapping: Record<string, string> = {
-    Hotel: 'hotels',
-    Experiência: 'experiences',
-    Restaurante: 'restaurants',
-    Evento: 'events',
-    'Ponto Turistico': 'tourist-points'
+  Hotel: 'hotels',
+  Experiência: 'experiences',
+  Restaurante: 'restaurants',
+  Evento: 'events',
+  'Ponto Turistico': 'tourist-points',
 };
 
 // {

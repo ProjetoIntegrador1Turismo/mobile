@@ -1,4 +1,9 @@
+import { GestureResponderEvent } from 'react-native';
+
 export interface TLGradientButtonProps {
   title: string;
-  size?: 'sm' | 'md' | 'lg';
+  className?: string;
+  disabled?: boolean;
+  isLoading?: boolean;
+  onPress?: (event: GestureResponderEvent) => void;
 }

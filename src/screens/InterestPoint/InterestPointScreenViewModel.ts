@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useTourPageQuery } from 'src/common/hooks/queries/useTourPageQuery';
-import { BASE_URL } from '~/src/common/repositories/client';
+import { BASE_URL } from 'src/common/repositories/client';
 
 export function useInterestPointScreenViewModel(pointId: number) {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);

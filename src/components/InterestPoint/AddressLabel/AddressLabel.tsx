@@ -8,7 +8,7 @@ import { cn } from 'src/common/utils/cn';
 export function AddressLabel({ address, className }: AddressLabelProps) {
   return (
     <View className={cn('flex flex-col', className)}>
-      <View className='flex-row items-start max-w-[300px]'>
+      <View className='max-w-[300px] flex-row items-start'>
         <FontAwesome5 name='map-marker-alt' size={24} color='white' className='mr-2' />
         <CustomText className='text-white' size={16} weight='bold'>
           {address}

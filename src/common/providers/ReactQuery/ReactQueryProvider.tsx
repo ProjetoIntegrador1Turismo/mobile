@@ -1,6 +1,6 @@
 import { QueryClientProvider } from '@tanstack/react-query';
-import { ReactQueryProviderProps } from './ReactQueryProvider.types';
-import { useReactQueryProviderViewModel } from './ReactQueryProviderViewModel';
+import { ReactQueryProviderProps } from 'src/common/providers/ReactQuery/ReactQueryProvider.types';
+import { useReactQueryProviderViewModel } from 'src/common/providers/ReactQuery/ReactQueryProviderViewModel';
 
 export function ReactQueryProvider({ children }: ReactQueryProviderProps) {
   const { queryClient } = useReactQueryProviderViewModel();

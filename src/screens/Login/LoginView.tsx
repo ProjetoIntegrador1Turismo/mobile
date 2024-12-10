@@ -1,32 +1,23 @@
-import { Link } from 'expo-router';
 import React from 'react';
-import { View, Text, SafeAreaView, Pressable } from 'react-native';
+import { View } from 'react-native';
+import { AuthFormHeader } from 'src/components/Auth/AuthFormHeader/AuthFormHeader';
 import { FormContainer } from 'src/components/Auth/FormContainer/FormContainer';
+import { LoginForm } from 'src/components/Auth/LoginForm/LoginForm';
+import TLLogoWhite from 'src/components/Auth/TLLogoWhite/TLLogoWhite';
 import { GoBackButton } from 'src/components/Button/GoBackButton/GoBackButton';
-import { Container } from 'src/components/Container/Container';
-import { CustomText } from 'src/components/Text/CustomText';
 
-import { LoginForm } from '~/src/components/Auth/LoginForm/LoginForm';
-import { SolidButton } from '~/src/components/Button/SolidButton/SolidButton';
-import { TLGradientButton } from '~/src/components/Button/TLGradientButton/TLGradientButton';
-
-export default function LoginView() {
+export function LoginView() {
   return (
     <FormContainer className='items-center bg-tl-bg'>
-      <View className='mt-16 flex w-11/12'>
+      <View className='mt-14 flex w-11/12 gap-6'>
         <GoBackButton />
-        <CustomText className='text-white' size={36} weight='bold'>
-          Acesse
-        </CustomText>
-        <CustomText size={20} className='text-white'>
-          Insira e-mail e senha para entrar!
-        </CustomText>
+        <AuthFormHeader title='Acesse' label='Insira e-mail e senha para entrar!' />
       </View>
-      <LoginForm />
-      <CustomText className='text-white'>Esqueci minha senha</CustomText>
-      <View className='flex w-[75%] flex-row justify-between'>
-        <TLGradientButton title='Acessar' />
-        <SolidButton title='Criar minha conta' />
+      <View className='mb-3 mt-14'>
+        <LoginForm />
+      </View>
+      <View className='mt-[100px] '>
+        <TLLogoWhite className='h-[100px] w-[150px] object-cover' />
       </View>
     </FormContainer>
   );

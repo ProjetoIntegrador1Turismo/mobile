@@ -20,7 +20,7 @@ export function GuideItineraryCard(props: GuideItineraryCardProps) {
       />
 
       <View className='absolute inset-0 flex items-center justify-between p-4'>
-        <View className='flex-row items-center justify-center mb-2'>
+        <View className='mb-2 flex-row items-center justify-center'>
           <Avatar imageUrl={guide.profileImage} size={35} />
           <CustomText className='ml-2 text-white' weight='regular'>
             Guia:{' '}

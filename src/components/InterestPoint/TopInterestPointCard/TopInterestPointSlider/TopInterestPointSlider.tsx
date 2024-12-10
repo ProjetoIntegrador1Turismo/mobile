@@ -1,36 +1,37 @@
 import React from 'react';
 import { View } from 'react-native';
+import Carousel from 'react-native-reanimated-carousel';
 import { TopInterestPointCard } from 'src/components/InterestPoint/TopInterestPointCard/TopInterestPointCard';
-import { useTopInterestPointSliderViewModel } from 'src/components/InterestPoint/TopInterestPointCard/TopInterestPointSlider/TopInterestPointSliderViewModel';
 import { TopInterestPointSliderProps } from 'src/components/InterestPoint/TopInterestPointCard/TopInterestPointSlider/TopInterestPointSlider.types';
-import { CardSlider } from 'src/components/Slider/CardSlider';
+import { useTopInterestPointSliderViewModel } from 'src/components/InterestPoint/TopInterestPointCard/TopInterestPointSlider/TopInterestPointSliderViewModel';
 
-export function TopInterestPointSlider({
-  items,
-  className,
-  onItemPress,
-}: TopInterestPointSliderProps) {
-  const { organizeByMedalRanking } = useTopInterestPointSliderViewModel();
-  const organizedItems = organizeByMedalRanking(items);
+export function TopInterestPointSlider({ items, onItemPress }: TopInterestPointSliderProps) {
+  const { organizeByMedalRanking, width } = useTopInterestPointSliderViewModel();
 
   return (
-    <View className={className}>
-      <CardSlider
-        data={organizedItems}
+    <View>
+      <Carousel
+        width={width}
+        height={width / 2}
+        data={organizeByMedalRanking(items)}
+        modeConfig={{
+          parallaxScrollingScale: 0.91,
+          parallaxScrollingOffset: 75,
+        }}
+        mode='parallax'
         renderItem={({ item }) => (
-          <TopInterestPointCard
-            id={item.id}
-            name={item.name}
-            imageCover={item.imageCover}
-            medal={item.medal}
-            duration={item.duration}
-            priceLevel={item.priceLevel}
-            onPress={() => onItemPress?.(item.id)}
-          />
+          <View className='self-center'>
+            <TopInterestPointCard
+              duration={item.duration}
+              id={item.id}
+              imageCover={item.imageCover}
+              medal={item.medal}
+              name={item.name}
+              priceLevel={item.priceLevel}
+              onPress={() => onItemPress(item.id)}
+            />
+          </View>
         )}
-        className=''
-        ItemSeparatorComponent={() => <View className='w-4' />}
-        initialIndex={1}
       />
     </View>
   );

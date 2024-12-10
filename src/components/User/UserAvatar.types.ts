@@ -1,6 +1,5 @@
 export interface UserAvatarProps {
-    userName: string,
-    maxUserNameLength?: number,
-    imageUrl: string,
+  userName: string;
+  maxUserNameLength?: number;
+  imageUrl: string;
 }
-

@@ -27,12 +27,7 @@ export function Stars({
       )}
       <View className='flex flex-row space-x-1'>
         {stars.map((filled, index) => (
-          <AntDesign 
-            key={index} 
-            name='star' 
-            size={starSize} 
-            color={filled ? starColor : 'gray'} 
-          />
+          <AntDesign key={index} name='star' size={starSize} color={filled ? starColor : 'gray'} />
         ))}
       </View>
     </View>

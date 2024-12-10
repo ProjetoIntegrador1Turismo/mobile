@@ -21,21 +21,21 @@ export const useHomeScreenViewModel = () => {
     medal: (index + 1) as 1 | 2 | 3,
   }));
 
-  const transformedFirstSlider = homeData?.firstSlider.map(item => ({
+  const transformedFirstSlider = homeData?.firstSlider.map((item) => ({
     id: item.id,
     name: item.name,
     imageCover: BASE_URL + item.imageCoverUrl,
     interestPointType: item.interestPointType,
   }));
 
-  const transformedSecondSlider = homeData?.secondSlider.map(item => ({
+  const transformedSecondSlider = homeData?.secondSlider.map((item) => ({
     id: item.id,
     name: item.name,
     imageCover: BASE_URL + item.imageCoverUrl,
     interestPointType: item.interestPointType,
   }));
 
-  const transformedGuides = homeData?.topGuides.map(guide => ({
+  const transformedGuides = homeData?.topGuides.map((guide) => ({
     id: guide.id,
     name: `${guide.firstName} ${guide.lastName}`,
     profileImage: guide.profileImageUrl,

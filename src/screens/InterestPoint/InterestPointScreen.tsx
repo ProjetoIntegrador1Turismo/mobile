@@ -1,26 +1,21 @@
-import React from 'react';
-import {
-  ScrollView,
-  View,
-  Text,
-  ActivityIndicator,
-  TouchableOpacity,
-  Image,
-} from 'react-native';
-import { useInterestPointScreenViewModel } from './InterestPointScreenViewModel';
-import { CustomText } from 'src/components/Text/CustomText';
-import { LogoTl } from 'src/components/Logo/LogoTL';
 import { AntDesign } from '@expo/vector-icons';
-import { useAppRouter } from 'src/common/lib/router';
-import { CardSlider } from 'src/components/Slider/CardSlider';
-import { ImageViewer } from 'src/components/ImageViewer/ImageViewer';
-import { TLGradientButton } from 'src/components/Button/TLGradientButton/TLGradientButton';
-import { AddressLabel } from '~/src/components/InterestPoint/AddressLabel/AddressLabel';
-import { Stars } from '~/src/components/Stars/Stars';
-import { Price } from '~/src/components/Price/Price';
-import { BASE_URL } from 'src/common/repositories/client';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
+import React from 'react';
+import { ScrollView, View, Text, ActivityIndicator, TouchableOpacity, Image } from 'react-native';
+import { useAppRouter } from 'src/common/lib/router';
+import { BASE_URL } from 'src/common/repositories/client';
+import { TLGradientButton } from 'src/components/Button/TLGradientButton/TLGradientButton';
+import { ImageViewer } from 'src/components/ImageViewer/ImageViewer';
+import { LogoTl } from 'src/components/Logo/LogoTL';
+import { CardSlider } from 'src/components/Slider/CardSlider';
+import { CustomText } from 'src/components/Text/CustomText';
+
+import { useInterestPointScreenViewModel } from './InterestPointScreenViewModel';
+
 import { InterestPointGuidesSection } from '~/src/components/Guide/InterestPointGuidesSection/InterestPointGuidesSection';
+import { AddressLabel } from '~/src/components/InterestPoint/AddressLabel/AddressLabel';
+import { Price } from '~/src/components/Price/Price';
+import { Stars } from '~/src/components/Stars/Stars';
 
 interface InterestPointScreenProps {
   pointId: number;
@@ -98,7 +93,7 @@ export function InterestPointScreen({ pointId }: InterestPointScreenProps) {
 
             {/* Botão */}
             <View className='mt-8 flex flex-row items-center justify-center'>
-              <TLGradientButton title='Tenho Interesse!' size='lg' />
+              <TLGradientButton title='Tenho Interesse!' className='w-11/12' />
             </View>
 
             {/* View das coisas */}

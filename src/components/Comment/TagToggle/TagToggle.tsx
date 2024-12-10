@@ -9,7 +9,7 @@ export function TagToggle({ title, tags, onTagsChange }: TagToggleProps) {
   const { selectedTags, toggleTag } = useTagToggleViewModel({ tags, onTagsChange });
 
   return (
-    <View className='w-full px-4 items-center'>
+    <View className='w-full items-center px-4'>
       <CustomText className='mb-2 text-white' weight='bold'>
         {title}
       </CustomText>

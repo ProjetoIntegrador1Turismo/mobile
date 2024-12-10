@@ -1,5 +1,5 @@
 import { Pressable, View } from 'react-native';
-import { SolidButtonProps } from '~/src/components/Button/SolidButton/SolidButton.types';
+import { SolidButtonProps } from 'src/components/Button/SolidButton/SolidButton.types';
 import { CustomText } from 'src/components/Text/CustomText';
 import { cn } from 'src/common/utils/cn';
 
@@ -23,7 +23,7 @@ export function SolidButton({
   className,
 }: SolidButtonProps) {
   return (
-    <Pressable className={ButtonSizeMap[size]} onPress={onPress}>
+    <Pressable onPress={onPress} className={className}>
       {({ pressed }) => (
         <View
           className={cn(
