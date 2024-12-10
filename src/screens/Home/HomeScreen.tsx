@@ -57,7 +57,11 @@ export function HomeScreen() {
           <CardSlider
             data={firstSlider}
             renderItem={({ item }) => (
-              <InterestPointCard {...item} onPress={() => handleInterestPointPress(item.id)} />
+              <InterestPointCard
+                key={item.id}
+                {...item}
+                onPress={() => handleInterestPointPress(item.id)}
+              />
             )}
             className='my-2 w-full'
             ItemSeparatorComponent={() => <View className='w-4' />}
@@ -68,7 +72,11 @@ export function HomeScreen() {
           <CardSlider
             data={secondSlider}
             renderItem={({ item }) => (
-              <InterestPointCard {...item} onPress={() => handleInterestPointPress(item.id)} />
+              <InterestPointCard
+                key={item.id}
+                {...item}
+                onPress={() => handleInterestPointPress(item.id)}
+              />
             )}
             className='my-2 w-full'
             ItemSeparatorComponent={() => <View className='w-4' />}

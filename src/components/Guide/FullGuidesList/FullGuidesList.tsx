@@ -5,6 +5,7 @@ import { AntDesign } from '@expo/vector-icons';
 import { GuidesWhoOfferThisTour } from '~/src/common/models/InterestPointScreen/interestPointScreen.model';
 import { useAppRouter } from '~/src/common/lib/router';
 
+
 interface FullGuidesListProps {
   guides: GuidesWhoOfferThisTour[];
   onClose: () => void;
@@ -12,10 +13,12 @@ interface FullGuidesListProps {
 
 export function FullGuidesList({ guides, onClose }: FullGuidesListProps) {
   const router = useAppRouter();
+  const pointId = 4;
 
   const handleGuidePress = () => {
     onClose();
-    router.replace(`/(search)/point/4`);
+    router.goBack();
+    router.replace(`/(tabs)/(search)/point/4`);
   };
 
   return (
@@ -30,11 +33,10 @@ export function FullGuidesList({ guides, onClose }: FullGuidesListProps) {
         <View style={{ width: 24 }} />
       </View>
 
-      <ScrollView 
+      <ScrollView
         className='flex-1 px-4'
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ paddingVertical: 20 }}
-      >
+        contentContainerStyle={{ paddingVertical: 20 }}>
         <CustomText size={16} weight='regular' className='mb-4 text-gray-300'>
           Todos os guias que incluíram este local em seus roteiros
         </CustomText>
@@ -42,13 +44,14 @@ export function FullGuidesList({ guides, onClose }: FullGuidesListProps) {
         {guides && guides.length > 0 ? (
           guides.map((guide) => (
             <View key={guide.id} className='mb-3'>
+
               <TopGuideCard
                 id={guide.id}
                 profileImage={guide.profileImageUrl}
                 name={`${guide.firstName} ${guide.lastName}`}
                 rating={guide.averageRating}
                 onClick={handleGuidePress}
-              />
+                />
             </View>
           ))
         ) : (
