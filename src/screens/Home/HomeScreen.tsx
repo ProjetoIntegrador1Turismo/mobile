@@ -24,7 +24,7 @@ export function HomeScreen() {
 
   if (isLoading) {
     return (
-      <View className='flex-1 items-center justify-center'>
+      <View className='flex-1 items-center justify-center bg-tl-bg'>
         <ActivityIndicator size='large' />
       </View>
     );
