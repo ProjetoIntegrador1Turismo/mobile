@@ -5,6 +5,7 @@ export default function ProfileLayout() {
     <Stack screenOptions={{ headerShown: false }}>
       <Stack.Screen name='index' />
       <Stack.Screen name='point' />
+      <Stack.Screen name='editprofile' />
     </Stack>
   );
 }
