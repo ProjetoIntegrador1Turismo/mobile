@@ -37,6 +37,7 @@ export function ProfileView() {
   return (
     <Container className='items-center justify-center bg-tl-bg px-4'>
       <CustomText className='h-40 w-80 text-white'>{JSON.stringify(user, null, 2)}</CustomText>
+      <TLGradientButton title='Logout' className='mt-3 w-11/12' onPress={() => logout()} />
     </Container>
   );
 }
