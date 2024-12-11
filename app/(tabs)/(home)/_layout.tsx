@@ -4,7 +4,7 @@ export default function HomeLayout() {
   return (
     <Stack screenOptions={{ headerShown: false }}>
       <Stack.Screen name='index' />
-      <Stack.Screen name='point' />
+      <Stack.Screen name='point/[id]' />
     </Stack>
   );
 }
