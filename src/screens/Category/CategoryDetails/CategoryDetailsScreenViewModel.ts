@@ -1,11 +1,23 @@
 import { useEffect, useState } from 'react';
+import { useCategoryDetailQuery } from '~/src/common/hooks/queries/useCategoryDetailQuery';
 import { fetchPaginatedPoints } from '~/src/common/repositories/paginated/paginated.repository';
 import { PaginatedResponse } from '~/src/common/repositories/paginated/paginated.types';
 
 export function useCategoryDetailsScreenViewModel(categoryTitle: string) {
-  const [loading, setLoading] = useState(true);
-  const [data, setData] = useState<PaginatedResponse | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  
+  const pointRouteMapping: Record<string, string> = {
+    Hotel: 'hotels',
+    Experiência: 'experiences',
+    Restaurante: 'restaurants',
+    Evento: 'events',
+    'Ponto Turístico': 'tourist-points'
+};
+
+console.log("Valor da string a ser enviada: ", pointRouteMapping[categoryTitle])
+const { data, isLoading } = useCategoryDetailQuery(pointRouteMapping[categoryTitle], 0, 5)
+
+console.log(data?.content[0])
+
 
   // useEffect(() => {
   //     async function fetchData() {
@@ -25,7 +37,7 @@ export function useCategoryDetailsScreenViewModel(categoryTitle: string) {
   // }, [categoryTitle]);
 
   return {
-    loading,
+    isLoading,
     data,
   };
 }

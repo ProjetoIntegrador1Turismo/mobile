@@ -14,16 +14,16 @@ interface CategoryDetailsProps {
 }
 
 export default function CategoryDetailsScreen({ categoryTitle }: CategoryDetailsProps) {
-  const { data, loading } = useCategoryDetailsScreenViewModel(categoryTitle);
+  const { data, isLoading } = useCategoryDetailsScreenViewModel(categoryTitle);
   const { goBack } = useAppRouter();
 
-  // if (loading) {
-  //     return (
-  //       <View className='flex-1 items-center justify-center'>
-  //         <ActivityIndicator size='large' />
-  //       </View>
-  //     );
-  // }
+  if (isLoading || !data) {
+    return (
+      <View className='flex-1 items-center justify-center'>
+        <ActivityIndicator size='large' />
+      </View>
+    );
+  }
 
   return (
     <View>
@@ -37,14 +37,7 @@ export default function CategoryDetailsScreen({ categoryTitle }: CategoryDetails
         </CustomText>
         <Divider text='Com base na categoria'></Divider>
       </View>
-      {/* <BasicPointCard
-                pointName="Cataratas do Iguacu"
-                id={2}
-                averageRating={2}
-                averageValue={200}
-                imageCover="https://picsum.photos/600/400"
-            />             */}
-      <BasicPointCardList />
+      <BasicPointCardList {...data}/>
     </View>
   );
 }
