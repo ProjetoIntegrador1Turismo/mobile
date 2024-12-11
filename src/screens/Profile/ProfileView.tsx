@@ -20,7 +20,6 @@ export function ProfileView() {
         <View className='items-center pt-12'>
           <TLLogoWhite className='h-16 w-20 object-cover' />
         </View>
-
         <View className='flex-1 items-center justify-center gap-6'>
           <UnauthenticatedImage className='h-64 w-64' />
           <CustomText className='text-center text-white' weight='regular' size={16}>
@@ -28,16 +27,16 @@ export function ProfileView() {
           </CustomText>
           <TLGradientButton title='Login' className='w-11/12' onPress={handleLoginPress} />
         </View>
-
         <View className='h-32' />
       </Container>
     );
   }
 
   return (
-    <Container className='items-center justify-center bg-tl-bg px-4'>
+    <Container className='items-center justify-center gap-4 bg-tl-bg px-4'>
       <CustomText className='h-40 w-80 text-white'>{JSON.stringify(user, null, 2)}</CustomText>
-      <TLGradientButton title='Logout' className='mt-3 w-11/12' onPress={() => logout()} />
+      <TLGradientButton title='Logout' className='w-11/12' onPress={() => logout()} />
+      <TLGradientButton title='Editar Informações' className='w-11/12' onPress={handlePressEdit} />
     </Container>
   );
 }
