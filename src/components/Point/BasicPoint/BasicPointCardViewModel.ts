@@ -9,7 +9,7 @@ const truncatedPointName = (pointName: string, maxNameLength: number) => {
 function onPressPointCard(){
   const { push } = useAppRouter();    
   async function handlePressPointCard(id: number) {
-      push(`/paginated/[id]`)        
+      push(`/point/${id}`)
   }
   return {
       handlePressPointCard,
