@@ -1,7 +1,22 @@
+import { useAppRouter } from "~/src/common/lib/router";
+
 const truncatedPointName = (pointName: string, maxNameLength: number) => {
   return pointName.length > maxNameLength
     ? `${pointName.substring(0, maxNameLength)}...`
     : pointName;
 };
 
-export { truncatedPointName };
+function onPressPointCard(){
+  const { push } = useAppRouter();    
+  async function handlePressPointCard(id: number) {
+      push(`/paginated/[id]`)        
+  }
+  return {
+      handlePressPointCard,
+  };
+};
+
+
+
+
+export { truncatedPointName, onPressPointCard };
