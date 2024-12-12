@@ -11,9 +11,9 @@ export function useCategoryDetailsScreenViewModel(categoryTitle: string) {
     Restaurante: 'restaurants',
     Evento: 'events',
     'Ponto Turístico': 'tourist-points'
-};
+  };
 
-const { data, isLoading } = useCategoryDetailQuery(pointRouteMapping[categoryTitle], 0, 5)
+  const { data, isLoading } = useCategoryDetailQuery(pointRouteMapping[categoryTitle], 0)
 
 
   return {
