@@ -18,7 +18,8 @@ export interface CategoryDetailModel {
     id: number
     imageCoverUrl: string
     interestPointType: string
-    name: string
+    name?: string
+    title?: string
     shortDescription: string
   }
   
