@@ -6,6 +6,7 @@ import categoryExperienceImg from '~/assets/category-card-experience.png';
 import categoryEventImg from '~/assets/category-card-event.png';
 import categoryTouristPointlImg from '~/assets/category-card-tourist-point.png';
 import categoryRestaurantImg from '~/assets/category-card-restaurant.png';
+import categoryItineraryImg from '~/assets/category-card-itinerary.png'
 
 export const CategoryCardData: CategoryCardProps[] = [
   { title: 'Hotel', imgSource: categoryHotelImg },
@@ -13,6 +14,7 @@ export const CategoryCardData: CategoryCardProps[] = [
   { title: 'Evento', imgSource: categoryEventImg },
   { title: 'Ponto Turístico', imgSource: categoryTouristPointlImg },
   { title: 'Restaurante', imgSource: categoryRestaurantImg },
+  { title: 'Roteiros', imgSource: categoryItineraryImg },
 ];
 
 //Direciona para a tela paginada enviando o parâmetro necessário para a rota da API
