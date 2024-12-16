@@ -10,7 +10,8 @@ export function useCategoryDetailsScreenViewModel(categoryTitle: string) {
     Experiência: 'experiences',
     Restaurante: 'restaurants',
     Evento: 'events',
-    'Ponto Turístico': 'tourist-points'
+    'Ponto Turístico': 'tourist-points',
+    Roteiros: 'itineraries'
   };
 
   const { data, isLoading } = useCategoryDetailQuery(pointRouteMapping[categoryTitle], 0)
