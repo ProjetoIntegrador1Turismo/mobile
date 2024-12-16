@@ -1,6 +1,7 @@
 import { useAppRouter } from "~/src/common/lib/router";
 
-const truncatedPointName = (pointName: string, maxNameLength: number) => {
+const truncatedPointName = (pointName: string | undefined, maxNameLength: number) => {
+  if (!pointName) return '';
   return pointName.length > maxNameLength
     ? `${pointName.substring(0, maxNameLength)}...`
     : pointName;
