@@ -18,11 +18,13 @@ export function BasicPointCard({
 }) {
   const {
     name,
+    title,
     averageRating,
     averageValue,
     imageCoverUrl,
     id } = data;
-  const { handlePressPointCard } = onPressPointCard()
+  const { handlePressPointCard } = onPressPointCard();
+  const displayName = title || name;
   return (
     <TouchableOpacity onPress={() => handlePressPointCard(id)}>
       <View className={cn('relative h-[85px] w-[100%] flex-row rounded-2xl border-2', className)}>
@@ -34,7 +36,7 @@ export function BasicPointCard({
         <View className='absolute h-full w-full flex-row items-center justify-between px-4'>
           <View className='flex-col'>
             <CustomText className='mt-[5px] text-white' weight='bold' size={20}>
-              {truncatedPointName(name, 20)}
+              {truncatedPointName(displayName, 20)}
             </CustomText>
             <View className='mt-1 flex-row'>
               <Entypo name='star' size={16} color='#FF007F' />
