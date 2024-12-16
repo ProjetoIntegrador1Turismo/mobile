@@ -27,9 +27,7 @@ export default function CategoryDetailsScreen({ categoryTitle }: CategoryDetails
 
   return (
     <View>
-      <TouchableOpacity className='mb-4 mt-8' onPress={goBack}>
-        <GoBackButton />
-      </TouchableOpacity>
+      <GoBackButton  className='mb-4 mt-8'/>
       <SearchTextInputBar />
       <View className='mt-4 w-full items-center justify-center'>
         <CustomText size={24} weight='bold' className='items-center justify-center text-white'>
