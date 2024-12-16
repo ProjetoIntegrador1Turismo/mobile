@@ -5,7 +5,6 @@ import { AntDesign } from '@expo/vector-icons';
 import { GuidesWhoOfferThisTour } from '~/src/common/models/InterestPointScreen/interestPointScreen.model';
 import { useAppRouter } from '~/src/common/lib/router';
 
-
 interface FullGuidesListProps {
   guides: GuidesWhoOfferThisTour[];
   onClose: () => void;
@@ -18,7 +17,7 @@ export function FullGuidesList({ guides, onClose }: FullGuidesListProps) {
   const handleGuidePress = () => {
     onClose();
     router.goBack();
-    router.replace(`/(tabs)/(search)/point/4`);
+    router.push(`/(tabs)/(search)/point/4`);
   };
 
   return (
@@ -44,14 +43,13 @@ export function FullGuidesList({ guides, onClose }: FullGuidesListProps) {
         {guides && guides.length > 0 ? (
           guides.map((guide) => (
             <View key={guide.id} className='mb-3'>
-
               <TopGuideCard
                 id={guide.id}
                 profileImage={guide.profileImageUrl}
                 name={`${guide.firstName} ${guide.lastName}`}
                 rating={guide.averageRating}
                 onClick={handleGuidePress}
-                />
+              />
             </View>
           ))
         ) : (
