@@ -14,7 +14,7 @@ interface CategoryDetailsProps {
 }
 
 export default function CategoryDetailsScreen({ categoryTitle }: CategoryDetailsProps) {
-  const { data, isLoading } = useCategoryDetailsScreenViewModel(categoryTitle);
+  const { data, isLoading, handleSearchAction } = useCategoryDetailsScreenViewModel(categoryTitle);
   const { goBack } = useAppRouter();
 
   if (isLoading || !data) {
@@ -28,7 +28,7 @@ export default function CategoryDetailsScreen({ categoryTitle }: CategoryDetails
   return (
     <View>
       <GoBackButton  className='mb-4 mt-8'/>
-      <SearchTextInputBar />
+      <SearchTextInputBar onChangeText={handleSearchAction} />
       <View className='mt-4 w-full items-center justify-center'>
         <CustomText size={24} weight='bold' className='items-center justify-center text-white'>
           {categoryTitle}
