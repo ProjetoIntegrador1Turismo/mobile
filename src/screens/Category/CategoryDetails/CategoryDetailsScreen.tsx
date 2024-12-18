@@ -14,8 +14,7 @@ interface CategoryDetailsProps {
 }
 
 export default function CategoryDetailsScreen({ categoryTitle }: CategoryDetailsProps) {
-  const { data, isLoading, handleSearchAction } = useCategoryDetailsScreenViewModel(categoryTitle);
-  const { goBack } = useAppRouter();
+  const { data, isLoading, handleSearchAction } = useCategoryDetailsScreenViewModel(categoryTitle);  
 
   if (isLoading || !data) {
     return (
