@@ -18,10 +18,18 @@ function defineApiRoute(text:string): string{
 }
 
 export async function fetchPaginatedPoints(pointType: string, page: number = 0, size: number = 30) { 
-        
-    const { data } = await api.get<CategoryDetailModel>(
-        `/paginated/${defineApiRoute(pointType)}`,
-        { params: { page, size } }
-    );
-    return data;  
+    const query = pointType;
+    if (defineApiRoute(query) === 'all'){
+        const { data } = await api.get<CategoryDetailModel>(
+            `/paginated/${defineApiRoute(pointType)}`,
+            { params: { page, size, query } }
+        );
+        return data;
+    }else {
+        const { data } = await api.get<CategoryDetailModel>(
+            `/paginated/${defineApiRoute(pointType)}`,
+            { params: { page, size } }
+        );
+        return data;
+    }
 }
