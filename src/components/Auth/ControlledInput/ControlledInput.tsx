@@ -12,6 +12,7 @@ export function ControlledInput<T extends FieldValues>({
   control,
   name,
   password,
+  disabled,
 }: ControlledInputProps<T>) {
   const { fieldValue, errorMsg, fieldOnChange, showPassword, togglePasswordVisibility } =
     useControlledInputViewModel<T>({
@@ -33,6 +34,7 @@ export function ControlledInput<T extends FieldValues>({
           } py-4`}
           placeholder={placeholder}
           secureTextEntry={password && !showPassword}
+          editable={!disabled}
         />
         {password && (
           <Pressable onPress={togglePasswordVisibility} className='absolute right-4'>
