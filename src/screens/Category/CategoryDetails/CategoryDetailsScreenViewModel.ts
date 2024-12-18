@@ -2,18 +2,9 @@ import { useEffect, useMemo, useState } from 'react';
 import { useCategoryDetailQuery } from '~/src/common/hooks/queries/useCategoryDetailQuery';
 import { CategoryDetailModel, Content } from '~/src/common/models/Category/categoryDetail.model';
 
-export function useCategoryDetailsScreenViewModel(categoryTitle: string) {
-  
-  const pointRouteMapping: Record<string, string> = {
-    Hotel: 'hotels',
-    Experiência: 'experiences',
-    Restaurante: 'restaurants',
-    Evento: 'events',
-    'Ponto Turístico': 'tourist-points',
-    Roteiros: 'itineraries'
-  };
+export function useCategoryDetailsScreenViewModel(categoryTitle: string) {  
 
-  const { data: originalData, isLoading  } = useCategoryDetailQuery(pointRouteMapping[categoryTitle], 0)
+  const { data: originalData, isLoading  } = useCategoryDetailQuery(categoryTitle);
   const [searchText, setSearchText] = useState('');
   const [debouncedSearchText, setDebouncedSearchText] = useState('');
 
@@ -39,6 +30,8 @@ export function useCategoryDetailsScreenViewModel(categoryTitle: string) {
   const handleSearchAction = (search: string) => {
     setSearchText(search);
   }
+
+  
 
   return {
     isLoading,
