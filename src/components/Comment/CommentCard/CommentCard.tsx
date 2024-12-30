@@ -1,14 +1,14 @@
 import React from 'react';
 import { View, Pressable } from 'react-native';
-import { CommentProps } from 'src/components/Comment/Comment.types';
-import { useCommentViewModel } from 'src/components/Comment/CommentViewModel';
+import { CommentCardProps } from '~/src/components/Comment/CommentCard/CommentCard.types';
+import { useCommentCardViewModel } from '~/src/components/Comment/CommentCard/CommentCardViewModel';
 import { Avatar } from 'src/components/Avatar/Avatar';
 import { Stars } from 'src/components/Stars/Stars';
 import { CustomText } from 'src/components/Text/CustomText';
 import { Entypo } from '@expo/vector-icons';
 
-export default function Comment(props: CommentProps) {
-  const { name, date, text, rating, avatarUrl } = useCommentViewModel(props);
+export default function CommentCard({ name, date, text, rating, avatarUrl }: CommentCardProps) {
+  const { handleOptionsPress } = useCommentCardViewModel();
 
   return (
     <View className='flex max-h-[180px] min-h-[100px] w-[360px] flex-col rounded-lg bg-[#1C1C1E] p-4'>
@@ -35,7 +35,7 @@ export default function Comment(props: CommentProps) {
           weight='regular'>
           {text}
         </CustomText>
-        <Pressable onPress={() => {}} className='ml-2'>
+        <Pressable onPress={handleOptionsPress} className='ml-2'>
           <Entypo name='dots-three-horizontal' size={20} color='white' />
         </Pressable>
       </View>
