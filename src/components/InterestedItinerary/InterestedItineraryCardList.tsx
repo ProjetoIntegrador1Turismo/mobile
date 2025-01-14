@@ -1,6 +1,6 @@
 import { FlatList, View } from 'react-native';
-import { InterestedItinerary, InterestedItineraryModel } from '~/src/common/models/InterestedItinerary/InterestedItynerary.model';
-import { InterestedItineraryCard } from './InterestedItineraryCard/InterestedItineraryCard';
+import { InterestedItinerary } from '~/src/common/models/InterestedItinerary/InterestedItynerary.model';
+import { InterestedItineraryCard } from '~/src/components/InterestedItinerary/InterestedItineraryCard/InterestedItineraryCard';
 
 interface InterestedItineraryCardListProps {
     interestedItineraries: InterestedItinerary[];
