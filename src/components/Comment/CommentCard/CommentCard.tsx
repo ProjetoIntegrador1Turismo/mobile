@@ -7,7 +7,7 @@ import { Stars } from 'src/components/Stars/Stars';
 import { CustomText } from 'src/components/Text/CustomText';
 import { Entypo } from '@expo/vector-icons';
 
-export default function CommentCard({ name, date, text, rating, avatarUrl }: CommentCardProps) {
+export function CommentCard({ name, date, text, rating, avatarUrl }: CommentCardProps) {
   const { handleOptionsPress } = useCommentCardViewModel();
 
   return (
