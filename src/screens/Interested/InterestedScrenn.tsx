@@ -1,11 +1,9 @@
 import { ActivityIndicator, View } from 'react-native';
-import { InterestedItineraryCard } from '~/src/components/InterestedItinerary/InterestedItineraryCard/InterestedItineraryCard';
 import { LogoTl } from '~/src/components/Logo/LogoTL';
 import { SearchTextInputBar } from '~/src/components/SearchTextInputBar/SearchTextInputBar';
 import { CustomText } from '~/src/components/Text/CustomText';
-import { useInterestedScreenViewModel } from './InterestedScreenViewModel';
+import { useInterestedScreenViewModel } from '~/src/screens/Interested/InterestedScreenViewModel';
 import { InterestedItineraryCardList } from '~/src/components/InterestedItinerary/InterestedItineraryCardList';
-import UnauthenticatedImage from '~/src/components/Auth/UnauthenticatedImage/UnauthenticatedImage';
 import { UnselectedItinerary } from '~/src/components/InterestedItinerary/unselectedItinerary/unselectedItinerary';
 
 interface InterestedScreenProps {
