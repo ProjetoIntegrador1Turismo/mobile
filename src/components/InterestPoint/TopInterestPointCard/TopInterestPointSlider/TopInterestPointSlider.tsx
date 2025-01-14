@@ -16,7 +16,7 @@ export function TopInterestPointSlider({ items, onItemPress }: TopInterestPointS
         data={organizeByMedalRanking(items)}
         modeConfig={{
           parallaxScrollingScale: 0.91,
-          parallaxScrollingOffset: 75,
+          parallaxScrollingOffset: 50,
         }}
         mode='parallax'
         renderItem={({ item }) => (
