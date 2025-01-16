@@ -5,23 +5,26 @@ import { useQueryClient } from '@tanstack/react-query';
 
 export function useInterestedScreenViewModel(authToken:string){
 
-    const { data, refetch, isLoading } = useInterestedItineraryQuery(authToken);
-
-    const handleDeleteItinerary = async (id:number) => {
-        console.log("Remover roteiro de id: ", id)
-        const success = await removeInterestedItinerary(authToken, id);
-        console.log("Valor do success: ", success)
-        if (success) {
-            console.log("Acessou o refetch? ", success)
+    const { data, refetch, isLoading, error  } = useInterestedItineraryQuery(authToken);
+    
+    const handleDeleteItinerary = async (id:number) => {        
+        const success = await removeInterestedItinerary(authToken, id);        
+        if (success) {        
             refetch()
-        } else {
-            console.log("Erro ao tentar remover roteiro dos favoritos")
+        }
+    }
+
+    if(!isLoading){
+        const axiosError = error as any;
+        if(axiosError.response.status === 401) {
+            console.log('AuthToken EXPIRADO')
         }
     }
 
     return {
         data,
         isLoading,
+        error,
         handleDeleteItinerary
     }
 }
