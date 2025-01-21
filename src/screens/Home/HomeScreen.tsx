@@ -60,6 +60,7 @@ export function HomeScreen() {
             <Divider text='Restaurantes, Eventos e Passeios' />
             <CardSlider
               data={firstSlider}
+              keyExtractor={(item) => String(item.name)}
               renderItem={({ item }) => (
                 <InterestPointCard {...item} onPress={() => handleInterestPointPress(item.id)} />
               )}
@@ -71,6 +72,7 @@ export function HomeScreen() {
             <Divider text='Roteiros, Hotéis e Experiências' />
             <CardSlider
               data={secondSlider}
+              keyExtractor={(item) => String(item.name)}
               renderItem={({ item }) => (
                 <InterestPointCard {...item} onPress={() => handleInterestPointPress(item.id)} />
               )}

@@ -10,6 +10,7 @@ interface CardSliderProps<T> {
   ItemSeparatorComponent?: React.ComponentType<any>;
   className?: string;
   initialIndex?: number;
+  keyExtractor?: (item: T, index: number) => string;
 }
 
 export function CardSlider<T>({
@@ -21,6 +22,7 @@ export function CardSlider<T>({
   ItemSeparatorComponent,
   className,
   initialIndex = 0,
+  keyExtractor
 }: CardSliderProps<T>) {
   const flatListRef = useRef<FlatList>(null);
 
@@ -45,6 +47,7 @@ export function CardSlider<T>({
         showsHorizontalScrollIndicator={showsHorizontalScrollIndicator}
         contentContainerStyle={contentContainerStyle}
         ItemSeparatorComponent={ItemSeparatorComponent}
+        keyExtractor={keyExtractor}
       />
     </View>
   );
