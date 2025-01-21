@@ -5,6 +5,7 @@ import { CustomText } from '~/src/components/Text/CustomText';
 import { useInterestedScreenViewModel } from '~/src/screens/Interested/InterestedScreenViewModel';
 import { InterestedItineraryCardList } from '~/src/components/InterestedItinerary/InterestedItineraryCardList';
 import { UnselectedItinerary } from '~/src/components/InterestedItinerary/unselectedItinerary/unselectedItinerary';
+import UnauthenticatedImage from '~/src/components/Auth/UnauthenticatedImage/UnauthenticatedImage';
 
 interface InterestedScreenProps {
   authToken:string
@@ -12,7 +13,8 @@ interface InterestedScreenProps {
 
 export function InterestedScreen({ authToken }: InterestedScreenProps) {
   
-  const { data, handleDeleteItinerary, isLoading } = useInterestedScreenViewModel(authToken);  
+  const { data, handleDeleteItinerary, isLoading, error } = useInterestedScreenViewModel(authToken); 
+  const axiosError = error as any;
 
   return (
     <View className='flex-1 bg-tl-bg p-4'>
@@ -32,13 +34,21 @@ export function InterestedScreen({ authToken }: InterestedScreenProps) {
             <ActivityIndicator size='large' />
           </View>
         ) : (
-          data?.interestedItineraries && data.interestedItineraries.length > 0 ? (
-            <InterestedItineraryCardList
-              interestedItineraries={data.interestedItineraries}
-              handleDeleteItinerary={handleDeleteItinerary}
-            />
+          axiosError.response.status === 401 ? (
+            <View className='items-center justify-center'>
+              <UnauthenticatedImage className='h-64 w-64 mt-8' />          
+              <CustomText className='text-white'>Login expirado. Autentique novamente.</CustomText>
+            </View>
           ) : (
-            <UnselectedItinerary />
+            data?.interestedItineraries && data.interestedItineraries.length > 0 ? (
+              <InterestedItineraryCardList
+                interestedItineraries={data.interestedItineraries}
+                handleDeleteItinerary={handleDeleteItinerary}
+              />
+            ) : (
+              <UnselectedItinerary />
+            )
+
           )
         )
       }
