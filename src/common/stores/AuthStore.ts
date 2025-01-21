@@ -13,9 +13,14 @@ interface AuthState {
   login: (data: LoginDTO) => Promise<void>;
   logout: () => Promise<void>;
   loadSession: () => Promise<void>;
+  updateUser: (userData: DeepPartial<UserModel>) => Promise<void>;
 }
 
-export const useAuthStore = create<AuthState>((set) => ({
+type DeepPartial<T> = {
+  [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P];
+};
+
+export const useAuthStore = create<AuthState>((set, get) => ({
   user: null,
   isAuthenticated: false,
   error: null,
@@ -47,5 +52,16 @@ export const useAuthStore = create<AuthState>((set) => ({
     } catch (error) {
       console.error('Erro ao carregar sessão:', error);
     }
+  },
+  updateUser: async (userData: DeepPartial<UserModel>) => {
+    const currentUser = get().user;
+
+    const updatedUser = {
+      ...currentUser,
+      ...userData,
+    } as UserModel;
+
+    set({ user: updatedUser });
+    await storeObject('user', updatedUser);
   },
 }));
