@@ -18,3 +18,10 @@ export interface RegisterGuideDTO extends RegisterDTO {
 export interface RecoveryDTO {
   email: string;
 }
+
+export interface UpdateProfileDTO {
+  email: string;
+  name: string;
+  password?: string | undefined;
+  phone: string;
+}
