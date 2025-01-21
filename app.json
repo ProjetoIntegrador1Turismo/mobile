@@ -11,7 +11,12 @@
       "output": "static",
       "favicon": "./assets/favicon.png"
     },
-    "plugins": ["expo-router", "expo-av", "expo-font"],
+    "plugins": [
+      "expo-router",
+      "expo-av",
+      "expo-font",
+      "expo-image-picker"
+    ],
     "experiments": {
       "typedRoutes": true,
       "tsconfigPaths": true
