@@ -10,7 +10,7 @@ export const useProfileViewModel = () => {
   };
 
   const handlePressEdit = () => {
-    push('/(profile)/editprofile');
+    push('/(auth)/editprofile');
   };
 
   return { isAuthenticated, handleLoginPress, logout, handlePressEdit, user };

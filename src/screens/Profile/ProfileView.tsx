@@ -1,5 +1,5 @@
 import { Feather } from '@expo/vector-icons';
-import { TouchableOpacity, View } from 'react-native';
+import { Pressable, ScrollView, TouchableOpacity, View } from 'react-native';
 import TLLogoWhite from 'src/components/Auth/TLLogoWhite/TLLogoWhite';
 import UnauthenticatedImage from 'src/components/Auth/UnauthenticatedImage/UnauthenticatedImage';
 import { TLGradientButton } from 'src/components/Button/TLGradientButton/TLGradientButton';
@@ -8,6 +8,7 @@ import { CustomText } from 'src/components/Text/CustomText';
 
 import { useProfileViewModel } from './ProfileViewModel';
 
+import { Avatar } from '~/src/components/Avatar/Avatar';
 import { UserAvatar } from '~/src/components/User/UserAvatar';
 
 export function ProfileView() {
@@ -33,8 +34,20 @@ export function ProfileView() {
   }
 
   return (
-    <Container className='items-center justify-center gap-4 bg-tl-bg px-4'>
-      <CustomText className='h-40 w-80 text-white'>{JSON.stringify(user, null, 2)}</CustomText>
+    <Container className='gap-4 bg-tl-bg px-4 pt-12'>
+      <View className='flex w-full flex-row justify-between'>
+        <View className='h-[80px] w-[95px]' />
+        <TLLogoWhite className='-ml-3 h-[80px] w-[95px] object-cover' />
+        <View className='h-[80px] w-[95px] items-end justify-center border'>
+          <TouchableOpacity onPress={handlePressEdit}>
+            <Feather name='edit' color='#FFF' size={30} />
+          </TouchableOpacity>
+        </View>
+      </View>
+      <View className='items-center'>
+        <Avatar imageUrl={user!.profileImageUrl} size={120} />
+        <CustomText className='text-white'>{user!.firstName + ' ' + user?.lastName}</CustomText>
+      </View>
       <TLGradientButton title='Logout' className='w-11/12' onPress={() => logout()} />
       <TLGradientButton title='Editar Informações' className='w-11/12' onPress={handlePressEdit} />
     </Container>
