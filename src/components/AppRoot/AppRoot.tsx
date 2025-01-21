@@ -52,6 +52,10 @@ export default function AppRoot() {
       <Stack screenOptions={{ headerShown: false }}>
         <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
         <Stack.Screen name='(auth)' options={{ headerShown: false }} />
+        <Stack.Screen
+          name='(modals)'
+          options={{ headerShown: false, presentation: 'modal', animation: 'slide_from_bottom' }}
+        />
       </Stack>
       <Toast config={toastConfig} />
     </ReactQueryProvider>
