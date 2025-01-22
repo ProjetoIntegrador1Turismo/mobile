@@ -1,5 +1,5 @@
 import { useGuideItinerariesQuery } from "~/src/common/hooks/queries/useGuideItinerariesQuery";
-import { Itinerary } from "~/src/common/models/GuideItineraries/guideItineraries.model";
+import { InterestedTourist, Itinerary } from "~/src/common/models/GuideItineraries/guideItineraries.model";
 
 
 export function useGuidePainel(authToken:string){
@@ -7,9 +7,16 @@ export function useGuidePainel(authToken:string){
     const { data, isLoading  } = useGuideItinerariesQuery(authToken);
 
     const itineraries: Itinerary[] = data || [];
+
+    const handleTouristButtonPress = () => {
+        //Abre o modal e carrega os turistas interessados do guia logado
+        //Provisóriamente, passa o authToken 
+        console.log("testando.")
+    }
   
     return {
         itineraries,
-        isLoading
+        isLoading,
+        handleTouristButtonPress
     }
 }

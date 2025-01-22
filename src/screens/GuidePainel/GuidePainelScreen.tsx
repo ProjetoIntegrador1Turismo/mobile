@@ -1,4 +1,4 @@
-import { FlatList, View } from "react-native";
+import { ActivityIndicator, FlatList, View } from "react-native";
 import { GuideItineraryActionCard } from '~/src/components/Guide/GuideItineraryActionCardList/GuideItineraryActionCard/GuideItineraryActionCard';
 import { useGuidePainel } from './GuidePainelScreenViewModel';
 import { Itinerary } from '~/src/common/models/GuideItineraries/guideItineraries.model';
@@ -11,7 +11,15 @@ interface GuidePainelScreenProps{
 
 export function GuidePainelScreen({ authToken }:GuidePainelScreenProps) {
 
-    const { itineraries, isLoading } = useGuidePainel(authToken);
+    const { itineraries, isLoading, handleTouristButtonPress } = useGuidePainel(authToken);
+
+    if (isLoading) {
+        return (
+          <View className='flex-1 items-center justify-center'>
+            <ActivityIndicator size='large' />
+          </View>
+        );
+    }
 
     return (
         <FlatList
@@ -19,7 +27,9 @@ export function GuidePainelScreen({ authToken }:GuidePainelScreenProps) {
             data={itineraries}
             keyExtractor={(itinerary: Itinerary) => itinerary.id.toString()}
             ListHeaderComponent={
-                <GuidePainelScreenHeaderComponent />
+                <GuidePainelScreenHeaderComponent
+                onPressTouristsButton={handleTouristButtonPress}
+                />
             }
             renderItem={ ({item}) => <GuideItineraryActionCard imageCoverUrl={item.imageCoverUrl} title={item.title} className="mb-[10px]" />}
             showsVerticalScrollIndicator={false}

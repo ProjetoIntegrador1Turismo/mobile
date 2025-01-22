@@ -5,7 +5,11 @@ import { CustomText } from "~/src/components/Text/CustomText";
 import { PeopleOutline } from "~/src/components/ExpoIcons/PeopleOutline";
 import { PlusIcon } from "~/src/components/ExpoIcons/Plus";
 
-export function GuidePainelScreenHeaderComponent(){
+interface GuidePainelScreenHeaderComponentProps{
+    onPressTouristsButton?: () => void;
+}
+
+export function GuidePainelScreenHeaderComponent({ onPressTouristsButton } : GuidePainelScreenHeaderComponentProps){
     return (
         <View className='bg-tl-bg p-4'>
             <View className='items-center'>
@@ -22,7 +26,7 @@ export function GuidePainelScreenHeaderComponent(){
             </View>
             <View className="items-center mb-[29px]">
                 <View className="pb-[24px]">
-                    <GradientBorderButton title="Turistas" className="w-[190px]" icon={<PeopleOutline />} />
+                    <GradientBorderButton onPress={onPressTouristsButton} title="Turistas" className="w-[190px]" icon={<PeopleOutline />} />
                 </View>
                 <View>
                     <GradientBorderButton title="Criar Roteiro" className="w-[200px]" icon={<PlusIcon />} />            
