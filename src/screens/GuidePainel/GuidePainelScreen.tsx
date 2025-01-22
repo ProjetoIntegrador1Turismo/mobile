@@ -3,6 +3,8 @@ import { GuideItineraryActionCard } from '~/src/components/Guide/GuideItineraryA
 import { useGuidePainel } from './GuidePainelScreenViewModel';
 import { Itinerary } from '~/src/common/models/GuideItineraries/guideItineraries.model';
 import { GuidePainelScreenHeaderComponent } from './GuidePainelScreenHeader/GuidePainelScreenHeaderComponent';
+import UnauthenticatedImage from "~/src/components/Auth/UnauthenticatedImage/UnauthenticatedImage";
+import { CustomText } from "~/src/components/Text/CustomText";
 
 
 interface GuidePainelScreenProps{
@@ -32,6 +34,12 @@ export function GuidePainelScreen({ authToken }:GuidePainelScreenProps) {
                 />
             }
             renderItem={ ({item}) => <GuideItineraryActionCard imageCoverUrl={item.imageCoverUrl} title={item.title} className="mb-[10px]" />}
+            ListEmptyComponent={
+                <View className='items-center justify-center'>
+                    <UnauthenticatedImage className='h-64 w-64 ' />          
+                    <CustomText className='text-white'>Você ainda não criou nenhum roteiro</CustomText>
+                </View>
+            }
             showsVerticalScrollIndicator={false}
             ListFooterComponent={<View className='h-[200px]' />}
         /> 
