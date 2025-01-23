@@ -12,12 +12,12 @@ import { CustomText } from 'src/components/Text/CustomText';
 
 import { useInterestPointScreenViewModel } from './InterestPointScreenViewModel';
 
-import { InterestPointGuidesSection } from '~/src/components/Guide/InterestPointGuidesSection/InterestPointGuidesSection';
-import { AddressLabel } from '~/src/components/InterestPoint/AddressLabel/AddressLabel';
-import { Price } from '~/src/components/Price/Price';
-import { Stars } from '~/src/components/Stars/Stars';
+import { InterestPointGuidesSection } from 'src/components/Guide/InterestPointGuidesSection/InterestPointGuidesSection';
+import { AddressLabel } from 'src/components/InterestPoint/AddressLabel/AddressLabel';
+import { Price } from 'src/components/Price/Price';
+import { Stars } from 'src/components/Stars/Stars';
 
-import { InterestPointCommentsSection } from '~/src/components/Comment/InterestPointCommentsSection/InterestPointCommentsSection';
+import { InterestPointCommentsSection } from 'src/components/Comment/InterestPointCommentsSection/InterestPointCommentsSection';
 
 interface InterestPointScreenProps {
   pointId: number;
