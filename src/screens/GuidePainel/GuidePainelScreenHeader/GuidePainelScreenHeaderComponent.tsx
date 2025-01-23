@@ -1,9 +1,9 @@
-import { View } from "react-native";
-import { GradientBorderButton } from "~/src/components/Button/GradientBorderButton/GradientBorderButton";
-import { LogoTl } from "~/src/components/Logo/LogoTL";
-import { CustomText } from "~/src/components/Text/CustomText";
-import { PeopleOutline } from "~/src/components/ExpoIcons/PeopleOutline";
-import { PlusIcon } from "~/src/components/ExpoIcons/Plus";
+import { View } from 'react-native';
+import { GradientBorderButton } from '~/src/components/Button/GradientBorderButton/GradientBorderButton';
+import { LogoTl } from '~/src/components/Logo/LogoTL';
+import { CustomText } from '~/src/components/Text/CustomText';
+import { PeopleOutline } from '~/src/components/ExpoIcons/PeopleOutline';
+import { PlusIcon } from '~/src/components/ExpoIcons/Plus';
 
 interface GuidePainelScreenHeaderComponentProps{
     onPressTouristsButton?: () => void;
@@ -24,15 +24,15 @@ export function GuidePainelScreenHeaderComponent({ onPressTouristsButton } : Gui
                     Opções:
                 </CustomText>
             </View>
-            <View className="items-center mb-[29px]">
-                <View className="pb-[24px]">
-                    <GradientBorderButton onPress={onPressTouristsButton} title="Turistas" className="w-[190px]" icon={<PeopleOutline />} />
+            <View className='items-center mb-[29px]'>
+                <View className='pb-[24px]'>
+                    <GradientBorderButton onPress={onPressTouristsButton} title='Turistas' className='w-[190px]' icon={<PeopleOutline />} />
                 </View>
                 <View>
-                    <GradientBorderButton title="Criar Roteiro" className="w-[200px]" icon={<PlusIcon />} />            
+                    <GradientBorderButton title='Criar Roteiro' className='w-[200px]' icon={<PlusIcon />} />            
                 </View>
             </View>
-            <CustomText className="text-white" size={24} weight="bold">
+            <CustomText className='text-white' size={24} weight='bold'>
                 Seus Roteiros:
             </CustomText>            
         </View>
