@@ -9,6 +9,14 @@ export const storeObject = async (key: string, obj: object) => {
   }
 };
 
+export const storeString = async (key: string, string: string) => {
+  try {
+    await AsyncStorage.setItem(key, string);
+  } catch (error) {
+    console.warn(`Erro ao salvar string ${key}, ${error}`);
+  }
+};
+
 export const getObject = async (key: string): Promise<UserModel | null> => {
   try {
     const jsonString = await AsyncStorage.getItem(key);
@@ -20,6 +28,16 @@ export const getObject = async (key: string): Promise<UserModel | null> => {
     return null;
   }
   return null;
+};
+
+export const getString = async (key: string): Promise<string | null> => {
+  try {
+    const string = await AsyncStorage.getItem(key);
+    return string;
+  } catch (error) {
+    console.warn(`Erro ao ler string ${key}, ${error}`);
+    return null;
+  }
 };
 
 export const deleteEntry = async (key: string) => {
