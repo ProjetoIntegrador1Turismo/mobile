@@ -20,7 +20,7 @@ export function InterestPointCommentCard({
   return (
     <View className='flex max-h-[200px] min-h-[120px] w-[360px] flex-col rounded-lg bg-[#1C1C1E] p-4'>
       <View className='mb-2'>
-        <CustomText className='text-primary-500' weight='regular' size={14}>
+        <CustomText className='text-white' weight='regular' size={14}>
           {interestPoint.name}
         </CustomText>
       </View>

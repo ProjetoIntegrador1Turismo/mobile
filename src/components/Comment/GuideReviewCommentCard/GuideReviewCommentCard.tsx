@@ -24,7 +24,7 @@ export function GuideReviewCommentCard({
           Guia:
         </CustomText>
         <Avatar imageUrl={guide.avatarUrl} size={24} />
-        <CustomText className='text-primary-500 ml-2' weight='regular' size={14}>
+        <CustomText className='text-white ml-2' weight='regular' size={14}>
           {guide.name}
         </CustomText>
       </View>
