@@ -1,10 +1,10 @@
-import { ActivityIndicator, FlatList, View } from "react-native";
+import { ActivityIndicator, FlatList, View } from 'react-native';
 import { GuideItineraryActionCard } from '~/src/components/Guide/GuideItineraryActionCardList/GuideItineraryActionCard/GuideItineraryActionCard';
-import { useGuidePainel } from './GuidePainelScreenViewModel';
+import { useGuidePainel } from '~/src/screens/GuidePainel/GuidePainelScreenViewModel';
 import { Itinerary } from '~/src/common/models/GuideItineraries/guideItineraries.model';
-import { GuidePainelScreenHeaderComponent } from './GuidePainelScreenHeader/GuidePainelScreenHeaderComponent';
-import UnauthenticatedImage from "~/src/components/Auth/UnauthenticatedImage/UnauthenticatedImage";
-import { CustomText } from "~/src/components/Text/CustomText";
+import { GuidePainelScreenHeaderComponent } from '~/src/screens/GuidePainel/GuidePainelScreenHeader/GuidePainelScreenHeaderComponent';
+import UnauthenticatedImage from '~/src/components/Auth/UnauthenticatedImage/UnauthenticatedImage';
+import { CustomText } from '~/src/components/Text/CustomText';
 
 
 interface GuidePainelScreenProps{
