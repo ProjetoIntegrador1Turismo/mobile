@@ -42,10 +42,13 @@ export const useEditProfileViewModel = () => {
 
         uploadProfilePicture(imageUri, {
           onSuccess: (data) => {
-            console.log('Upload successful:', data);
+            updateUser({
+              profileImageUrl: data,
+            });
             Toast.show({
               type: 'success',
-              text1: 'Foto de perfil atualizada!',
+              text1: 'Sucesso!',
+              text2: 'Sua foto de perfil foi atualizada com sucesso!',
             });
           },
           onError: (error) => {
