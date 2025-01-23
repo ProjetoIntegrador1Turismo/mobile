@@ -35,7 +35,7 @@ export function InterestPointCommentsSection({ comments, pointId }: InterestPoin
       <View className='flex flex-row items-center justify-between'>
         <View>
           <CustomText className='text-white' size={24} weight='bold'>
-            Reviews:
+            Comentários:
           </CustomText>
           <CustomText className='text-white' size={14} weight='regular'>
             Avaliações do Usuários!
