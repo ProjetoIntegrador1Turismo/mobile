@@ -1,3 +1,4 @@
+import 'react-native-get-random-values';
 import { Platform } from 'react-native';
 import RegisterModel from 'src/common/models/register.model';
 import UserModel from 'src/common/models/user.model';
@@ -11,8 +12,8 @@ import {
 import { api } from 'src/common/repositories/client';
 import { v4 as uuidv4 } from 'uuid';
 
+import { GetMeModel } from '../../models/getme.model';
 import UpdateModel from '../../models/update.model';
-import { useAuthStore } from '../../stores/AuthStore';
 import { nameSplit } from '../../utils/nameSplit';
 
 export const Login = async ({ username, password }: LoginDTO): Promise<UserModel> => {
@@ -66,7 +67,6 @@ export const UpdateProfile = async ({ name, password, phone }: UpdateProfileDTO)
     {
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${useAuthStore.getState().user?.authToken}`,
       },
     }
   );
@@ -91,7 +91,6 @@ export const UploadProfilePicture = async (uri: string) => {
     const { data } = await api.post<string>('/file/upload/user', payload, {
       headers: {
         'Content-Type': 'multipart/form-data',
-        Authorization: `Bearer ${useAuthStore.getState().user?.authToken}`,
       },
     });
 
@@ -100,4 +99,24 @@ export const UploadProfilePicture = async (uri: string) => {
     console.error('Upload API error:', error);
     throw error;
   }
+};
+
+export const RefreshToken = async (refresh_token: string): Promise<UserModel> => {
+  const response = await fetch(
+    `http://104.236.219.8:8081/auth/refresh?refreshToken=${refresh_token}`,
+    {
+      method: 'POST',
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error('Refresh token failed');
+  }
+
+  return response.json();
+};
+
+export const GetMe = async (): Promise<GetMeModel> => {
+  const { data } = await api.get<GetMeModel>('/user/me');
+  return data;
 };
