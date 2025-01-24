@@ -5,10 +5,20 @@ import { TopGuideCardProps } from 'src/components/Guide/TopGuideCard/TopGuideCar
 import { CustomText } from 'src/components/Text/CustomText';
 import { Avatar } from 'src/components/Avatar/Avatar';
 import { Stars } from 'src/components/Stars/Stars';
+import { useAppRouter } from 'src/common/lib/router';
 
-export function TopGuideCard({ id, profileImage, name, rating, onClick }: TopGuideCardProps) {
+export function TopGuideCard({ id, profileImage, name, rating }: TopGuideCardProps) {
+  const router = useAppRouter();
+
+  const handleGuidePress = () => {
+    router.replace('/(tabs)/(search)');
+    setTimeout(() => {
+      router.push(`/(tabs)/(search)/guide-profile/${id}`);
+    }, 0);
+  };
+
   return (
-    <TouchableOpacity onPress={onClick}>
+    <TouchableOpacity onPress={handleGuidePress}>
       <View className='flex h-[55px] w-[362px] flex-row items-center rounded-xl border border-white px-2 py-2'>
         <Avatar imageUrl={profileImage} size={40} />
 

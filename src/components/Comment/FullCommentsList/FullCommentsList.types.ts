@@ -1,16 +1,14 @@
-interface Comment {
-  id: number;
-  text: string;
-  wasVisitingDate: string;
-  rating: number;
-  tourist: {
-    id: number;
-    touristName: string;
-    profileImageUrl: string;
-  };
-}
+import { Comment } from 'src/common/models/comment.model';
 
 export interface FullCommentsListProps {
   comments: Comment[];
   onClose: () => void;
+}
+
+export interface FullCommentsListViewModelProps {
+  onClose: () => void;
+}
+
+export interface FullCommentsListViewModel {
+  handleClose: () => void;
 }

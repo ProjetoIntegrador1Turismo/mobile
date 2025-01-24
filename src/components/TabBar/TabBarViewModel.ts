@@ -2,6 +2,7 @@ import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import { useState, useEffect } from 'react';
 import { LayoutChangeEvent } from 'react-native';
 import { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
+
 export const useTabBarViewModel = ({ state, descriptors, navigation }: BottomTabBarProps) => {
   const [Dimensions, setDimensions] = useState<{ width: number; height: number }>({
     height: 20,
@@ -26,14 +27,14 @@ export const useTabBarViewModel = ({ state, descriptors, navigation }: BottomTab
 
   useEffect(() => {
     TabPositionX.value = withSpring(buttonWidth * state.index, {
-      duration: 1300,
-      dampingRatio: 0.8,
-      stiffness: 90,
-      overshootClamping: false,
-      restDisplacementThreshold: 0.01,
-      restSpeedThreshold: 2,
+      duration: 300,
+      dampingRatio: 1,
+      stiffness: 120,
+      overshootClamping: true,
+      restDisplacementThreshold: 0.001,
+      restSpeedThreshold: 0.001,
     });
-  }, [state.index]);
+  }, [state.index, buttonWidth]);
 
   const tabs = state.routes.map((route, index) => {
     const isFocused = state.index === index;
