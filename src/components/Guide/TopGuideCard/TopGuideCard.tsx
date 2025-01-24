@@ -7,12 +7,14 @@ import { Avatar } from 'src/components/Avatar/Avatar';
 import { Stars } from 'src/components/Stars/Stars';
 import { useAppRouter } from 'src/common/lib/router';
 
-export function TopGuideCard({ id, profileImage, name, rating, onClick }: TopGuideCardProps) {
+export function TopGuideCard({ id, profileImage, name, rating }: TopGuideCardProps) {
   const router = useAppRouter();
 
   const handleGuidePress = () => {
-    router.replace(`/(tabs)/(search)/guide-profile/${id}`);
-    onClick?.();
+    router.replace('/(tabs)/(search)');
+    setTimeout(() => {
+      router.push(`/(tabs)/(search)/guide-profile/${id}`);
+    }, 0);
   };
 
   return (
