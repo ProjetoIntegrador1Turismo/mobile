@@ -3,9 +3,9 @@ import { CategoryDetailModel } from '~/src/common/models/Category/categoryDetail
 import { fetchPaginatedPoints } from '~/src/common/repositories/paginated/paginated.repository'
 
 
-export const useCategoryDetailQuery = (pointType: string, page: number) => {
+export const useCategoryDetailQuery = (pointType: string) => {
     return useQuery<CategoryDetailModel>({
         queryKey: ['category', pointType],
-        queryFn: () => fetchPaginatedPoints(pointType, page)
+        queryFn: () => fetchPaginatedPoints(pointType)
     })
 }
