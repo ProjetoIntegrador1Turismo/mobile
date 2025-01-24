@@ -144,11 +144,11 @@ export function InterestPointScreen({ pointId }: InterestPointScreenProps) {
                 </CustomText>
               </View>
 
-              <View className='mt-8'>
+              <View className='mt-8 w-full items-center'>
                 <InterestPointGuidesSection guides={guides || []} pointId={pointId} />
               </View>
 
-              <View className='mt-8'>
+              <View className='mt-8 w-full items-center'>
                 <InterestPointCommentsSection comments={comments || []} pointId={pointId} />
               </View>
               
