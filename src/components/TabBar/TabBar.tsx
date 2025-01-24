@@ -24,12 +24,14 @@ export function TabBar({ state, navigation, descriptors, insets }: BottomTabBarP
 
   return (
     <View onLayout={onTabBarLayout} style={styles.TabBar}>
-      <AnimatedLinearGradient
-        style={[dynamicAnimatedTabBgStyle, animatedTabPositionStyle, styles.AnimatedBg]}
-        colors={[colors.TlRed, colors.TlPurple]}
-        start={{ x: 0, y: 0.5 }}
-        end={{ x: 1, y: 0.5 }}
-      />
+      <View style={styles.BackgroundContainer}>
+        <AnimatedLinearGradient
+          style={[dynamicAnimatedTabBgStyle, animatedTabPositionStyle, styles.AnimatedBg]}
+          colors={[colors.TlRed, colors.TlPurple]}
+          start={{ x: 0, y: 0.5 }}
+          end={{ x: 1, y: 0.5 }}
+        />
+      </View>
       {tabs.map(({ label, onPress, onLongPress, isFocused, routeName }) => (
         <TabBarItem
           key={routeName}
@@ -57,8 +59,16 @@ const styles = StyleSheet.create({
     borderRadius: 50,
   },
   AnimatedBg: {
-    position: 'absolute',
     borderRadius: 50,
-    marginHorizontal: 12,
+    position: 'absolute',
+  },
+  BackgroundContainer: {
+    position: 'absolute',
+    top: 10,
+    left: 12,
+    right: 12,
+    bottom: 10,
+    overflow: 'hidden',
+    borderRadius: 50,
   },
 });

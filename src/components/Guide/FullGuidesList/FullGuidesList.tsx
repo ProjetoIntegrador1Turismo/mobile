@@ -14,10 +14,9 @@ export function FullGuidesList({ guides, onClose }: FullGuidesListProps) {
   const router = useAppRouter();
   const pointId = 4;
 
-  const handleGuidePress = () => {
+  const handleGuidePress = (guideId: number) => {
     onClose();
-    router.goBack();
-    router.push(`/(tabs)/(search)/point/4`);
+    router.push(`/(tabs)/(search)/guide-profile/${guideId}`);
   };
 
   return (
@@ -48,7 +47,7 @@ export function FullGuidesList({ guides, onClose }: FullGuidesListProps) {
                 profileImage={guide.profileImageUrl}
                 name={`${guide.firstName} ${guide.lastName}`}
                 rating={guide.averageRating}
-                onClick={handleGuidePress}
+                onClick={() => handleGuidePress(guide.id)}
               />
             </View>
           ))

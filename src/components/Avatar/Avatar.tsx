@@ -3,7 +3,7 @@ import { Image } from 'react-native';
 import { BASE_URL } from '~/src/common/repositories/client';
 
 interface AvatarProps {
-  imageUrl: string;
+  imageUrl?: string;
   size?: number;
 }
 

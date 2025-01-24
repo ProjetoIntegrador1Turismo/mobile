@@ -3,9 +3,10 @@
 export interface GuideItineraryCardProps {
   guide: {
     name: string;
-    profileImage: string;
+    profileImage?: string;
   };
   title: string;
   backgroundImage: string;
-  onPress: () => void;
+  itineraryId: number;
+  onPress?: () => void;
 }
