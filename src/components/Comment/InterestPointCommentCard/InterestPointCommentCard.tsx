@@ -7,13 +7,13 @@ import { Stars } from 'src/components/Stars/Stars';
 import { CustomText } from 'src/components/Text/CustomText';
 import { Entypo } from '@expo/vector-icons';
 
-export function InterestPointCommentCard({ 
-  name, 
-  date, 
-  text, 
-  rating, 
+export function InterestPointCommentCard({
+  name,
+  date,
+  text,
+  rating,
   avatarUrl,
-  interestPoint 
+  interestPoint,
 }: InterestPointCommentCardProps) {
   const { handleOptionsPress } = useInterestPointCommentCardViewModel();
 

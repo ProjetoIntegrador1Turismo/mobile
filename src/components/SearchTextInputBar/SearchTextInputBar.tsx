@@ -5,10 +5,14 @@ import { useRef } from 'react';
 interface SearchTextInputBarProps {
   onChangeText?: (search: string) => void;
   onSubmitEditing?: (search: string) => void;
-  placeholder?: string,
+  placeholder?: string;
 }
 
-export function SearchTextInputBar({ onChangeText, onSubmitEditing, placeholder }: SearchTextInputBarProps) {
+export function SearchTextInputBar({
+  onChangeText,
+  onSubmitEditing,
+  placeholder,
+}: SearchTextInputBarProps) {
   const textInputRef = useRef<TextInput>(null);
 
   return (
@@ -20,8 +24,8 @@ export function SearchTextInputBar({ onChangeText, onSubmitEditing, placeholder 
           placeholderTextColor={'#464646'}
           className='flex-1 pl-[11px] text-white'
           onChangeText={(text) => {
-            if(onChangeText){
-              onChangeText(text)
+            if (onChangeText) {
+              onChangeText(text);
             }
           }}
           onSubmitEditing={(event) => {

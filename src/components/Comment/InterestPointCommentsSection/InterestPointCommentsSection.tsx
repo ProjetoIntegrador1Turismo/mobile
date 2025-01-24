@@ -22,7 +22,10 @@ interface InterestPointCommentsSectionProps {
   pointId: number;
 }
 
-export function InterestPointCommentsSection({ comments, pointId }: InterestPointCommentsSectionProps) {
+export function InterestPointCommentsSection({
+  comments,
+  pointId,
+}: InterestPointCommentsSectionProps) {
   const hasComments = comments.length > 0;
   const router = useAppRouter();
 

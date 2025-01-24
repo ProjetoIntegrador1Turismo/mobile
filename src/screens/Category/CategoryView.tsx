@@ -4,7 +4,6 @@ import { SearchTextInputBar } from '~/src/components/SearchTextInputBar/SearchTe
 import { onMakeSearchOrder } from './CategoryViewViewModel';
 
 export default function CategoryView() {
-
   const { handleOnMakeSearchOrder } = onMakeSearchOrder();
 
   return (

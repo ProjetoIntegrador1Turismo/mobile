@@ -2,16 +2,15 @@ import { useEffect, useMemo, useState } from 'react';
 import { useCategoryDetailQuery } from '~/src/common/hooks/queries/useCategoryDetailQuery';
 import { CategoryDetailModel, Content } from '~/src/common/models/Category/categoryDetail.model';
 
-export function useCategoryDetailsScreenViewModel(categoryTitle: string) {  
-
-  const { data: originalData, isLoading  } = useCategoryDetailQuery(categoryTitle);
+export function useCategoryDetailsScreenViewModel(categoryTitle: string) {
+  const { data: originalData, isLoading } = useCategoryDetailQuery(categoryTitle);
   const [searchText, setSearchText] = useState('');
   const [debouncedSearchText, setDebouncedSearchText] = useState('');
 
   useEffect(() => {
     const handler = setTimeout(() => {
       setDebouncedSearchText(searchText);
-    }, 1000); 
+    }, 1000);
 
     return () => clearTimeout(handler); // Limpa o timeout se o texto mudar antes de 1 segundo
   }, [searchText]);
@@ -29,13 +28,11 @@ export function useCategoryDetailsScreenViewModel(categoryTitle: string) {
 
   const handleSearchAction = (search: string) => {
     setSearchText(search);
-  }
-
-  
+  };
 
   return {
     isLoading,
     data: filteredData,
-    handleSearchAction
+    handleSearchAction,
   };
 }

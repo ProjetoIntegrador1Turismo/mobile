@@ -9,7 +9,7 @@ export default function FullItineraryReviewsScreen() {
   const { reviews } = useItineraryScreenViewModel({ itineraryId: Number(itineraryId) });
 
   return (
-    <View className="flex-1 bg-black/50">
+    <View className='flex-1 bg-black/50'>
       <FullReviewsList reviews={reviews || []} onClose={() => router.back()} />
     </View>
   );

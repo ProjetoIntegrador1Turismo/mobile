@@ -3,26 +3,17 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 import { CustomText } from '~/src/components/Text/CustomText';
 import { BasicPointCardProps } from '~/src/components/Point/BasicPoint/BasicPointCard.types';
 import Entypo from '@expo/vector-icons/Entypo';
-import { truncatedPointName, onPressPointCard } from '~/src/components/Point/BasicPoint/BasicPointCardViewModel';
+import {
+  truncatedPointName,
+  onPressPointCard,
+} from '~/src/components/Point/BasicPoint/BasicPointCardViewModel';
 import { AverageValue } from '~/src/components/Price/AverageValue/AverageValue';
 import { cn } from '~/src/common/utils/cn';
 import { Content } from '~/src/common/models/Category/categoryDetail.model';
 import { BASE_URL } from '~/src/common/repositories/client';
 
-export function BasicPointCard({
-  data,
-  className,
-}: {
-  data: Content;
-  className?: string;
-}) {
-  const {
-    name,
-    title,
-    averageRating,
-    averageValue,
-    imageCoverUrl,
-    id } = data;
+export function BasicPointCard({ data, className }: { data: Content; className?: string }) {
+  const { name, title, averageRating, averageValue, imageCoverUrl, id } = data;
   const { handlePressPointCard } = onPressPointCard();
   const displayName = title || name;
   return (

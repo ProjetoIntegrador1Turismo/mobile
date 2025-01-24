@@ -25,7 +25,7 @@ export function FullReviewsList({ reviews, onClose }: FullReviewsListProps) {
           Todas as avaliações deste guia
         </CustomText>
 
-        <View className="gap-y-4">
+        <View className='gap-y-4'>
           {reviews.map((review) => (
             <ReviewCard
               key={review.id}

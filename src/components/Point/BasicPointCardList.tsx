@@ -1,9 +1,8 @@
 import { FlatList, View } from 'react-native';
 import { BasicPointCard } from './BasicPoint/BasicPointCard';
-import { CategoryDetailModel, Content } from "~/src/common/models/Category/categoryDetail.model";
+import { CategoryDetailModel, Content } from '~/src/common/models/Category/categoryDetail.model';
 
 export default function BasicPointCardList(data: CategoryDetailModel) {
-
   return (
     <FlatList
       data={data.content}

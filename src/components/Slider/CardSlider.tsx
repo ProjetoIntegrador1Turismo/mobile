@@ -22,7 +22,7 @@ export function CardSlider<T>({
   ItemSeparatorComponent,
   className,
   initialIndex = 0,
-  keyExtractor
+  keyExtractor,
 }: CardSliderProps<T>) {
   const flatListRef = useRef<FlatList>(null);
 

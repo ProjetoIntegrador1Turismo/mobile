@@ -1,15 +1,13 @@
-import { useGuideItinerariesQuery } from "~/src/common/hooks/queries/useGuideItinerariesQuery"
-import { Itinerary } from "~/src/common/models/GuideItineraries/guideItineraries.model";
+import { useGuideItinerariesQuery } from '~/src/common/hooks/queries/useGuideItinerariesQuery';
+import { Itinerary } from '~/src/common/models/GuideItineraries/guideItineraries.model';
 
+export function useGuideItineraryActionCardList(authToken: string) {
+  const { data, isLoading } = useGuideItinerariesQuery(authToken);
 
-export function useGuideItineraryActionCardList(authToken:string){
+  const itineraries: Itinerary[] = data || [];
 
-    const { data, isLoading  } = useGuideItinerariesQuery(authToken);
-
-    const itineraries: Itinerary[] = data || [];
-
-    return {
-        itineraries,
-        isLoading
-    }
+  return {
+    itineraries,
+    isLoading,
+  };
 }

@@ -1,5 +1,5 @@
-export interface GuideItineraryActionCardProps{
-    title:string;
-    imageCoverUrl:string;
-    className?:string;
+export interface GuideItineraryActionCardProps {
+  title: string;
+  imageCoverUrl: string;
+  className?: string;
 }

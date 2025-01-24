@@ -10,29 +10,28 @@ export function FullCommentsList({ comments, onClose }: FullCommentsListProps) {
   const { handleClose } = useFullCommentsListViewModel({ onClose });
 
   return (
-    <View className="flex-1 bg-[#171717] pt-12">
-      <View className="flex-row items-center justify-between border-b border-gray-800 px-4 py-4">
+    <View className='flex-1 bg-[#171717] pt-12'>
+      <View className='flex-row items-center justify-between border-b border-gray-800 px-4 py-4'>
         <TouchableOpacity onPress={handleClose}>
-          <AntDesign name="close" size={24} color="white" />
+          <AntDesign name='close' size={24} color='white' />
         </TouchableOpacity>
-        <CustomText size={18} weight="bold" className="text-white">
+        <CustomText size={18} weight='bold' className='text-white'>
           Avaliações
         </CustomText>
         <View style={{ width: 24 }} />
       </View>
-      
-      <ScrollView 
-        className="flex-1 px-4"
+
+      <ScrollView
+        className='flex-1 px-4'
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ paddingVertical: 20 }}
-      >
-        <CustomText size={16} weight="regular" className="mb-4 text-gray-300">
+        contentContainerStyle={{ paddingVertical: 20 }}>
+        <CustomText size={16} weight='regular' className='mb-4 text-gray-300'>
           {comments.length} avaliações de visitantes
         </CustomText>
 
         {comments && comments.length > 0 ? (
           comments.map((comment) => (
-            <View key={comment.id} className="mb-3">
+            <View key={comment.id} className='mb-3'>
               <CommentCard
                 name={comment.tourist.touristName}
                 date={comment.wasVisitingDate}
@@ -43,8 +42,8 @@ export function FullCommentsList({ comments, onClose }: FullCommentsListProps) {
             </View>
           ))
         ) : (
-          <View className="mt-2 rounded-xl border border-gray-700 bg-[#1C1C1E] p-4">
-            <CustomText className="text-center text-gray-400" size={14} weight="regular">
+          <View className='mt-2 rounded-xl border border-gray-700 bg-[#1C1C1E] p-4'>
+            <CustomText className='text-center text-gray-400' size={14} weight='regular'>
               Nenhuma avaliação disponível ainda!
             </CustomText>
           </View>

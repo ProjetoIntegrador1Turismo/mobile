@@ -7,24 +7,24 @@ import { Stars } from 'src/components/Stars/Stars';
 import { CustomText } from 'src/components/Text/CustomText';
 import { Entypo } from '@expo/vector-icons';
 
-export function GuideReviewCommentCard({ 
-  name, 
-  date, 
-  text, 
-  rating, 
+export function GuideReviewCommentCard({
+  name,
+  date,
+  text,
+  rating,
   avatarUrl,
-  guide 
+  guide,
 }: GuideReviewCommentCardProps) {
   const { handleOptionsPress } = useGuideReviewCommentCardViewModel();
 
   return (
     <View className='flex max-h-[200px] min-h-[120px] w-[360px] flex-col rounded-lg bg-[#1C1C1E] p-4'>
       <View className='mb-2 flex-row items-center'>
-        <CustomText className='text-white mr-2' weight='regular' size={14}>
+        <CustomText className='mr-2 text-white' weight='regular' size={14}>
           Guia:
         </CustomText>
         <Avatar imageUrl={guide.avatarUrl} size={24} />
-        <CustomText className='text-white ml-2' weight='regular' size={14}>
+        <CustomText className='ml-2 text-white' weight='regular' size={14}>
           {guide.name}
         </CustomText>
       </View>

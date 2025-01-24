@@ -1,4 +1,4 @@
-import { useAppRouter } from "~/src/common/lib/router";
+import { useAppRouter } from '~/src/common/lib/router';
 
 const truncatedPointName = (pointName: string | undefined, maxNameLength: number) => {
   if (!pointName) return '';
@@ -7,17 +7,14 @@ const truncatedPointName = (pointName: string | undefined, maxNameLength: number
     : pointName;
 };
 
-function onPressPointCard(){
-  const { push } = useAppRouter();    
+function onPressPointCard() {
+  const { push } = useAppRouter();
   async function handlePressPointCard(id: number) {
-      push(`/point/${id}`)
+    push(`/point/${id}`);
   }
   return {
-      handlePressPointCard,
+    handlePressPointCard,
   };
-};
-
-
-
+}
 
 export { truncatedPointName, onPressPointCard };

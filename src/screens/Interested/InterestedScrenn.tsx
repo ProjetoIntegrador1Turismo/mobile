@@ -8,12 +8,11 @@ import { UnselectedItinerary } from '~/src/components/InterestedItinerary/unsele
 import UnauthenticatedImage from '~/src/components/Auth/UnauthenticatedImage/UnauthenticatedImage';
 
 interface InterestedScreenProps {
-  authToken:string
+  authToken: string;
 }
 
 export function InterestedScreen({ authToken }: InterestedScreenProps) {
-  
-  const { data, handleDeleteItinerary, isLoading, error } = useInterestedScreenViewModel(authToken); 
+  const { data, handleDeleteItinerary, isLoading, error } = useInterestedScreenViewModel(authToken);
   const axiosError = error as any;
 
   return (
@@ -28,30 +27,23 @@ export function InterestedScreen({ authToken }: InterestedScreenProps) {
         </CustomText>
       </View>
       <SearchTextInputBar placeholder='Pesquise seu roteiro' />
-      {
-        isLoading ? (
-          <View className='flex-1 items-center justify-center'>
-            <ActivityIndicator size='large' />
-          </View>
-        ) : (
-          axiosError.response.status === 401 ? (
-            <View className='items-center justify-center'>
-              <UnauthenticatedImage className='h-64 w-64 mt-8' />          
-              <CustomText className='text-white'>Login expirado. Autentique novamente.</CustomText>
-            </View>
-          ) : (
-            data?.interestedItineraries && data.interestedItineraries.length > 0 ? (
-              <InterestedItineraryCardList
-                interestedItineraries={data.interestedItineraries}
-                handleDeleteItinerary={handleDeleteItinerary}
-              />
-            ) : (
-              <UnselectedItinerary />
-            )
-
-          )
-        )
-      }
+      {isLoading ? (
+        <View className='flex-1 items-center justify-center'>
+          <ActivityIndicator size='large' />
+        </View>
+      ) : axiosError.response.status === 401 ? (
+        <View className='items-center justify-center'>
+          <UnauthenticatedImage className='mt-8 h-64 w-64' />
+          <CustomText className='text-white'>Login expirado. Autentique novamente.</CustomText>
+        </View>
+      ) : data?.interestedItineraries && data.interestedItineraries.length > 0 ? (
+        <InterestedItineraryCardList
+          interestedItineraries={data.interestedItineraries}
+          handleDeleteItinerary={handleDeleteItinerary}
+        />
+      ) : (
+        <UnselectedItinerary />
+      )}
     </View>
   );
 }

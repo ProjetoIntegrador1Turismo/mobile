@@ -151,7 +151,6 @@ export function InterestPointScreen({ pointId }: InterestPointScreenProps) {
               <View className='mt-8'>
                 <InterestPointCommentsSection comments={comments || []} pointId={pointId} />
               </View>
-              
             </View>
           </View>
         </View>

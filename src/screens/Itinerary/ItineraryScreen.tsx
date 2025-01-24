@@ -22,15 +22,15 @@ export function ItineraryScreen({ itineraryId }: ItineraryScreenProps) {
 
   if (isLoading) {
     return (
-      <View className="flex-1 items-center justify-center bg-[#171717]">
-        <ActivityIndicator size="large" />
+      <View className='flex-1 items-center justify-center bg-[#171717]'>
+        <ActivityIndicator size='large' />
       </View>
     );
   }
 
   if (isError || !itinerary || !guide) {
     return (
-      <View className="flex-1 items-center justify-center bg-[#171717]">
+      <View className='flex-1 items-center justify-center bg-[#171717]'>
         <Text>Error: Itinerary not found</Text>
       </View>
     );
@@ -38,70 +38,70 @@ export function ItineraryScreen({ itineraryId }: ItineraryScreenProps) {
 
   return (
     <ScrollView
-      className="flex-1 bg-[#171717]"
+      className='flex-1 bg-[#171717]'
       showsVerticalScrollIndicator={false}
       contentContainerStyle={{ paddingBottom: 120 }}
       automaticallyAdjustContentInsets={false}>
-      <View className="flex-1">
-        <View className="relative h-24">
-          <View className="absolute left-4 top-12 z-10">
+      <View className='flex-1'>
+        <View className='relative h-24'>
+          <View className='absolute left-4 top-12 z-10'>
             <GoBackButton />
           </View>
-          <View className="absolute left-0 right-0 top-12 z-0 flex items-center justify-center">
+          <View className='absolute left-0 right-0 top-12 z-0 flex items-center justify-center'>
             <LogoTl />
           </View>
         </View>
 
-        <View className="mt-6 px-6">
-          <CustomText size={24} weight="bold" className="text-white">
+        <View className='mt-6 px-6'>
+          <CustomText size={24} weight='bold' className='text-white'>
             Roteiro
           </CustomText>
-          <CustomText size={20} weight="regular" className="mt-1 text-white">
+          <CustomText size={20} weight='regular' className='mt-1 text-white'>
             {itinerary.title}
           </CustomText>
 
-          <View className="mt-4">
+          <View className='mt-4'>
             <ImageBackground
               source={{ uri: `${BASE_URL}${itinerary.imageCoverUrl}` }}
-              className="h-48 w-full overflow-hidden rounded-xl"
-              resizeMode="cover"
+              className='h-48 w-full overflow-hidden rounded-xl'
+              resizeMode='cover'
             />
           </View>
 
-          <View className="mt-4">
-            <TLGradientButton title="Tenho Interesse!" className="w-full" />
+          <View className='mt-4'>
+            <TLGradientButton title='Tenho Interesse!' className='w-full' />
           </View>
 
-          <View className="mt-6 flex-row items-center justify-between">
+          <View className='mt-6 flex-row items-center justify-between'>
             <View>
-              <CustomText size={16} weight="regular" className="text-gray-400">
+              <CustomText size={16} weight='regular' className='text-gray-400'>
                 Preço:
               </CustomText>
-              <View className="flex-row">
+              <View className='flex-row'>
                 <AverageValue value={itinerary.mediumCost} />
               </View>
             </View>
             <View>
-              <CustomText size={16} weight="regular" className="text-gray-400">
+              <CustomText size={16} weight='regular' className='text-gray-400'>
                 Duração:
               </CustomText>
-              <CustomText size={20} weight="bold" className="text-white">
+              <CustomText size={20} weight='bold' className='text-white'>
                 {itinerary.days} {itinerary.days === 1 ? 'Dia' : 'Dias'}
               </CustomText>
             </View>
           </View>
 
-          <View className="mt-6">
-            <CustomText size={20} weight="bold" className="mb-2 text-white">
+          <View className='mt-6'>
+            <CustomText size={20} weight='bold' className='mb-2 text-white'>
               Descrição
             </CustomText>
-            <CustomText size={16} weight="regular" className="text-gray-300">
+            <CustomText size={16} weight='regular' className='text-gray-300'>
               {itinerary.description}
             </CustomText>
           </View>
 
-          <View className="mt-6">
-            <CustomText size={20} weight="bold" className="mb-4 text-white">
+          <View className='mt-6'>
+            <CustomText size={20} weight='bold' className='mb-4 text-white'>
               Ofertado por:
             </CustomText>
             <TopGuideCard
@@ -113,11 +113,11 @@ export function ItineraryScreen({ itineraryId }: ItineraryScreenProps) {
             />
           </View>
 
-          <View className="mt-6">
-            <CustomText size={20} weight="bold" className="mb-4 text-white">
+          <View className='mt-6'>
+            <CustomText size={20} weight='bold' className='mb-4 text-white'>
               Atrações Incluídas
             </CustomText>
-            <View className="gap-y-4">
+            <View className='gap-y-4'>
               {itinerary.interestPoints.map((point) => (
                 <ItineraryPointCard
                   key={point.id}
@@ -132,24 +132,24 @@ export function ItineraryScreen({ itineraryId }: ItineraryScreenProps) {
           </View>
 
           {reviews && reviews.length > 0 && (
-            <View className="mt-8 w-full">
-              <View className="flex-row items-center justify-between">
+            <View className='mt-8 w-full'>
+              <View className='flex-row items-center justify-between'>
                 <View>
-                  <CustomText className="text-white" size={24} weight="bold">
+                  <CustomText className='text-white' size={24} weight='bold'>
                     Avaliações
                   </CustomText>
-                  <CustomText className="text-white" size={14} weight="regular">
+                  <CustomText className='text-white' size={14} weight='regular'>
                     O que os turistas acharam!
                   </CustomText>
                 </View>
                 {reviews.length > 3 && (
-                  <CustomText className="text-gray-400" size={14} weight="regular">
+                  <CustomText className='text-gray-400' size={14} weight='regular'>
                     {reviews.length} avaliações
                   </CustomText>
                 )}
               </View>
 
-              <View className="mt-4 gap-y-4">
+              <View className='mt-4 gap-y-4'>
                 {reviews.slice(0, 3).map((review) => (
                   <ReviewCard
                     key={review.id}
@@ -163,12 +163,14 @@ export function ItineraryScreen({ itineraryId }: ItineraryScreenProps) {
               </View>
 
               {reviews.length > 3 && (
-                <View className="mt-4 items-center">
+                <View className='mt-4 items-center'>
                   <SolidButton
-                    title="Ver mais avaliações"
-                    size="sm"
-                    color="white"
-                    onPress={() => router.push(`/(modals)/full-reviews-list?itineraryId=${itinerary.id}`)}
+                    title='Ver mais avaliações'
+                    size='sm'
+                    color='white'
+                    onPress={() =>
+                      router.push(`/(modals)/full-reviews-list?itineraryId=${itinerary.id}`)
+                    }
                   />
                 </View>
               )}

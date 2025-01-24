@@ -13,7 +13,7 @@ export function InterestedItineraryCard({
   guideName,
   itineraryTitle,
   itineraryImgUrl,
-  onDelete
+  onDelete,
 }: InterestedItineraryCardProps) {
   const { truncatedName, handleSeeDetails } = useInterestedItineraryCardViewModel();
 
@@ -41,9 +41,7 @@ export function InterestedItineraryCard({
           <TouchableOpacity>
             <EvilIcons className='mr-12' name='external-link' size={45} color='#3371E3' />
           </TouchableOpacity>
-          <TouchableOpacity
-            onPress={onDelete}
-            >
+          <TouchableOpacity onPress={onDelete}>
             <Feather name='trash-2' size={32} color='#E22929' />
           </TouchableOpacity>
         </View>
