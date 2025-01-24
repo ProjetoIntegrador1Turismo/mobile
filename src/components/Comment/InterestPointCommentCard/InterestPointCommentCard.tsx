@@ -1,17 +1,29 @@
 import React from 'react';
 import { View, Pressable } from 'react-native';
-import { CommentProps } from 'src/components/Comment/Comment.types';
-import { useCommentViewModel } from 'src/components/Comment/CommentViewModel';
+import { InterestPointCommentCardProps } from './InterestPointCommentCard.types';
+import { useInterestPointCommentCardViewModel } from './InterestPointCommentCardViewModel';
 import { Avatar } from 'src/components/Avatar/Avatar';
 import { Stars } from 'src/components/Stars/Stars';
 import { CustomText } from 'src/components/Text/CustomText';
 import { Entypo } from '@expo/vector-icons';
 
-export default function Comment(props: CommentProps) {
-  const { name, date, text, rating, avatarUrl } = useCommentViewModel(props);
+export function InterestPointCommentCard({ 
+  name, 
+  date, 
+  text, 
+  rating, 
+  avatarUrl,
+  interestPoint 
+}: InterestPointCommentCardProps) {
+  const { handleOptionsPress } = useInterestPointCommentCardViewModel();
 
   return (
-    <View className='flex max-h-[180px] min-h-[100px] w-[360px] flex-col rounded-lg bg-[#1C1C1E] p-4'>
+    <View className='flex max-h-[200px] min-h-[120px] w-[360px] flex-col rounded-lg bg-[#1C1C1E] p-4'>
+      <View className='mb-2'>
+        <CustomText className='text-white' weight='regular' size={14}>
+          {interestPoint.name}
+        </CustomText>
+      </View>
       <View className='flex-row items-center shadow-lg'>
         <View className='mr-4'>
           <Avatar imageUrl={avatarUrl} size={48} />
@@ -21,7 +33,7 @@ export default function Comment(props: CommentProps) {
             {name}
           </CustomText>
           <CustomText className='text-gray-400' weight='regular' size={10}>
-            Comentou em: {date}
+            Feita em: {date}
           </CustomText>
         </View>
         <View className='flex flex-col items-center'>
@@ -35,7 +47,7 @@ export default function Comment(props: CommentProps) {
           weight='regular'>
           {text}
         </CustomText>
-        <Pressable onPress={() => {}} className='ml-2'>
+        <Pressable onPress={handleOptionsPress} className='ml-2'>
           <Entypo name='dots-three-horizontal' size={20} color='white' />
         </Pressable>
       </View>

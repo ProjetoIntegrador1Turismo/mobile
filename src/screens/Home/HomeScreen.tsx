@@ -60,6 +60,7 @@ export function HomeScreen() {
             <Divider text='Restaurantes, Eventos e Passeios' />
             <CardSlider
               data={firstSlider}
+              keyExtractor={(item) => String(item.name)}
               renderItem={({ item }) => (
                 <InterestPointCard {...item} onPress={() => handleInterestPointPress(item.id)} />
               )}
@@ -71,6 +72,7 @@ export function HomeScreen() {
             <Divider text='Roteiros, Hotéis e Experiências' />
             <CardSlider
               data={secondSlider}
+              keyExtractor={(item) => String(item.name)}
               renderItem={({ item }) => (
                 <InterestPointCard {...item} onPress={() => handleInterestPointPress(item.id)} />
               )}
@@ -82,7 +84,6 @@ export function HomeScreen() {
         </View>
         <View className='mt-8 flex items-center px-4'>
           <TopGuidesSection topGuides={guides} />
-          <SolidButton title='Ver mais' size='sm' className='mt-4' py={2} />
         </View>
       </ScrollView>
     </Container>

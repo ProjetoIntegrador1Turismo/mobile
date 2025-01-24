@@ -17,6 +17,8 @@ import { AddressLabel } from '~/src/components/InterestPoint/AddressLabel/Addres
 import { Price } from '~/src/components/Price/Price';
 import { Stars } from '~/src/components/Stars/Stars';
 
+import { InterestPointCommentsSection } from '~/src/components/Comment/InterestPointCommentsSection/InterestPointCommentsSection';
+
 interface InterestPointScreenProps {
   pointId: number;
 }
@@ -145,6 +147,11 @@ export function InterestPointScreen({ pointId }: InterestPointScreenProps) {
               <View className='mt-8'>
                 <InterestPointGuidesSection guides={guides || []} pointId={pointId} />
               </View>
+
+              <View className='mt-8'>
+                <InterestPointCommentsSection comments={comments || []} pointId={pointId} />
+              </View>
+              
             </View>
           </View>
         </View>
