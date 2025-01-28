@@ -96,6 +96,56 @@ export function ProfileView() {
     );
   }
 
+  if (user?.userType === 'Guide') {
+    return (
+      <ScrollView
+        className='h-full flex-1 bg-tl-bg'
+        overScrollMode='never'
+        contentContainerStyle={{ paddingBottom: 120 }}>
+        <Container className='gap-4 bg-tl-bg px-4 pt-12'>
+          <View className='flex w-full flex-row justify-between '>
+            <View className='ml-1 h-[80px] w-[95px] items-start justify-center'>
+              <TouchableOpacity onPress={handlePressEdit}>
+                <Feather name='edit' color='#FFF' size={30} />
+                <CustomText className='text-white' size={10}>
+                  Editar
+                </CustomText>
+              </TouchableOpacity>
+            </View>
+            <TLLogoWhite className='-ml-3 h-[80px] w-[95px] object-cover' />
+            <View className='h-[80px] w-[95px] items-end justify-center border'>
+              <TouchableOpacity onPress={handleLogoutPress}>
+                <Feather name='log-out' color='#FFF' size={30} />
+                <CustomText className='text-white' size={10}>
+                  Logout
+                </CustomText>
+              </TouchableOpacity>
+            </View>
+          </View>
+          <View className='items-center'>
+            <Avatar imageUrl={user!.profileImageUrl} size={180} />
+            <CustomText weight='bold' size={36} className=' text-center text-white'>
+              {user!.firstName + ' ' + user?.lastName}
+            </CustomText>
+            <CustomText size={24} className=' text-white'>
+              {userTypeMap[user!.userType]}
+            </CustomText>
+          </View>
+          <View className='flex h-2/3 items-center justify-center'>
+            <View className='flex h-2/3 w-2/3 items-center justify-center'>
+              <CustomText className='text-white' size={22} weight='bold'>
+                Que vazio...
+              </CustomText>
+              <CustomText className='w-1/2 text-center text-white'>
+                Guias não podem fazer Reviews e comentários!
+              </CustomText>
+            </View>
+          </View>
+        </Container>
+      </ScrollView>
+    );
+  }
+
   if (isLoading) {
     return (
       <ScrollView
