@@ -9,6 +9,7 @@ import { ImageViewer } from 'src/components/ImageViewer/ImageViewer';
 import { LogoTl } from 'src/components/Logo/LogoTL';
 import { CardSlider } from 'src/components/Slider/CardSlider';
 import { CustomText } from 'src/components/Text/CustomText';
+import Toast from 'react-native-toast-message';
 
 import { useInterestPointScreenViewModel } from './InterestPointScreenViewModel';
 
@@ -30,11 +31,13 @@ export function InterestPointScreen({ pointId }: InterestPointScreenProps) {
     comments,
     isLoading,
     isError,
-    buildFullAddress,
     selectedImage,
     isModalOpen,
+    buildFullAddress,
     handleImagePress,
     handleCloseViewer,
+    handleInterestPress,
+    scrollViewRef,
   } = useInterestPointScreenViewModel(pointId);
   const { goBack } = useAppRouter();
 
@@ -56,6 +59,7 @@ export function InterestPointScreen({ pointId }: InterestPointScreenProps) {
 
   return (
     <ScrollView
+      ref={scrollViewRef}
       className='flex-1'
       showsVerticalScrollIndicator={false}
       contentContainerStyle={{ paddingBottom: 120 }}
@@ -95,7 +99,11 @@ export function InterestPointScreen({ pointId }: InterestPointScreenProps) {
 
             {/* Botão */}
             <View className='mt-8 flex flex-row items-center justify-center'>
-              <TLGradientButton title='Tenho Interesse!' className='w-11/12' />
+              <TLGradientButton
+                title='Tenho Interesse!'
+                className='w-11/12'
+                onPress={handleInterestPress}
+              />
             </View>
 
             {/* View das coisas */}
