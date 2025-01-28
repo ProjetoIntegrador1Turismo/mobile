@@ -101,7 +101,6 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     } as UserModel;
 
     if (userData.authTokenExpiresIn) {
-      console.log('att token novo');
       const newExpirationTime = Date.now() + Number(userData.authTokenExpiresIn) * 1000;
       set({ tokenExpirationTime: newExpirationTime });
       await storeString('tokenExpirationTime', String(newExpirationTime));
@@ -112,7 +111,6 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   },
 
   getAccessToken: async () => {
-    console.log('1. Entrando no getAcessToken');
     const state = get();
     const user = state.user;
     const expirationTime = state.tokenExpirationTime;
@@ -125,25 +123,17 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       const isExpired = expirationTime && Date.now() >= expirationTime;
 
       if (!isExpired) {
-        console.log('2. Token não expirado');
         return user.authToken;
       }
 
-      // Se já existe um refresh em andamento, retorna a Promise existente
       if (state.refreshPromise) {
-        console.log('3. Promise em andamento, aguardando.');
         return state.refreshPromise;
       }
 
-      // Cria uma nova Promise de refresh
       const refreshPromise = (async () => {
         try {
-          console.log('4. Criando promise de refresh');
           set({ isRefreshing: true });
           const response = await RefreshToken(user.refreshToken);
-
-          console.log('5. Fetch de refresh concluido com sucesso');
-          console.log('Token antigo é igual ao novo: ' + response.authToken === user.authToken);
 
           await state.updateUser({
             authToken: response.authToken,
@@ -155,8 +145,6 @@ export const useAuthStore = create<AuthState>((set, get) => ({
           return response.authToken;
         } catch (error) {
           await state.logout();
-          console.error('ERROR 4. Criação da promise');
-          console.log(JSON.stringify(error, null, 2));
           Toast.show({
             type: 'error',
             text1: 'Sessão expirada',
@@ -171,13 +159,10 @@ export const useAuthStore = create<AuthState>((set, get) => ({
         }
       })();
 
-      // Armazena a Promise no estado
       set({ refreshPromise });
 
       return refreshPromise;
     } catch (error) {
-      console.error('ERRO TRY CATCH GERAL');
-      console.log(JSON.stringify(error, null, 2));
       await state.logout();
       throw error;
     }
