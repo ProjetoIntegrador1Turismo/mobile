@@ -8,13 +8,8 @@ import { SearchTextInputBar } from '~/src/components/SearchTextInputBar/SearchTe
 import { CustomText } from '~/src/components/Text/CustomText';
 import { useInterestedItinerariesScreenViewModel } from '~/src/screens/Interested/InterestedItinerariesScreenViewModel';
 
-interface InterestedScreenProps {
-  authToken: string;
-}
-
-export function InterestedItinerariesScreen({ authToken }: InterestedScreenProps) {
-  const { data, handleDeleteItinerary, isLoading } =
-    useInterestedItinerariesScreenViewModel(authToken);
+export function InterestedItinerariesScreen() {
+  const { data, handleDeleteItinerary, isLoading } = useInterestedItinerariesScreenViewModel();
 
   return (
     <View className='flex-1 bg-tl-bg p-4'>

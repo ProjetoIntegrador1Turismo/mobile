@@ -17,7 +17,6 @@ export const CategoryCardData: CategoryCardProps[] = [
   { title: 'Roteiros', imgSource: categoryItineraryImg },
 ];
 
-//Direciona para a tela paginada enviando o parâmetro necessário para a rota da API
 export function onPressCategoryCard() {
   const { push } = useAppRouter();
   async function handlePressCategoryCard(title: string) {

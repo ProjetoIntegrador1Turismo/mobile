@@ -1,17 +1,13 @@
 import { ActivityIndicator, FlatList, View } from 'react-native';
-import { GuideItineraryActionCard } from '~/src/components/Guide/GuideItineraryActionCardList/GuideItineraryActionCard/GuideItineraryActionCard';
-import { useGuidePainel } from '~/src/screens/GuidePainel/GuidePainelScreenViewModel';
-import { Itinerary } from '~/src/common/models/GuideItineraries/guideItineraries.model';
-import { GuidePainelScreenHeaderComponent } from '~/src/screens/GuidePainel/GuidePainelScreenHeader/GuidePainelScreenHeaderComponent';
-import UnauthenticatedImage from '~/src/components/Auth/UnauthenticatedImage/UnauthenticatedImage';
-import { CustomText } from '~/src/components/Text/CustomText';
+import { Itinerary } from 'src/common/models/GuideItineraries/guideItineraries.model';
+import UnauthenticatedImage from 'src/components/Auth/UnauthenticatedImage/UnauthenticatedImage';
+import { GuideItineraryActionCard } from 'src/components/Guide/GuideItineraryActionCardList/GuideItineraryActionCard/GuideItineraryActionCard';
+import { CustomText } from 'src/components/Text/CustomText';
+import { GuidePainelScreenHeaderComponent } from 'src/screens/GuidePainel/GuidePainelScreenHeader/GuidePainelScreenHeaderComponent';
+import { useGuidePainel } from 'src/screens/GuidePainel/GuidePainelScreenViewModel';
 
-interface GuidePainelScreenProps {
-  authToken: string;
-}
-
-export function GuidePainelScreen({ authToken }: GuidePainelScreenProps) {
-  const { itineraries, isLoading, handleTouristButtonPress } = useGuidePainel(authToken);
+export function GuidePainelScreen() {
+  const { itineraries, isLoading, handleTouristButtonPress } = useGuidePainel();
 
   if (isLoading) {
     return (

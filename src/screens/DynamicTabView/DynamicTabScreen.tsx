@@ -1,23 +1,20 @@
 import { View, Text, SafeAreaView } from 'react-native';
 import { useAuthStore } from 'src/common/stores/AuthStore';
+import TLLogoWhite from 'src/components/Auth/TLLogoWhite/TLLogoWhite';
+import UnauthenticatedImage from 'src/components/Auth/UnauthenticatedImage/UnauthenticatedImage';
 
 import { GuidePainelScreen } from '../GuidePainel/GuidePainelScreen';
 import { InterestedItinerariesScreen } from '../Interested/InterestedItinerariesScreen';
-
-import TLLogoWhite from '~/src/components/Auth/TLLogoWhite/TLLogoWhite';
-import UnauthenticatedImage from '~/src/components/Auth/UnauthenticatedImage/UnauthenticatedImage';
-import { TLGradientButton } from '~/src/components/Button/TLGradientButton/TLGradientButton';
-import { CustomText } from '~/src/components/Text/CustomText';
 
 export default function DynamicTabScreen() {
   const userType = useAuthStore((state) => state.user?.userType);
 
   if (userType === 'Guide') {
-    return <GuidePainelScreen authToken='' />;
+    return <GuidePainelScreen />;
   }
 
   if (userType === 'Tourist') {
-    return <InterestedItinerariesScreen authToken='' />;
+    return <InterestedItinerariesScreen />;
   }
 
   return (

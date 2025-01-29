@@ -1,5 +1,5 @@
-import { api } from '~/src/common/repositories/client';
 import { InterestedItineraryModel } from '~/src/common/models/InterestedItinerary/InterestedItynerary.model';
+import { api } from '~/src/common/repositories/client';
 
 export async function fetchInterestedItinerary(authToken: string) {
   const { data } = await api.get<InterestedItineraryModel>('/user/me', {
@@ -10,13 +10,9 @@ export async function fetchInterestedItinerary(authToken: string) {
   return data;
 }
 
-export async function removeInterestedItinerary(authToken: string, itineraryId: number) {
+export async function removeInterestedItinerary(itineraryId: number) {
   try {
-    await api.delete(`/tourist/signal/${itineraryId}`, {
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
-    });
+    await api.delete(`/tourist/signal/${itineraryId}`);
     return true;
   } catch (error) {
     return false;

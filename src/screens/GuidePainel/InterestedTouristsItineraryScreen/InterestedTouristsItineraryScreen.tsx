@@ -4,14 +4,8 @@ import { Itinerary } from '~/src/common/models/GuideItineraries/guideItineraries
 import { useGuidePainel } from '../GuidePainelScreenViewModel';
 import { NotifiedInterestCard } from '~/src/components/NotifiedInterestCard/NotifiedInterestCard';
 
-interface InterestedTouristsItineraryScreenProps {
-  authToken: string;
-}
-
-export function InterestedTouristsItineraryScreen({
-  authToken,
-}: InterestedTouristsItineraryScreenProps) {
-  const { notifiedInterestCards } = useGuidePainel(authToken);
+export function InterestedTouristsItineraryScreen() {
+  const { notifiedInterestCards } = useGuidePainel();
 
   return (
     <FlatList

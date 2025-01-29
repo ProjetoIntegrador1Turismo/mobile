@@ -1,11 +1,7 @@
-import { api } from '~/src/common/repositories/client';
-import { GuideItinerariesModel } from '~/src/common/models/GuideItineraries/guideItineraries.model';
+import { GuideItinerariesModel } from 'src/common/models/GuideItineraries/guideItineraries.model';
+import { api } from 'src/common/repositories/client';
 
-export async function fetchGuideItineraries(authToken: string) {
-  const { data } = await api.get<GuideItinerariesModel>('/itinerary/guide', {
-    headers: {
-      Authorization: `Bearer ${authToken}`,
-    },
-  });
+export async function fetchGuideItineraries() {
+  const { data } = await api.get<GuideItinerariesModel>('/itinerary/guide');
   return data;
 }
