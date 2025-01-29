@@ -1,12 +1,10 @@
 import { ActivityIndicator, View } from 'react-native';
-
-import UnauthenticatedImage from '~/src/components/Auth/UnauthenticatedImage/UnauthenticatedImage';
-import { InterestedItineraryCardList } from '~/src/components/InterestedItinerary/InterestedItineraryCardList';
-import { UnselectedItinerary } from '~/src/components/InterestedItinerary/unselectedItinerary/unselectedItinerary';
-import { LogoTl } from '~/src/components/Logo/LogoTL';
-import { SearchTextInputBar } from '~/src/components/SearchTextInputBar/SearchTextInputBar';
-import { CustomText } from '~/src/components/Text/CustomText';
-import { useInterestedItinerariesScreenViewModel } from '~/src/screens/Interested/InterestedItinerariesScreenViewModel';
+import { InterestedItineraryCardList } from 'src/components/InterestedItinerary/InterestedItineraryCardList';
+import { UnselectedItinerary } from 'src/components/InterestedItinerary/unselectedItinerary/unselectedItinerary';
+import { LogoTl } from 'src/components/Logo/LogoTL';
+import { SearchTextInputBar } from 'src/components/SearchTextInputBar/SearchTextInputBar';
+import { CustomText } from 'src/components/Text/CustomText';
+import { useInterestedItinerariesScreenViewModel } from 'src/screens/Interested/InterestedItinerariesScreenViewModel';
 
 export function InterestedItinerariesScreen() {
   const { data, handleDeleteItinerary, isLoading } = useInterestedItinerariesScreenViewModel();

@@ -87,7 +87,7 @@ export function ProfileView() {
         <View className='flex-1 items-center justify-center gap-6'>
           <UnauthenticatedImage className='h-64 w-64' />
           <CustomText className='text-center text-white' weight='regular' size={16}>
-            Faça login para ver seus roteiros!
+            Faça login para ver seu perfil!
           </CustomText>
           <TLGradientButton title='Login' className='w-11/12' onPress={handleLoginPress} />
         </View>
