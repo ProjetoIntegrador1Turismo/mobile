@@ -191,7 +191,7 @@ export function ProfileView() {
 
   return (
     <ScrollView
-      className='h-full flex-1 bg-tl-bg'
+      className='h-full flex-1 bg-tl-bg px-4'
       overScrollMode='never'
       contentContainerStyle={{ paddingBottom: 120 }}>
       <Container className='gap-4 bg-tl-bg px-4 pt-12'>
@@ -205,7 +205,7 @@ export function ProfileView() {
             </TouchableOpacity>
           </View>
           <TLLogoWhite className='-ml-3 h-[80px] w-[95px] object-cover' />
-          <View className='h-[80px] w-[95px] items-end justify-center border'>
+          <View className='h-[80px] w-[95px] items-end justify-center '>
             <TouchableOpacity onPress={handleLogoutPress}>
               <Feather name='log-out' color='#FFF' size={30} />
               <CustomText className='text-white' size={10}>
