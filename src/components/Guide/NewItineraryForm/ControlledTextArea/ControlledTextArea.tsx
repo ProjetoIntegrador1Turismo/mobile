@@ -10,7 +10,6 @@ export function ControlledTextArea<T extends FieldValues>({
   placeholder,
   control,
   name,
-  password,
   disabled,
 }: ControlledTextAreaProps<T>) {
   const { fieldValue, errorMsg, fieldOnChange } = useControlledTextAreaViewModel<T>({
@@ -23,15 +22,19 @@ export function ControlledTextArea<T extends FieldValues>({
       <CustomText size={16} className='text-white'>
         {label}
       </CustomText>
-      <View className='relative flex-row items-center'>
+      <View>
         <TextInput
-          multiline
-          numberOfLines={5}
           value={fieldValue}
           onChangeText={fieldOnChange}
-          className='w-[90%] min-w-[90%] max-w-[90%] rounded-xl bg-white px-4 py-4 font-poppins400'
           placeholder={placeholder}
+          multiline
           editable={!disabled}
+          className='w-[200px] min-w-[90%] max-w-[200px] rounded-xl bg-white px-4 py-4 font-poppins400'
+          style={{
+            height: 140, // Fixed height for 5 lines (approximately 28px per line)
+            maxHeight: 140, // Ensure it doesn't grow
+            textAlignVertical: 'top',
+          }}
         />
       </View>
       <InputError>{errorMsg}</InputError>
