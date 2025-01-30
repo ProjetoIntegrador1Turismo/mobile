@@ -6,6 +6,7 @@ export interface ControlledInputProps<T extends FieldValues> {
   error?: string;
   password?: boolean;
   disabled?: boolean;
+  numeric?: boolean;
   name: FieldPath<T>;
   control: Control<T>;
 }
