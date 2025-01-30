@@ -13,7 +13,6 @@ const pointRouteMapping: Record<string, string> = {
 };
 
 function defineApiRoute(text: string): string {
-  console.log('String para map da rota: ', text);
   return pointRouteMapping[text] || 'all';
 }
 
