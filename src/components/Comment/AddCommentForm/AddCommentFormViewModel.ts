@@ -5,15 +5,15 @@ import { AddCommentFormData } from './AddCommentForm.types';
 import { useAppRouter } from 'src/common/lib/router';
 
 interface AddCommentViewModelParams {
-  interestPointId: number;
+  pointId: number;
 }
 
-export function useAddCommentFormViewModel({ interestPointId }: AddCommentViewModelParams) {
+export function useAddCommentFormViewModel({ pointId }: AddCommentViewModelParams) {
   const router = useAppRouter();
   const [rating, setRating] = useState(5);
 
   const { mutateAsync: createComment, isPending } = useCreateCommentMutation({
-    interestPointId,
+    pointId,
     onSuccess: () => {
       Toast.show({
         type: 'success',
@@ -54,12 +54,11 @@ export function useAddCommentFormViewModel({ interestPointId }: AddCommentViewMo
 
   const handleSubmit = async (data: AddCommentFormData) => {
     try {
-      const currentDate = new Date().toISOString();
       const formattedText = formatCommentText(data);
 
       await createComment({
         text: formattedText,
-        date: currentDate,
+        wasVisitingDate: new Date().toISOString(),
         rating,
       });
     } catch (error: any) {

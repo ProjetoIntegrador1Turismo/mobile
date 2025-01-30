@@ -11,7 +11,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { TagToggle } from 'src/components/Comment/TagToggle/TagToggle';
 import { useAppRouter } from 'src/common/lib/router';
 
-export function AddCommentForm({ interestPointId }: AddCommentFormProps) {
+export function AddCommentForm({ pointId }: AddCommentFormProps) {
   const router = useAppRouter();
   const { control, handleSubmit: onSubmit } = useForm<AddCommentFormData>({
     defaultValues: {
@@ -21,8 +21,8 @@ export function AddCommentForm({ interestPointId }: AddCommentFormProps) {
     },
   });
 
-  const { handleSubmit, isPending } = useAddCommentFormViewModel({
-    interestPointId,
+  const { rating, setRating, handleSubmit, isPending } = useAddCommentFormViewModel({
+    pointId,
   });
 
   return (
@@ -41,6 +41,26 @@ export function AddCommentForm({ interestPointId }: AddCommentFormProps) {
 
         <ScrollView className='flex-1 px-4'>
           <View className='mt-4'>
+            <CustomText className='mb-2 text-white' size={16} weight='regular'>
+              O que você achou do local?
+            </CustomText>
+            <CustomText className='mb-6 text-gray-400' size={14} weight='regular'>
+              (Dê uma nota de 1 a 5)
+            </CustomText>
+
+            {/* Rating */}
+            <View className='mb-6 flex-row items-center gap-x-2'>
+              {[1, 2, 3, 4, 5].map((value) => (
+                <TouchableOpacity key={value} onPress={() => setRating(value)}>
+                  <AntDesign
+                    name='star'
+                    size={32}
+                    color={value <= rating ? '#FF1493' : '#3f3f46'}
+                  />
+                </TouchableOpacity>
+              ))}
+            </View>
+
             {/* Liked Tags */}
             <View className='mb-6'>
               <CustomText className='mb-4 text-white' size={16} weight='regular'>

@@ -1,5 +1,5 @@
 export interface AddCommentFormProps {
-  interestPointId: number;
+  pointId: number;
 }
 
 export interface AddCommentFormData {
@@ -10,21 +10,23 @@ export interface AddCommentFormData {
 }
 
 export const LIKED_TAGS = [
-  'Acessível',
-  'Aconchegante',
-  'Legal',
-  'Arrojado',
-  'Top',
-  'Confortável',
-  'História muito boa',
-  'Organizado',
+  'Acessibilidade',
+  'Atendimento',
+  'Limpeza',
+  'Localização',
+  'Preço',
+  'Segurança',
+  'Estrutura',
+  'Ambiente',
 ];
 
 export const DISLIKED_TAGS = [
-  'Chato',
-  'Desorganizado',
-  'Ruim',
-  'Inacessível',
-  'Fedido',
-  'Não recomendo',
+  'Acessibilidade',
+  'Atendimento',
+  'Limpeza',
+  'Localização',
+  'Preço',
+  'Segurança',
+  'Estrutura',
+  'Ambiente',
 ];
