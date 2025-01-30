@@ -8,7 +8,7 @@ import { CustomText } from '~/src/components/Text/CustomText';
 
 export default function NewItineraryStepOneView() {
   return (
-    <FormContainer className='items-center bg-tl-bg gap-4'>
+    <FormContainer className='items-center gap-4 bg-tl-bg'>
       <View className='items-center gap-5 pt-4'>
         <TLLogoWhite className='h-16 w-20' />
         <View>
