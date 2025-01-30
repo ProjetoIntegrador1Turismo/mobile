@@ -4,14 +4,16 @@ import UnauthenticatedImage from 'src/components/Auth/UnauthenticatedImage/Unaut
 import { GuideItineraryActionCard } from 'src/components/Guide/GuideItineraryActionCardList/GuideItineraryActionCard/GuideItineraryActionCard';
 import { CustomText } from 'src/components/Text/CustomText';
 import { GuidePainelScreenHeaderComponent } from 'src/screens/GuidePainel/GuidePainelScreenHeader/GuidePainelScreenHeaderComponent';
-import { useGuidePainel } from 'src/screens/GuidePainel/GuidePainelScreenViewModel';
 
-export function GuidePainelScreen() {
-  const { itineraries, isLoading, handleTouristButtonPress } = useGuidePainel();
+import { useGuidePanel } from '~/src/screens/GuidePainel/GuidePanelScreenViewModel';
+
+export function GuidePanelScreen() {
+  const { itineraries, isLoading, handleTouristButtonPress, handleCreateItineraryButtonPress } =
+    useGuidePanel();
 
   if (isLoading) {
     return (
-      <View className='flex-1 items-center justify-center'>
+      <View className='flex-1 items-center justify-center bg-tl-bg'>
         <ActivityIndicator size='large' />
       </View>
     );
@@ -19,17 +21,22 @@ export function GuidePainelScreen() {
 
   return (
     <FlatList
-      className='w-full'
+      className='w-full bg-tl-bg'
       data={itineraries}
       keyExtractor={(itinerary: Itinerary) => itinerary.id.toString()}
       ListHeaderComponent={
-        <GuidePainelScreenHeaderComponent onPressTouristsButton={handleTouristButtonPress} />
+        <View className='pt-10'>
+          <GuidePainelScreenHeaderComponent
+            onPressTouristsButton={handleTouristButtonPress}
+            onPressCreateItineraryButton={handleCreateItineraryButtonPress}
+          />
+        </View>
       }
       renderItem={({ item }) => (
         <GuideItineraryActionCard
           imageCoverUrl={item.imageCoverUrl}
           title={item.title}
-          className='mb-[10px]'
+          className='my-3'
         />
       )}
       ListEmptyComponent={
@@ -39,7 +46,7 @@ export function GuidePainelScreen() {
         </View>
       }
       showsVerticalScrollIndicator={false}
-      ListFooterComponent={<View className='h-[200px]' />}
+      ListFooterComponent={<View className='h-[150px]' />}
     />
   );
 }

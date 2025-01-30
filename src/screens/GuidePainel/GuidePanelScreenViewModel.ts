@@ -2,13 +2,17 @@ import { useGuideItinerariesQuery } from 'src/common/hooks/queries/useGuideItine
 import { useAppRouter } from 'src/common/lib/router';
 import { Itinerary } from 'src/common/models/GuideItineraries/guideItineraries.model';
 
-export function useGuidePainel() {
+export function useGuidePanel() {
   const { data, isLoading } = useGuideItinerariesQuery();
   const itineraries: Itinerary[] = data || [];
   const router = useAppRouter();
 
   const handleTouristButtonPress = () => {
-    router.push(`(modals)/interested-itinerary-tourists`);
+    router.push('(modals)/interested-itinerary-tourists');
+  };
+
+  const handleCreateItineraryButtonPress = () => {
+    router.push('(tabs)/(dynamic)/create-itinerary-part-one');
   };
 
   const notifiedInterestCards = () => {
@@ -28,5 +32,6 @@ export function useGuidePainel() {
     isLoading,
     handleTouristButtonPress,
     notifiedInterestCards,
+    handleCreateItineraryButtonPress,
   };
 }
