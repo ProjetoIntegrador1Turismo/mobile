@@ -6,6 +6,7 @@ import { CommentCard } from 'src/components/Comment/CommentCard/CommentCard';
 import { SolidButton } from '~/src/components/Button/SolidButton/SolidButton';
 import { useAppRouter } from '~/src/common/lib/router';
 import { InterestPointCommentsSectionProps } from './InterestPointCommentsSection.types';
+import { useAuthStore } from '~/src/common/stores/AuthStore';
 
 interface Comment {
   id: number;
@@ -31,6 +32,7 @@ export function InterestPointCommentsSection({
   onAddCommentPress,
 }: InterestPointCommentsSectionProps) {
   const hasComments = comments.length > 0;
+  const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
   const router = useAppRouter();
 
   const handleSeeMorePress = () => {
@@ -54,16 +56,18 @@ export function InterestPointCommentsSection({
               {comments.length} Comentários
             </CustomText>
           )}
-          <TouchableOpacity
-            className='h-10 w-10 items-center justify-center rounded-full bg-zinc-800'
-            onPress={onAddCommentPress}
-          >
-            <AntDesign name='plus' size={24} color='white' />
-          </TouchableOpacity>
+          {isAuthenticated && (
+            <TouchableOpacity
+              className='h-10 w-10 items-center justify-center rounded-full bg-zinc-800'
+              onPress={onAddCommentPress}
+            >
+              <AntDesign name='plus' size={24} color='white' />
+            </TouchableOpacity>
+          )}
         </View>
       </View>
 
-      <View className='mt-4'>
+      <View className='mt-4 min-w-full'>
         {hasComments ? (
           <>
             {comments.slice(0, 2).map((comment) => (
@@ -86,7 +90,7 @@ export function InterestPointCommentsSection({
             />
           </>
         ) : (
-          <View className='mt-2 rounded-xl border border-gray-700 bg-[#1C1C1E] p-4'>
+          <View className='mt-2 rounded-xl border border-gray-700 bg-[#1C1C1E] p-4 w-full'>
             <CustomText className='text-center text-gray-400' size={14} weight='regular'>
               Nenhuma avaliação foi feita ainda!
             </CustomText>
