@@ -1,9 +1,11 @@
-import { View } from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 import React from 'react';
+import { AntDesign } from '@expo/vector-icons';
 import { CustomText } from 'src/components/Text/CustomText';
 import { CommentCard } from 'src/components/Comment/CommentCard/CommentCard';
 import { SolidButton } from '~/src/components/Button/SolidButton/SolidButton';
 import { useAppRouter } from '~/src/common/lib/router';
+import { InterestPointCommentsSectionProps } from './InterestPointCommentsSection.types';
 
 interface Comment {
   id: number;
@@ -20,11 +22,13 @@ interface Comment {
 interface InterestPointCommentsSectionProps {
   comments: Comment[];
   pointId: number;
+  onAddCommentPress: () => void;
 }
 
 export function InterestPointCommentsSection({
   comments,
   pointId,
+  onAddCommentPress,
 }: InterestPointCommentsSectionProps) {
   const hasComments = comments.length > 0;
   const router = useAppRouter();
@@ -41,14 +45,22 @@ export function InterestPointCommentsSection({
             Comentários:
           </CustomText>
           <CustomText className='text-white' size={14} weight='regular'>
-            Avaliações do Usuários!
+            Comentários dos Usuários!
           </CustomText>
         </View>
-        {hasComments && comments.length > 2 && (
-          <CustomText className='text-gray-400' size={14} weight='regular'>
-            {comments.length} avaliações
-          </CustomText>
-        )}
+        <View className='flex-row items-center gap-x-4'>
+          {hasComments && comments.length > 2 && (
+            <CustomText className='text-gray-400' size={14} weight='regular'>
+              {comments.length} Comentários
+            </CustomText>
+          )}
+          <TouchableOpacity
+            className='h-10 w-10 items-center justify-center rounded-full bg-zinc-800'
+            onPress={onAddCommentPress}
+          >
+            <AntDesign name='plus' size={24} color='white' />
+          </TouchableOpacity>
+        </View>
       </View>
 
       <View className='mt-4'>
