@@ -72,7 +72,11 @@ export function GuideProfileScreen({ guideId }: GuideProfileScreenProps) {
           />
 
           <View className='mt-8 w-full'>
-            <TLGradientButton title='Avaliar este Guia!' className='w-full' />
+            <TLGradientButton 
+              title='Avaliar este Guia!' 
+              className='w-full'
+              onPress={() => router.push(`/(modals)/add-review?guideId=${guideId}`)}
+            />
           </View>
 
           {guide.itineraries.length > 0 && (
