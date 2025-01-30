@@ -1,16 +1,19 @@
 import { View } from 'react-native';
+
 import { GradientBorderButton } from '~/src/components/Button/GradientBorderButton/GradientBorderButton';
-import { LogoTl } from '~/src/components/Logo/LogoTL';
-import { CustomText } from '~/src/components/Text/CustomText';
 import { PeopleOutline } from '~/src/components/ExpoIcons/PeopleOutline';
 import { PlusIcon } from '~/src/components/ExpoIcons/Plus';
+import { LogoTl } from '~/src/components/Logo/LogoTL';
+import { CustomText } from '~/src/components/Text/CustomText';
 
 interface GuidePainelScreenHeaderComponentProps {
   onPressTouristsButton?: () => void;
+  onPressCreateItineraryButton?: () => void;
 }
 
 export function GuidePainelScreenHeaderComponent({
   onPressTouristsButton,
+  onPressCreateItineraryButton,
 }: GuidePainelScreenHeaderComponentProps) {
   return (
     <View className='bg-tl-bg p-4'>
@@ -36,7 +39,12 @@ export function GuidePainelScreenHeaderComponent({
           />
         </View>
         <View>
-          <GradientBorderButton title='Criar Roteiro' className='w-[200px]' icon={<PlusIcon />} />
+          <GradientBorderButton
+            title='Criar Roteiro'
+            className='w-[200px]'
+            icon={<PlusIcon />}
+            onPress={onPressCreateItineraryButton}
+          />
         </View>
       </View>
       <CustomText className='text-white' size={24} weight='bold'>

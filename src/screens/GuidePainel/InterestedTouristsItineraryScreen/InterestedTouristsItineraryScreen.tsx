@@ -1,11 +1,12 @@
 import { FlatList, View } from 'react-native';
+import { Itinerary } from 'src/common/models/GuideItineraries/guideItineraries.model';
+import { NotifiedInterestCard } from 'src/components/NotifiedInterestCard/NotifiedInterestCard';
+
+import { useGuidePanel } from '../GuidePanelScreenViewModel';
 import { InterestedTouristsHeader } from './InterestedTouristsHeader/InterestedTouristsHeader';
-import { Itinerary } from '~/src/common/models/GuideItineraries/guideItineraries.model';
-import { useGuidePainel } from '../GuidePainelScreenViewModel';
-import { NotifiedInterestCard } from '~/src/components/NotifiedInterestCard/NotifiedInterestCard';
 
 export function InterestedTouristsItineraryScreen() {
-  const { notifiedInterestCards } = useGuidePainel();
+  const { notifiedInterestCards } = useGuidePanel();
 
   return (
     <FlatList
