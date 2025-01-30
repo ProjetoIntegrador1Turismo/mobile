@@ -13,12 +13,22 @@ export function ControlledInput<T extends FieldValues>({
   name,
   password,
   disabled,
+  numeric,
 }: ControlledInputProps<T>) {
   const { fieldValue, errorMsg, fieldOnChange, showPassword, togglePasswordVisibility } =
     useControlledInputViewModel<T>({
       control,
       name,
     });
+
+  const handleTextChange = (text: string) => {
+    if (numeric) {
+      const numericValue = text.replace(/[^0-9]/g, '');
+      fieldOnChange(numericValue);
+    } else {
+      fieldOnChange(text);
+    }
+  };
 
   return (
     <View className='flex gap-3'>
@@ -28,13 +38,18 @@ export function ControlledInput<T extends FieldValues>({
       <View className='relative flex-row items-center'>
         <TextInput
           value={fieldValue}
-          onChangeText={fieldOnChange}
-          className={`min-w-[90%] rounded-xl bg-white font-poppins400 ${
+          onChangeText={handleTextChange}
+          className={`min-w-[90%] max-w-[200px] rounded-xl bg-white font-poppins400 ${
             password ? 'pl-4 pr-14' : 'px-4'
           } py-4`}
+          style={{
+            height: 56, // Fixed height
+            maxHeight: 56, // Ensure it doesn't grow
+          }}
           placeholder={placeholder}
           secureTextEntry={password && !showPassword}
           editable={!disabled}
+          keyboardType={numeric ? 'numeric' : 'default'}
         />
         {password && (
           <Pressable onPress={togglePasswordVisibility} className='absolute right-4'>
