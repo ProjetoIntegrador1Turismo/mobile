@@ -8,21 +8,16 @@ import { useNewItineraryFormStepOneViewModel } from './NewItineraryFormStepOneVi
 import { ControlledTextArea } from '../ControlledTextArea/ControlledTextArea';
 
 import { TLGradientButton } from '~/src/components/Button/TLGradientButton/TLGradientButton';
+import CoverPicker from '../CoverPicker/CoverPicker';
 
 export function NewItineraryFormStepOne() {
-  const { control, handleSubmit, onPressContinue } = useNewItineraryFormStepOneViewModel();
+  const { control, handleSubmit, onPressContinue, onPressAddCoverImage, uri } =
+    useNewItineraryFormStepOneViewModel();
 
   return (
     <View className='flex items-center gap-3'>
       <View className='flex items-center gap-3'>
-        <TouchableOpacity>
-          <View className='flex h-60 w-96  items-center justify-center rounded-lg bg-[#202020]'>
-            <Feather name='plus' color='#FFF' size={60} />
-            <CustomText className='text-white' weight='bold'>
-              Adicionar imagem de capa
-            </CustomText>
-          </View>
-        </TouchableOpacity>
+        <CoverPicker onPressAddCoverImage={onPressAddCoverImage} uri={uri} />
         <ControlledInput<NewItineraryStepOneFormData>
           label='Título'
           placeholder='Digite o título do seu roteiro'
@@ -34,12 +29,14 @@ export function NewItineraryFormStepOne() {
           placeholder='Digite o preço médio do seu roteiro'
           control={control}
           name='averageCost'
+          numeric
         />
         <ControlledInput<NewItineraryStepOneFormData>
           label='Dias'
           placeholder='Digite quantos dias tem no seu roteiro'
           control={control}
           name='days'
+          numeric
         />
         <ControlledTextArea<NewItineraryStepOneFormData>
           control={control}
