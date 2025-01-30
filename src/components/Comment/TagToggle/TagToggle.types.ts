@@ -1,7 +1,7 @@
 export interface TagToggleProps {
-  title: string;
-  tags: string[];
-  onTagsChange?: (tags: string[]) => void;
+  label: string;
+  selected: boolean;
+  onPress: () => void;
 }
 
 export interface TagProps {
