@@ -7,7 +7,7 @@ import { Avatar } from 'src/components/Avatar/Avatar';
 import { TLGradientButton } from 'src/components/Button/TLGradientButton/TLGradientButton';
 import { Container } from 'src/components/Container/Container';
 import { CustomText } from 'src/components/Text/CustomText';
-
+import { LogoTl } from 'src/components/Logo/LogoTL';
 import { useProfileViewModel } from './ProfileViewModel';
 
 import { Comment, Review } from '~/src/common/models/getme.model';
@@ -81,8 +81,12 @@ export function ProfileView() {
   if (!isAuthenticated) {
     return (
       <SafeAreaView className='flex-1 bg-tl-bg px-4'>
-        <View className='items-center pt-12'>
-          <TLLogoWhite className='h-16 w-20 object-cover' />
+        <View className='flex-row items-center justify-between px-4 pt-5'>
+          <View className='flex-1' />
+          <View className='flex-1 items-center justify-center'>
+            <LogoTl />
+          </View>
+          <View className='flex-1' />
         </View>
         <View className='flex-1 items-center justify-center gap-6'>
           <UnauthenticatedImage className='h-64 w-64' />
