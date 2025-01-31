@@ -20,6 +20,7 @@ import { Price } from 'src/components/Price/Price';
 import { Stars } from 'src/components/Stars/Stars';
 
 import { InterestPointCommentsSection } from 'src/components/Comment/InterestPointCommentsSection/InterestPointCommentsSection';
+import { GoBackButton } from '~/src/components/Button/GoBackButton/GoBackButton';
 
 interface InterestPointScreenProps {
   pointId: number;
@@ -70,13 +71,17 @@ export function InterestPointScreen({ pointId }: InterestPointScreenProps) {
         contentContainerStyle={{ paddingBottom: 120 }}
         automaticallyAdjustContentInsets={false}>
         <View className='flex-1'>
-          <View className='flex-row items-center justify-between px-4 pt-12'>
-            <TouchableOpacity onPress={goBack}>
-              <AntDesign name='arrowleft' size={30} color='white' />
-            </TouchableOpacity>
-            <LogoTl className='absolute left-0 right-0 mx-auto' />
-            <View style={{ width: 30 }} />
+        <View className='flex-row items-center justify-between px-4 pt-12'>
+          <View className='flex-1'>
+            <GoBackButton />
           </View>
+          
+          <View className='flex-1 items-center justify-center'>
+            <LogoTl />
+          </View>
+          
+          <View className='flex-1' />
+        </View>
           <View className='w-full'>
             <CustomText size={24} weight='bold' className='mt-8 text-center text-white'>
               {point.name}
