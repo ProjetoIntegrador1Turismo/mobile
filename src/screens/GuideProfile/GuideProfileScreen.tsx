@@ -41,13 +41,15 @@ export function GuideProfileScreen({ guideId }: GuideProfileScreenProps) {
       contentContainerStyle={{ paddingBottom: 120 }}
       automaticallyAdjustContentInsets={false}>
       <View className='flex-1'>
-        <View className='relative h-24'>
-          <View className='absolute left-4 top-12 z-10'>
+      <View className='flex-row items-center justify-between px-4 pt-12'>
+          <View className='flex-1'>
             <GoBackButton />
           </View>
-          <View className='absolute left-0 right-0 top-12 z-0 flex items-center justify-center'>
+          
+          <View className='flex-1 items-center justify-center'>
             <LogoTl />
           </View>
+          <View className='flex-1' />
         </View>
 
         <View className='items-center px-6 pt-12'>
