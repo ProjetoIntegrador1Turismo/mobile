@@ -3,7 +3,7 @@ import React from 'react';
 import { GuidesWhoOfferThisTour } from 'src/common/models/InterestPointScreen/interestPointScreen.model';
 import { CustomText } from 'src/components/Text/CustomText';
 import { TopGuideCard } from 'src/components/Guide/TopGuideCard/TopGuideCard';
-import { SolidButton } from '~/src/components/Button/SolidButton/SolidButton';
+import { GradientBorderButton } from '~/src/components/Button/GradientBorderButton/GradientBorderButton';
 import { useAppRouter } from '~/src/common/lib/router';
 
 interface InterestPointGuidesSectionProps {
@@ -41,11 +41,10 @@ export function InterestPointGuidesSection({ guides, pointId }: InterestPointGui
                 />
               </View>
             ))}
-            <SolidButton
-              title={`Ver ${guides.length > 2 ? 'mais' : 'todos'} os guias`}
+            <GradientBorderButton
+              title='Ver mais guias'
               size='sm'
-              className='mt-4 self-center px-6'
-              py={2}
+              className='mt-4 self-center'
               onPress={handleSeeMorePress}
             />
           </>
