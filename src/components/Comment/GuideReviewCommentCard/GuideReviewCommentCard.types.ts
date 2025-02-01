@@ -4,9 +4,11 @@ export interface GuideReviewCommentCardProps {
   text: string;
   rating: number;
   avatarUrl: string;
+  reviewId: number;
+  guideId: number;
   guide: {
     name: string;
-    id: string;
+    id: number;
     avatarUrl: string;
   };
 }
