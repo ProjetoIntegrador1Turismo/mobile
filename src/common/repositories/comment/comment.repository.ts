@@ -14,3 +14,7 @@ export async function CreateComment(pointId: number, data: CreateCommentDTO) {
     throw error;
   }
 }
+
+export function DeleteComment(commentId: number) {
+  return api.delete(`/comment/delete/${commentId}`);
+}
