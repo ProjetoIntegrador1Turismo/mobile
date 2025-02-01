@@ -7,6 +7,7 @@ import { Stars } from 'src/components/Stars/Stars';
 import { CustomText } from 'src/components/Text/CustomText';
 import { Entypo } from '@expo/vector-icons';
 import { PopupMenu } from 'src/components/PopupMenu/PopupMenu';
+import { FullCommentModal } from '../FullCommentModal/FullCommentModal';
 
 export function GuideReviewCommentCard({
   name,
@@ -23,6 +24,7 @@ export function GuideReviewCommentCard({
     reviewId,
   });
   const [menuVisible, setMenuVisible] = useState(false);
+  const [fullModalVisible, setFullModalVisible] = useState(false);
   const [menuPosition, setMenuPosition] = useState({ x: 0, y: 0 });
 
   const handleMorePress = (event: any) => {
@@ -81,8 +83,22 @@ export function GuideReviewCommentCard({
       <PopupMenu
         visible={menuVisible}
         onClose={() => setMenuVisible(false)}
-        onDelete={() => handleDelete({ guideId, reviewId })}
+        onDelete={handleDeletePress}
+        onViewFull={() => {
+          setMenuVisible(false);
+          setFullModalVisible(true);
+        }}
         position={menuPosition}
+      />
+      <FullCommentModal
+        visible={fullModalVisible}
+        onClose={() => setFullModalVisible(false)}
+        name={name}
+        date={date}
+        text={text}
+        rating={rating}
+        avatarUrl={avatarUrl}
+        isReview
       />
     </>
   );
