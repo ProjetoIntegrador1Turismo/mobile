@@ -14,3 +14,7 @@ export async function CreateReview(guideId: number, data: CreateReviewDTO) {
     throw error;
   }
 }
+
+export function DeleteReview(reviewId: number) {
+  return api.delete(`/review/${reviewId}`);
+}
