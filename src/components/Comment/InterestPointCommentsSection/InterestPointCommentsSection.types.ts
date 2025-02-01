@@ -10,8 +10,9 @@ interface Comment {
   };
 }
 
+/* Atualizar interface para tornar onAddCommentPress obrigatório */
 export interface InterestPointCommentsSectionProps {
   comments: Comment[];
   pointId: number;
-  onAddCommentPress?: () => void;
+  onAddCommentPress: () => void;
 }
