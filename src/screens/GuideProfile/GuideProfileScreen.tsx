@@ -7,7 +7,7 @@ import { LogoTl } from 'src/components/Logo/LogoTL';
 import { Stars } from 'src/components/Stars/Stars';
 import { CustomText } from 'src/components/Text/CustomText';
 import { TLGradientButton } from 'src/components/Button/TLGradientButton/TLGradientButton';
-import { SolidButton } from 'src/components/Button/SolidButton/SolidButton';
+import { GradientBorderButton } from 'src/components/Button/GradientBorderButton/GradientBorderButton';
 import { GuideItineraryCard } from 'src/components/Guide/GuideItineraryCard/GuideItineraryCard';
 import { ReviewCard } from 'src/components/Review/ReviewCard/ReviewCard';
 import { Avatar } from 'src/components/Avatar/Avatar';
@@ -111,10 +111,9 @@ export function GuideProfileScreen({ guideId }: GuideProfileScreenProps) {
 
               {guide.itineraries.length > 3 && (
                 <View className='mt-4 items-center'>
-                  <SolidButton
+                  <GradientBorderButton
                     title='Ver mais roteiros'
-                    size='sm'
-                    color='white'
+                    className='mt-4 self-center'
                     onPress={() =>
                       router.push(`/(modals)/full-guide-itineraries?guideId=${guide.id}`)
                     }
@@ -157,10 +156,9 @@ export function GuideProfileScreen({ guideId }: GuideProfileScreenProps) {
 
               {guide.reviews.length > 3 && (
                 <View className='mt-4 items-center'>
-                  <SolidButton
+                  <GradientBorderButton
                     title='Ver mais avaliações'
-                    size='sm'
-                    color='white'
+                    className='mt-4 self-center'
                     onPress={() => router.push(`/(modals)/full-reviews-list?guideId=${guide.id}`)}
                   />
                 </View>
