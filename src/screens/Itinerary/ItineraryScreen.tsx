@@ -39,7 +39,7 @@ export function ItineraryScreen({ itineraryId }: ItineraryScreenProps) {
 
   return (
     <ScrollView
-      className='flex-1 bg-[#171717]'
+      className='flex-1 bg-black'
       showsVerticalScrollIndicator={false}
       contentContainerStyle={{ paddingBottom: 120 }}
       automaticallyAdjustContentInsets={false}>
