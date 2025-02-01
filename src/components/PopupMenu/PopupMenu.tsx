@@ -6,13 +6,14 @@ interface PopupMenuProps {
   visible: boolean;
   onClose: () => void;
   onDelete: () => void;
+  onViewFull?: () => void;
   position: {
     x: number;
     y: number;
   };
 }
 
-export function PopupMenu({ visible, onClose, onDelete, position }: PopupMenuProps) {
+export function PopupMenu({ visible, onClose, onDelete, onViewFull, position }: PopupMenuProps) {
   return (
     <Modal transparent visible={visible} onRequestClose={onClose} animationType="fade">
       <TouchableOpacity 
@@ -28,6 +29,22 @@ export function PopupMenu({ visible, onClose, onDelete, position }: PopupMenuPro
             transform: [{ translateX: -100 }]
           }}
         >
+          {onViewFull && (
+            <>
+              <TouchableOpacity 
+                className="flex-row items-center px-4 py-3 space-x-2"
+                onPress={onViewFull}
+              >
+                <AntDesign name="eye" size={20} color="white" />
+                <CustomText size={14} weight="regular" className="text-white">
+                  Ver completo
+                </CustomText>
+              </TouchableOpacity>
+
+              <View className="h-[1px] bg-gray-700" />
+            </>
+          )}
+
           <TouchableOpacity 
             className="flex-row items-center px-4 py-3 space-x-2"
             onPress={onDelete}
