@@ -42,10 +42,11 @@ export function ProfileView() {
         key={comment.id}
         avatarUrl={user!.profileImageUrl}
         date={comment.wasVisitingDate}
-        interestPoint={{ id: String(comment.interestPoint.id), name: comment.interestPoint.name }}
+        interestPoint={{ id: comment.interestPoint.id, name: comment.interestPoint.name }}
         name={comment.tourist.touristName}
         rating={comment.rating}
         text={comment.text}
+        commentId={comment.id}
       />
     ));
   };
@@ -67,13 +68,15 @@ export function ProfileView() {
         avatarUrl={user!.profileImageUrl}
         date={review.date}
         guide={{
-          id: String(review.guide.id),
+          id: review.guide.id,
           avatarUrl: review.guide.profileImageUrl,
           name: review.guide.firstName + ' ' + review.guide.lastName,
         }}
         name={user!.firstName + ' ' + user!.lastName}
         rating={review.rating}
         text={review.text}
+        reviewId={review.id}
+        guideId={review.guide.id}
       />
     ));
   };
