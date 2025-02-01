@@ -1,3 +1,4 @@
+import React from 'react';
 import { View, TouchableOpacity, Modal } from 'react-native';
 import { CustomText } from '../Text/CustomText';
 import { AntDesign } from '@expo/vector-icons';

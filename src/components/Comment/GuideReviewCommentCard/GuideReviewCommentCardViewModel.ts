@@ -29,12 +29,18 @@ export function useGuideReviewCommentCardViewModel({
     },
     onError: (error: any) => {
       Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
+      let errorMessage = 'Erro ao deletar review. Tente novamente.';
+
+      if (error?.response?.data?.message?.includes('dont have one review with id')) {
+        errorMessage = 'Você não tem permissão para deletar este review.';
+      } else if (error?.response?.data?.message) {
+        errorMessage = error.response.data.message;
+      }
+
       Toast.show({
         type: 'error',
         text1: 'Erro',
-        text2: error?.response?.data?.message === 'Authenticated Tourist dont have one review with id: ' + reviewId
-          ? 'Você não tem permissão para deletar este review.'
-          : error?.response?.data?.message || 'Erro ao deletar review. Tente novamente.',
+        text2: errorMessage,
       });
     },
   });

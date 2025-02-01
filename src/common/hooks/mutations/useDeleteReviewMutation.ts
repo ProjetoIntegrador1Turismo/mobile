@@ -17,9 +17,10 @@ export function useDeleteReviewMutation({
   return useMutation({
     mutationFn: (reviewId: number) => DeleteReview(reviewId),
     onSuccess: () => {
-      // Invalida a query do guia para recarregar os reviews
+      // Invalida todas as queries relacionadas ao guia
+      queryClient.invalidateQueries(['guideProfile']);
       queryClient.invalidateQueries(['guideProfile', guideId]);
-      // Invalida a query do getMe para atualizar a lista de reviews do usuário
+      // Invalida o getMe para atualizar a lista de reviews do usuário
       queryClient.invalidateQueries(['getMe']);
       onSuccess?.();
     },
