@@ -17,7 +17,6 @@ export function GuideReviewCommentCard({
   guide,
   reviewId,
   guideId,
-  onMorePress,
 }: GuideReviewCommentCardProps) {
   const { handleDelete } = useGuideReviewCommentCardViewModel({
     guideId,
