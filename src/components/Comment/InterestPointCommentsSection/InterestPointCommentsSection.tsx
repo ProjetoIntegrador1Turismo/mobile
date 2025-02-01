@@ -3,28 +3,10 @@ import React from 'react';
 import { AntDesign } from '@expo/vector-icons';
 import { CustomText } from 'src/components/Text/CustomText';
 import { CommentCard } from 'src/components/Comment/CommentCard/CommentCard';
-import { SolidButton } from '~/src/components/Button/SolidButton/SolidButton';
+import { GradientBorderButton } from '~/src/components/Button/GradientBorderButton/GradientBorderButton';
 import { useAppRouter } from '~/src/common/lib/router';
 import { InterestPointCommentsSectionProps } from './InterestPointCommentsSection.types';
 import { useAuthStore } from '~/src/common/stores/AuthStore';
-
-interface Comment {
-  id: number;
-  text: string;
-  wasVisitingDate: string;
-  rating: number;
-  tourist: {
-    id: number;
-    touristName: string;
-    profileImageUrl: string;
-  };
-}
-
-interface InterestPointCommentsSectionProps {
-  comments: Comment[];
-  pointId: number;
-  onAddCommentPress: () => void;
-}
 
 export function InterestPointCommentsSection({
   comments,
@@ -81,11 +63,9 @@ export function InterestPointCommentsSection({
                 />
               </View>
             ))}
-            <SolidButton
-              title={`Ver ${comments.length > 2 ? 'mais' : 'todas'} as avaliações`}
-              size='sm'
-              className='mt-4 self-center px-6'
-              py={2}
+            <GradientBorderButton
+              title='Ver mais comentários'
+              className='mt-4 self-center'
               onPress={handleSeeMorePress}
             />
           </>
