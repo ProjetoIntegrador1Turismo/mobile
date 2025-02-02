@@ -31,7 +31,6 @@ export default function TopGuidesSection({ topGuides }: { topGuides: TopGuideCar
           </View>
         ))}
       </View>
-      <SolidButton title='Ver mais' size='sm' className='mt-4 self-center px-6' py={2} />
     </View>
   );
 }
