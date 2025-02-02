@@ -5,3 +5,7 @@ export async function fetchGuideItineraries() {
   const { data } = await api.get<GuideItinerariesModel>('/itinerary/guide');
   return data;
 }
+
+export async function deleteItinerary(id: number) {
+  await api.delete(`/itinerary/${id}`);
+}
