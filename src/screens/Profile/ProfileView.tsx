@@ -182,7 +182,7 @@ export function ProfileView() {
             </CustomText>
           </View>
           <View className='flex h-2/3 items-center justify-center'>
-            <ActivityIndicator size={40} />
+            <ActivityIndicator size={40} color='white' />
           </View>
         </Container>
       </ScrollView>

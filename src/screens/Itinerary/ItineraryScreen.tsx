@@ -23,7 +23,7 @@ export function ItineraryScreen({ itineraryId }: ItineraryScreenProps) {
   if (isLoading) {
     return (
       <View className='flex-1 items-center justify-center bg-[#171717]'>
-        <ActivityIndicator size='large' />
+        <ActivityIndicator size='large'color='white' />
       </View>
     );
   }

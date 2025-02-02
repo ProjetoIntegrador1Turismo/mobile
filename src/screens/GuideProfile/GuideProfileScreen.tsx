@@ -21,7 +21,7 @@ export function GuideProfileScreen({ guideId }: GuideProfileScreenProps) {
   if (isLoading) {
     return (
       <View className='flex-1 items-center justify-center'>
-        <ActivityIndicator size='large' />
+        <ActivityIndicator size='large' color='white'/>
       </View>
     );
   }

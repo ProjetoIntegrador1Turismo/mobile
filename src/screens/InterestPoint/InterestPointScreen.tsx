@@ -41,7 +41,7 @@ export function InterestPointScreen({ pointId }: InterestPointScreenProps) {
   if (isLoading) {
     return (
       <View className='flex-1 items-center justify-center'>
-        <ActivityIndicator size='large' />
+        <ActivityIndicator size='large' color='white'/>
       </View>
     );
   }

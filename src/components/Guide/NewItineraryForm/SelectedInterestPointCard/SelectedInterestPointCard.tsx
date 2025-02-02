@@ -14,7 +14,7 @@ export function SelectedInterestPointCard({ id, className, onPressRemove }: Sele
   if (isLoading) {
     return (
       <View className='h-[90px] w-[362px] flex-1 items-center justify-center overflow-hidden rounded-2xl'>
-        <ActivityIndicator size='large' />
+        <ActivityIndicator size='large' color='white'/>
       </View>
     );
   }
