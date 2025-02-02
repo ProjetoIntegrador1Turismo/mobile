@@ -9,7 +9,7 @@ import { CustomText } from '~/src/components/Text/CustomText';
 export default function NewItineraryStepOneView() {
   return (
     <FormContainer className='items-center gap-4 bg-tl-bg'>
-      <View className='items-center gap-5 pt-4'>
+      <View className='items-center gap-5 pt-12'>
         <TLLogoWhite className='h-16 w-20' />
         <View>
           <CustomText className='text-center text-white' weight='bold' size={24}>
