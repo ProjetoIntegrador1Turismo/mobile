@@ -91,10 +91,18 @@ export const useNewItineraryFormStepTwoViewModel = () => {
     );
   };
 
+  const removeInterestPoint = (id: number) => {
+    methods.setValue(
+      'interestPointIds',
+      interestPointIds.filter((interestPointId) => interestPointId !== id)
+    );
+  };
+
   return {
     handleSubmit: methods.handleSubmit,
     onPressCreate,
     interestPointIds,
     isPending,
+    removeInterestPoint,
   };
 };

@@ -15,6 +15,10 @@ export function useGuidePanel() {
     router.push('(tabs)/(dynamic)/create-itinerary-part-one');
   };
 
+  const handleEditItineraryButtonPress = (itineraryId: number) => {
+    router.push(`(tabs)/(dynamic)/edit-itinerary-part-one?itineraryId=${itineraryId}`);
+  };
+
   const notifiedInterestCards = () => {
     return itineraries.flatMap((itinerary) =>
       itinerary.interestedTourists.map((tourist) => ({
@@ -33,5 +37,6 @@ export function useGuidePanel() {
     handleTouristButtonPress,
     notifiedInterestCards,
     handleCreateItineraryButtonPress,
+    handleEditItineraryButtonPress
   };
 }

@@ -1,12 +1,8 @@
 import { useLocalSearchParams } from 'expo-router';
-import { View, Text } from 'react-native';
+import EditItineraryStepOneView from 'src/screens/EditItinerary/EditItineraryStepOneView/EditItineraryStepOneView';
 
 export default function EditItineraryPartOne() {
   const { itineraryId } = useLocalSearchParams<{ itineraryId: string }>();
 
-  return (
-    <View>
-      <Text>edit-itinerary-part-one</Text>
-    </View>
-  );
+  return <EditItineraryStepOneView itineraryId={itineraryId} />;
 }

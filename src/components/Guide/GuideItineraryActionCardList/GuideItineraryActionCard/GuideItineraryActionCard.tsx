@@ -1,16 +1,19 @@
+import EvilIcons from '@expo/vector-icons/EvilIcons';
+import Feather from '@expo/vector-icons/Feather';
 import React from 'react';
 import { View, Image, TouchableOpacity } from 'react-native';
 import { CustomText } from 'src/components/Text/CustomText';
+
 import { GuideItineraryActionCardProps } from './GuideItineraryActionCard.types';
+
 import { BASE_URL } from '~/src/common/repositories/client';
-import EvilIcons from '@expo/vector-icons/EvilIcons';
-import Feather from '@expo/vector-icons/Feather';
 import { cn } from '~/src/common/utils/cn';
 
 export function GuideItineraryActionCard({
   imageCoverUrl,
   title,
   className,
+  onPressEdit,
 }: GuideItineraryActionCardProps) {
   return (
     <View className='pl-4 pr-4'>
@@ -32,7 +35,7 @@ export function GuideItineraryActionCard({
             <TouchableOpacity>
               <EvilIcons className='mr-12' name='external-link' size={45} color='#3371E3' />
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => {}}>
+            <TouchableOpacity onPress={onPressEdit}>
               <Feather name='edit-3' size={32} color='#F8CA36' />
             </TouchableOpacity>
           </View>

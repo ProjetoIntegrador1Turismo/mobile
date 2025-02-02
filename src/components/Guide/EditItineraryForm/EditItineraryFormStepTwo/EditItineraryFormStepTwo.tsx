@@ -1,16 +1,15 @@
 import React from 'react';
-import { View, Text, FlatList } from 'react-native';
+import { View, FlatList } from 'react-native';
+import UnauthenticatedImage from 'src/components/Auth/UnauthenticatedImage/UnauthenticatedImage';
+import { TLGradientButton } from 'src/components/Button/TLGradientButton/TLGradientButton';
+import { CustomText } from 'src/components/Text/CustomText';
 
-import { useNewItineraryFormStepTwoViewModel } from './NewItineraryFormStepTwoViewModel';
-import { SelectedInterestPointCard } from '../SelectedInterestPointCard/SelectedInterestPointCard';
+import { useEditItineraryFormStepTwoViewModel } from './EditItineraryFormStepTwoViewModel';
+import { SelectedInterestPointCard } from '../../NewItineraryForm/SelectedInterestPointCard/SelectedInterestPointCard';
 
-import UnauthenticatedImage from '~/src/components/Auth/UnauthenticatedImage/UnauthenticatedImage';
-import { TLGradientButton } from '~/src/components/Button/TLGradientButton/TLGradientButton';
-import { CustomText } from '~/src/components/Text/CustomText';
-
-export default function NewItineraryFormStepTwo() {
+export default function EditItineraryFormStepTwo() {
   const { handleSubmit, onPressCreate, interestPointIds, isPending, removeInterestPoint } =
-    useNewItineraryFormStepTwoViewModel();
+    useEditItineraryFormStepTwoViewModel();
 
   return (
     <View className='flex h-full w-full flex-1'>

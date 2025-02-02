@@ -5,3 +5,7 @@ export interface CreateItineraryDTO {
   days: string;
   interestPointsId: number[];
 }
+
+export interface EditItineraryDTO extends CreateItineraryDTO {
+  id: number;
+}

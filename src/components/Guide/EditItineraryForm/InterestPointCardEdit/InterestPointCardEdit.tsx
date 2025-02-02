@@ -3,21 +3,21 @@ import Entypo from '@expo/vector-icons/Entypo';
 import { Image, TouchableOpacity, View } from 'react-native';
 import Toast from 'react-native-toast-message';
 
-import { InterestPointCardProps } from './InterestPointCard.types';
+import { InterestPointCardEditProps } from './InterestPointCardEdit.types';
+import { useInterestPointCardEditViewModel } from './InterestPointCardEditViewModel';
 
 import { BASE_URL } from '~/src/common/repositories/client';
 import { cn } from '~/src/common/utils/cn';
 import { truncatedPointName } from '~/src/components/Point/BasicPoint/BasicPointCardViewModel';
 import { AverageValue } from '~/src/components/Price/AverageValue/AverageValue';
 import { CustomText } from '~/src/components/Text/CustomText';
-import { useInterestPointCardViewModel } from './InterestPointCardViewModel';
 
-export function InterestPointCard({ data, className }: InterestPointCardProps) {
+export function InterestPointCardEdit({ data, className }: InterestPointCardEditProps) {
   const { name, title, averageRating, averageValue, imageCoverUrl, id } = data;
 
   const displayName = title || name;
 
-  const { handleOnPressCard } = useInterestPointCardViewModel();
+  const { handleOnPressCard } = useInterestPointCardEditViewModel();
 
   return (
     <TouchableOpacity onPress={() => handleOnPressCard(id)}>
@@ -51,17 +51,3 @@ export function InterestPointCard({ data, className }: InterestPointCardProps) {
     </TouchableOpacity>
   );
 }
-// const handleAddInterestPoint = () => {
-//   const currentInterestPointIds = getValuesFunction?.().interestPointIds ?? [];
-
-//   if (currentInterestPointIds.includes(id)) {
-//     Toast.show({
-//       type: 'error',
-//       text1: 'Erro!',
-//       text2: 'Esse ponto de interesse já foi adicionado ao roteiro!',
-//     });
-//     return;
-//   }
-
-//   setValueFunction?.('interestPointIds', [...currentInterestPointIds, id]);
-// };

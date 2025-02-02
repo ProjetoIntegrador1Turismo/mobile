@@ -11,6 +11,8 @@ export default function ModalLayout() {
       <Stack.Screen name='interested-itinerary-tourists' />
       <Stack.Screen name='select-interest-point' />
       <Stack.Screen name='category-details' />
+      <Stack.Screen name='select-interest-point-edit' />
+      <Stack.Screen name='category-details-edit' />
     </Stack>
   );
 }

@@ -4,7 +4,9 @@ import { api } from 'src/common/repositories/client';
 import { GuideProfileModel } from 'src/screens/GuideProfile/GuideProfileScreen.types';
 import { v4 as uuidv4 } from 'uuid';
 
-import { CreateItineraryDTO } from './guide.types';
+import { CreateItineraryDTO, EditItineraryDTO } from './guide.types';
+import { EditItineraryModel } from '../../models/GuideItineraries/edititinerary.model';
+import { ItineraryByIdModel } from '../../models/GuideItineraries/itinerarybyid.model';
 
 export const fetchGuideProfileData = async (id: number) => {
   const { data } = await api.get<GuideProfileModel>(`/page-source/guide/${id}`);
@@ -63,4 +65,29 @@ export const uploadItineraryCoverImage = async ({
     console.error('Upload API error:', error);
     throw error;
   }
+};
+
+export const fetchItineraryById = async (id: number) => {
+  const { data } = await api.get<ItineraryByIdModel>(`/itinerary/${id}`);
+  return data;
+};
+
+export const editItinerary = async (newItineraryData: EditItineraryDTO) => {
+  const { averageCost, days, ...rest } = newItineraryData;
+
+  const { data } = await api.put<EditItineraryModel>(
+    `/itinerary/${newItineraryData.id}`,
+    JSON.stringify({
+      ...rest,
+      days: Number(days),
+      mediumCost: Number(averageCost),
+    }),
+    {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }
+  );
+
+  return data;
 };

@@ -8,8 +8,13 @@ import { GuidePainelScreenHeaderComponent } from 'src/screens/GuidePainel/GuideP
 import { useGuidePanel } from '~/src/screens/GuidePainel/GuidePanelScreenViewModel';
 
 export function GuidePanelScreen() {
-  const { itineraries, isLoading, handleTouristButtonPress, handleCreateItineraryButtonPress } =
-    useGuidePanel();
+  const {
+    itineraries,
+    isLoading,
+    handleTouristButtonPress,
+    handleCreateItineraryButtonPress,
+    handleEditItineraryButtonPress,
+  } = useGuidePanel();
 
   if (isLoading) {
     return (
@@ -37,6 +42,7 @@ export function GuidePanelScreen() {
           imageCoverUrl={item.imageCoverUrl}
           title={item.title}
           className='my-3'
+          onPressEdit={() => handleEditItineraryButtonPress(item.id)}
         />
       )}
       ListEmptyComponent={

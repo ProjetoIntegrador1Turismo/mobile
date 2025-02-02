@@ -3,13 +3,13 @@ import { View } from 'react-native';
 import TLLogoWhite from 'src/components/Auth/TLLogoWhite/TLLogoWhite';
 import { GradientBorderButton } from 'src/components/Button/GradientBorderButton/GradientBorderButton';
 import { Container } from 'src/components/Container/Container';
-import NewItineraryFormStepTwo from 'src/components/Guide/NewItineraryForm/NewItineraryFormStepTwo/NewItineraryFormStepTwo';
+import EditItineraryFormStepTwo from 'src/components/Guide/EditItineraryForm/EditItineraryFormStepTwo/EditItineraryFormStepTwo';
 import { CustomText } from 'src/components/Text/CustomText';
 
-import { useNewItineraryStepTwoViewModel } from './NewItineraryStepTwoViewModel';
+import { useEditItineraryStepTwoViewModel } from './EditItineraryStepTwoViewModel';
 
 export default function NewItineraryStepTwoView() {
-  const { handleAddInsterestPointPress } = useNewItineraryStepTwoViewModel();
+  const { handleAddInsterestPointPress } = useEditItineraryStepTwoViewModel();
 
   return (
     <Container className='items-center gap-4 bg-tl-bg'>
@@ -17,10 +17,10 @@ export default function NewItineraryStepTwoView() {
         <TLLogoWhite className='h-16 w-20' />
         <View>
           <CustomText className='text-center text-white' weight='bold' size={24}>
-            Criação de Roteiros
+            Edição de Roteiros
           </CustomText>
           <CustomText className='text-center text-white' size={14}>
-            Insira os pontos de interesse!
+            Edite os pontos de interesse do seu roteiro!
           </CustomText>
         </View>
       </View>
@@ -30,7 +30,7 @@ export default function NewItineraryStepTwoView() {
         onPress={handleAddInsterestPointPress}
       />
       <View className='h-[400px]'>
-        <NewItineraryFormStepTwo />
+        <EditItineraryFormStepTwo />
       </View>
     </Container>
   );
