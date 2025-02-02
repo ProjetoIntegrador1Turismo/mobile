@@ -7,7 +7,7 @@ import { Avatar } from 'src/components/Avatar/Avatar';
 import { TLGradientButton } from 'src/components/Button/TLGradientButton/TLGradientButton';
 import { Container } from 'src/components/Container/Container';
 import { CustomText } from 'src/components/Text/CustomText';
-
+import { LogoTl } from 'src/components/Logo/LogoTL';
 import { useProfileViewModel } from './ProfileViewModel';
 
 import { Comment, Review } from '~/src/common/models/getme.model';
@@ -42,10 +42,11 @@ export function ProfileView() {
         key={comment.id}
         avatarUrl={user!.profileImageUrl}
         date={comment.wasVisitingDate}
-        interestPoint={{ id: String(comment.interestPoint.id), name: comment.interestPoint.name }}
+        interestPoint={{ id: comment.interestPoint.id, name: comment.interestPoint.name }}
         name={comment.tourist.touristName}
         rating={comment.rating}
         text={comment.text}
+        commentId={comment.id}
       />
     ));
   };
@@ -67,13 +68,15 @@ export function ProfileView() {
         avatarUrl={user!.profileImageUrl}
         date={review.date}
         guide={{
-          id: String(review.guide.id),
+          id: review.guide.id,
           avatarUrl: review.guide.profileImageUrl,
           name: review.guide.firstName + ' ' + review.guide.lastName,
         }}
         name={user!.firstName + ' ' + user!.lastName}
         rating={review.rating}
         text={review.text}
+        reviewId={review.id}
+        guideId={review.guide.id}
       />
     ));
   };
@@ -81,8 +84,12 @@ export function ProfileView() {
   if (!isAuthenticated) {
     return (
       <SafeAreaView className='flex-1 bg-tl-bg px-4'>
-        <View className='items-center pt-12'>
-          <TLLogoWhite className='h-16 w-20 object-cover' />
+        <View className='flex-row items-center justify-between px-4 pt-5'>
+          <View className='flex-1' />
+          <View className='flex-1 items-center justify-center'>
+            <LogoTl />
+          </View>
+          <View className='flex-1' />
         </View>
         <View className='flex-1 items-center justify-center gap-6'>
           <UnauthenticatedImage className='h-64 w-64' />
@@ -113,7 +120,7 @@ export function ProfileView() {
               </TouchableOpacity>
             </View>
             <TLLogoWhite className='-ml-3 h-[80px] w-[95px] object-cover' />
-            <View className='h-[80px] w-[95px] items-end justify-center border'>
+            <View className='h-[80px] w-[95px] items-end justify-center'>
               <TouchableOpacity onPress={handleLogoutPress}>
                 <Feather name='log-out' color='#FFF' size={30} />
                 <CustomText className='text-white' size={10}>
@@ -163,7 +170,7 @@ export function ProfileView() {
               </TouchableOpacity>
             </View>
             <TLLogoWhite className='-ml-3 h-[80px] w-[95px] object-cover' />
-            <View className='h-[80px] w-[95px] items-end justify-center border'>
+            <View className='h-[80px] w-[95px] items-end justify-center'>
               <TouchableOpacity onPress={handleLogoutPress}>
                 <Feather name='log-out' color='#FFF' size={30} />
                 <CustomText className='text-white' size={10}>

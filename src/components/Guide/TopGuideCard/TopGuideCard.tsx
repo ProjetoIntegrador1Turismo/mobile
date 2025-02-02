@@ -19,18 +19,20 @@ export function TopGuideCard({ id, profileImage, name, rating }: TopGuideCardPro
 
   return (
     <TouchableOpacity onPress={handleGuidePress}>
-      <View className='flex h-[55px] w-[362px] flex-row items-center rounded-xl border border-white px-2 py-2'>
-        <Avatar imageUrl={profileImage} size={40} />
+      <View className='mx-auto my-auto w-[362px] rounded-xl border border-white bg-transparent'>
+      <View className='flex h-[55px] flex-row items-center px-2 py-2'>
+          <Avatar imageUrl={profileImage} size={40} />
 
-        <View className='ml-4  flex-auto overflow-hidden'>
-          <CustomText size={14} weight='regular' className='text-white '>
-            {name}
-          </CustomText>
+          <View className='ml-4  flex-auto overflow-hidden'>
+            <CustomText size={14} weight='regular' className='text-white '>
+              {name}
+            </CustomText>
+          </View>
+
+          <Stars rating={rating} starSize={12} />
+
+          <Entypo name='dots-three-horizontal' size={20} color='white' className='ml-4' />
         </View>
-
-        <Stars rating={rating} starSize={12} />
-
-        <Entypo name='dots-three-horizontal' size={20} color='white' className='ml-4' />
       </View>
     </TouchableOpacity>
   );

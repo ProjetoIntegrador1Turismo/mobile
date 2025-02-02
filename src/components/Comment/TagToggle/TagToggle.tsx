@@ -1,28 +1,20 @@
 import React from 'react';
-import { View } from 'react-native';
-import { Tag } from 'src/components/Comment/TagToggle/Tag';
-import { TagToggleProps } from 'src/components/Comment/TagToggle/TagToggle.types';
-import { useTagToggleViewModel } from 'src/components/Comment/TagToggle/TagToggleViewModel';
+import { TouchableOpacity } from 'react-native';
 import { CustomText } from 'src/components/Text/CustomText';
+import { TagToggleProps } from './TagToggle.types';
+import { useTagToggleViewModel } from './TagToggleViewModel';
 
-export function TagToggle({ title, tags, onTagsChange }: TagToggleProps) {
-  const { selectedTags, toggleTag } = useTagToggleViewModel({ tags, onTagsChange });
+export function TagToggle({ label, selected, onPress }: TagToggleProps) {
+  const { isSelected, handlePress } = useTagToggleViewModel({ selected, onPress });
 
   return (
-    <View className='w-full items-center px-4'>
-      <CustomText className='mb-2 text-white' weight='bold'>
-        {title}
+    <TouchableOpacity
+      onPress={handlePress}
+      className={`rounded-full px-4 py-2 ${isSelected ? 'bg-pink-600' : 'bg-zinc-800'}`}
+    >
+      <CustomText className='text-white' size={14} weight='regular'>
+        {label}
       </CustomText>
-      <View className='flex-row flex-wrap gap-2'>
-        {tags.map((tag) => (
-          <Tag
-            key={tag}
-            label={tag}
-            isSelected={selectedTags.includes(tag)}
-            onPress={() => toggleTag(tag)}
-          />
-        ))}
-      </View>
-    </View>
+    </TouchableOpacity>
   );
 }

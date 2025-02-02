@@ -10,8 +10,8 @@ export function FullCommentsList({ comments, onClose }: FullCommentsListProps) {
   const { handleClose } = useFullCommentsListViewModel({ onClose });
 
   return (
-    <View className='flex-1 bg-[#171717] pt-12'>
-      <View className='flex-row items-center justify-between border-b border-gray-800 px-4 py-4'>
+    <View className='flex-1 bg-[#171717] items-center pt-12'>
+      <View className='flex-row items-center justify-between border-b border-gray-800 px-4 py-4 w-full'>
         <TouchableOpacity onPress={handleClose}>
           <AntDesign name='close' size={24} color='white' />
         </TouchableOpacity>
@@ -24,14 +24,14 @@ export function FullCommentsList({ comments, onClose }: FullCommentsListProps) {
       <ScrollView
         className='flex-1 px-4'
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ paddingVertical: 20 }}>
-        <CustomText size={16} weight='regular' className='mb-4 text-gray-300'>
+        contentContainerStyle={{ paddingVertical: 20, alignItems: 'center' }}>
+        <CustomText size={16} weight='regular' className='mb-4 text-gray-300 w-full text-center'>
           {comments.length} avaliações de visitantes
         </CustomText>
 
         {comments && comments.length > 0 ? (
           comments.map((comment) => (
-            <View key={comment.id} className='mb-3'>
+            <View key={comment.id} className='mb-3 w-full'>
               <CommentCard
                 name={comment.tourist.touristName}
                 date={comment.wasVisitingDate}
@@ -42,7 +42,7 @@ export function FullCommentsList({ comments, onClose }: FullCommentsListProps) {
             </View>
           ))
         ) : (
-          <View className='mt-2 rounded-xl border border-gray-700 bg-[#1C1C1E] p-4'>
+          <View className='mt-2 rounded-xl border border-gray-700 bg-[#1C1C1E] p-4 w-full'>
             <CustomText className='text-center text-gray-400' size={14} weight='regular'>
               Nenhuma avaliação disponível ainda!
             </CustomText>

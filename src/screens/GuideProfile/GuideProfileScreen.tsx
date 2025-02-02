@@ -7,7 +7,7 @@ import { LogoTl } from 'src/components/Logo/LogoTL';
 import { Stars } from 'src/components/Stars/Stars';
 import { CustomText } from 'src/components/Text/CustomText';
 import { TLGradientButton } from 'src/components/Button/TLGradientButton/TLGradientButton';
-import { SolidButton } from 'src/components/Button/SolidButton/SolidButton';
+import { GradientBorderButton } from 'src/components/Button/GradientBorderButton/GradientBorderButton';
 import { GuideItineraryCard } from 'src/components/Guide/GuideItineraryCard/GuideItineraryCard';
 import { ReviewCard } from 'src/components/Review/ReviewCard/ReviewCard';
 import { Avatar } from 'src/components/Avatar/Avatar';
@@ -41,13 +41,15 @@ export function GuideProfileScreen({ guideId }: GuideProfileScreenProps) {
       contentContainerStyle={{ paddingBottom: 120 }}
       automaticallyAdjustContentInsets={false}>
       <View className='flex-1'>
-        <View className='relative h-24'>
-          <View className='absolute left-4 top-12 z-10'>
+      <View className='flex-row items-center justify-between px-4 pt-12'>
+          <View className='flex-1'>
             <GoBackButton />
           </View>
-          <View className='absolute left-0 right-0 top-12 z-0 flex items-center justify-center'>
+          
+          <View className='flex-1 items-center justify-center'>
             <LogoTl />
           </View>
+          <View className='flex-1' />
         </View>
 
         <View className='items-center px-6 pt-12'>
@@ -72,7 +74,11 @@ export function GuideProfileScreen({ guideId }: GuideProfileScreenProps) {
           />
 
           <View className='mt-8 w-full'>
-            <TLGradientButton title='Avaliar este Guia!' className='w-full' />
+            <TLGradientButton 
+              title='Avaliar este Guia!' 
+              className='w-full'
+              onPress={() => router.push(`/(modals)/add-review?guideId=${guideId}`)}
+            />
           </View>
 
           {guide.itineraries.length > 0 && (
@@ -105,10 +111,9 @@ export function GuideProfileScreen({ guideId }: GuideProfileScreenProps) {
 
               {guide.itineraries.length > 3 && (
                 <View className='mt-4 items-center'>
-                  <SolidButton
+                  <GradientBorderButton
                     title='Ver mais roteiros'
-                    size='sm'
-                    color='white'
+                    className='mt-4 self-center'
                     onPress={() =>
                       router.push(`/(modals)/full-guide-itineraries?guideId=${guide.id}`)
                     }
@@ -151,10 +156,9 @@ export function GuideProfileScreen({ guideId }: GuideProfileScreenProps) {
 
               {guide.reviews.length > 3 && (
                 <View className='mt-4 items-center'>
-                  <SolidButton
+                  <GradientBorderButton
                     title='Ver mais avaliações'
-                    size='sm'
-                    color='white'
+                    className='mt-4 self-center'
                     onPress={() => router.push(`/(modals)/full-reviews-list?guideId=${guide.id}`)}
                   />
                 </View>

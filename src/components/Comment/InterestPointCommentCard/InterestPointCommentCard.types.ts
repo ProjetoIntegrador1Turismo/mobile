@@ -5,7 +5,8 @@ export interface InterestPointCommentCardProps {
   rating: number;
   avatarUrl: string;
   interestPoint: {
+    id: number;
     name: string;
-    id: string;
   };
+  commentId: number;
 }

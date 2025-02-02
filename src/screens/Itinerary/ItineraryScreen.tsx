@@ -18,6 +18,7 @@ export function ItineraryScreen({ itineraryId }: ItineraryScreenProps) {
   const { guide, itinerary, reviews, isLoading, isError } = useItineraryScreenViewModel({
     itineraryId,
   });
+  
   const router = useAppRouter();
 
   if (isLoading) {
@@ -38,7 +39,7 @@ export function ItineraryScreen({ itineraryId }: ItineraryScreenProps) {
 
   return (
     <ScrollView
-      className='flex-1 bg-[#171717]'
+      className='flex-1 bg-black'
       showsVerticalScrollIndicator={false}
       contentContainerStyle={{ paddingBottom: 120 }}
       automaticallyAdjustContentInsets={false}>
@@ -125,7 +126,7 @@ export function ItineraryScreen({ itineraryId }: ItineraryScreenProps) {
                   shortDescription={point.shortDescription}
                   imageCoverUrl={point.imageCoverUrl}
                   interestPointType={point.interestPointType}
-                  onPress={() => router.push(`/(tabs)/(search)/interest-point/${point.id}`)}
+                  onPress={() => router.push(`/(tabs)/(search)/point/${point.id}`)}
                 />
               ))}
             </View>

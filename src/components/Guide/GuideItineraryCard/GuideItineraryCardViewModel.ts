@@ -5,14 +5,11 @@ import { GuideItineraryCardProps } from './GuideItineraryCard.types';
 
 export const useGuideItineraryCardViewModel = (props: GuideItineraryCardProps) => {
   const router = useAppRouter();
-  const { guide, title, backgroundImage, itineraryId, onPress } = props;
+  const { guide, title, backgroundImage, itineraryId } = props;
 
   const handlePress = () => {
-    if (onPress) {
-      onPress();
-    } else {
-      router.push(`/(tabs)/(search)/itinerary/${itineraryId}`);
-    }
+    router.dismiss(); // Fecha o modal se estiver aberto
+    router.push(`/(tabs)/(search)/itinerary/${itineraryId}`);
   };
 
   return {

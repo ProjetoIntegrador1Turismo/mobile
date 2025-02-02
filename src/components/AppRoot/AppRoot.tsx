@@ -4,6 +4,7 @@ import Toast, { BaseToast, ErrorToast, BaseToastProps } from 'react-native-toast
 import { ReactQueryProvider } from 'src/common/providers/ReactQuery/ReactQueryProvider';
 import { useAppRootViewModel } from 'src/components/AppRoot/AppRootViewModel';
 import { SplashView } from 'src/screens/Splash/SplashView';
+
 export default function AppRoot() {
   const { splashComplete } = useAppRootViewModel();
 
@@ -23,7 +24,9 @@ export default function AppRoot() {
           fontWeight: '400',
           fontFamily: 'Poppins_400Regular',
           color: 'white',
+          flexWrap: 'wrap',
         }}
+        text2NumberOfLines={2}
       />
     ),
     error: (props: BaseToastProps) => (
@@ -41,7 +44,9 @@ export default function AppRoot() {
           fontWeight: '400',
           fontFamily: 'Poppins_400Regular',
           color: '#FFF',
+          flexWrap: 'wrap',
         }}
+        text2NumberOfLines={2}
       />
     ),
   };
