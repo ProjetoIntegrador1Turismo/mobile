@@ -3,4 +3,6 @@ export interface GuideItineraryActionCardProps {
   imageCoverUrl: string;
   className?: string;
   onPressEdit?: () => void;
+  onPressDelete?: () => void;
+  itineraryId: number;
 }
