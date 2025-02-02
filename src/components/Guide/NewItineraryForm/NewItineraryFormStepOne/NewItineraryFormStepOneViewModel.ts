@@ -6,10 +6,15 @@ import NewItineraryStepOneFormSchema from 'src/common/schemas/NewItinerary/NewIt
 
 import { NewItineraryStepOneFormData } from './NewItineraryFormStepOne.types';
 
+import { useAppRouter } from '~/src/common/lib/router';
+import { useNewItineraryFormStore } from '~/src/common/stores/NewItineraryFormStore';
+
 export const useNewItineraryFormStepOneViewModel = () => {
   const [uri, setUri] = useState<string>('');
+  const { push } = useAppRouter();
+  const { setStepOneData } = useNewItineraryFormStore();
 
-  const { control, handleSubmit } = useForm<NewItineraryStepOneFormData>({
+  const { control, handleSubmit, formState, setValue } = useForm<NewItineraryStepOneFormData>({
     resolver: zodResolver(NewItineraryStepOneFormSchema),
   });
 
@@ -23,12 +28,16 @@ export const useNewItineraryFormStepOneViewModel = () => {
 
     if (!result.canceled) {
       setUri(result.assets[0].uri);
+      setValue('imgCover', result.assets[0].uri);
     }
   };
 
+  const coverError = formState.errors.imgCover?.message;
+
   const onPressContinue = (values: NewItineraryStepOneFormData) => {
-    console.log(values);
+    setStepOneData(values);
+    push('(tabs)/(dynamic)/create-itinerary-part-two');
   };
 
-  return { control, handleSubmit, onPressContinue, onPressAddCoverImage, uri };
+  return { control, handleSubmit, onPressContinue, onPressAddCoverImage, uri, coverError };
 };
