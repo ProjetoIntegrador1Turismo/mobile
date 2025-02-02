@@ -1,8 +1,9 @@
-import EvilIcons from '@expo/vector-icons/EvilIcons';
 import Feather from '@expo/vector-icons/Feather';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import React from 'react';
 import { View, Image, TouchableOpacity } from 'react-native';
 import { CustomText } from 'src/components/Text/CustomText';
+import { useAppRouter } from 'src/common/lib/router';
 
 import { GuideItineraryActionCardProps } from './GuideItineraryActionCard.types';
 
@@ -14,7 +15,18 @@ export function GuideItineraryActionCard({
   title,
   className,
   onPressEdit,
+  onPressDelete,
+  itineraryId,
 }: GuideItineraryActionCardProps) {
+  const router = useAppRouter();
+
+  const handleLinkPress = () => {
+    router.replace(`/(tabs)/(search)`);
+    setTimeout(() => {
+      router.push(`/(tabs)/(search)/itinerary/${itineraryId}`);
+    }, 0);
+  };
+
   return (
     <View className='pl-4 pr-4'>
       <View
@@ -31,12 +43,15 @@ export function GuideItineraryActionCard({
           <CustomText className='mb-2 mt-5 text-white' weight='bold' size={24}>
             {title}
           </CustomText>
-          <View className='flex-row'>
-            <TouchableOpacity>
-              <EvilIcons className='mr-12' name='external-link' size={45} color='#3371E3' />
+          <View className='flex-row items-center justify-center'>
+            <TouchableOpacity onPress={handleLinkPress} className='items-center justify-center px-6'>
+              <Feather name='external-link' size={32} color='#3371E3' />
             </TouchableOpacity>
-            <TouchableOpacity onPress={onPressEdit}>
+            <TouchableOpacity onPress={onPressEdit} className='items-center justify-center px-6'>
               <Feather name='edit-3' size={32} color='#F8CA36' />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={onPressDelete} className='items-center justify-center px-6'>
+              <MaterialCommunityIcons name='trash-can' size={32} color='#FF3B30' />
             </TouchableOpacity>
           </View>
         </View>
