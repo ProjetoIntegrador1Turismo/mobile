@@ -65,21 +65,22 @@ export function useGuidePanel() {
     setSelectedItineraryId(null);
   };
 
-  // const notifiedInterestCards = () => {
-  //   return itineraries.flatMap((itinerary) =>
-  //     itinerary.interestedTourists.map((tourist) => ({
-  //       userName: `${tourist.firstName} ${tourist.lastName}`,
-  //       imageUrl: tourist.profileImageUrl,
-  //       phone: tourist.phone,
-  //       email: tourist.email,
-  //       itineraryTitle: itinerary.title,
-  //     }))
-  //   );
-  // };
+  const notifiedInterestCards = () => {
+    return itineraries!.flatMap((itinerary) =>
+      itinerary.interestedTourists.map((tourist) => ({
+        userName: `${tourist.firstName} ${tourist.lastName}`,
+        imageUrl: tourist.profileImageUrl,
+        phone: tourist.phone,
+        email: tourist.email,
+        itineraryTitle: itinerary.title,
+      }))
+    );
+  };
 
   return {
     itineraries,
     isLoading,
+    notifiedInterestCards,
     deleteModalVisible,
     handleTouristButtonPress,
     handleCreateItineraryButtonPress,
