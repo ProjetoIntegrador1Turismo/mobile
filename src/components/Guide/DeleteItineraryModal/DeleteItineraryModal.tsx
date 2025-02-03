@@ -1,12 +1,13 @@
+import { AntDesign } from '@expo/vector-icons';
 import React from 'react';
 import { View, Modal, TouchableOpacity } from 'react-native';
-import { AntDesign } from '@expo/vector-icons';
 import { CustomText } from 'src/components/Text/CustomText';
+
 import { DeleteItineraryModalProps } from './DeleteItineraryModal.types';
 
 export function DeleteItineraryModal({ visible, onClose, onConfirm }: DeleteItineraryModalProps) {
   return (
-    <Modal visible={visible} transparent={true} animationType='fade' onRequestClose={onClose}>
+    <Modal visible={visible} transparent animationType='fade' onRequestClose={onClose}>
       <View className='flex-1 items-center justify-center bg-black/90'>
         <View className='w-[80%] rounded-xl bg-[#1C1C1E] p-6'>
           <TouchableOpacity onPress={onClose} className='absolute right-4 top-4 z-10'>
@@ -22,7 +23,7 @@ export function DeleteItineraryModal({ visible, onClose, onConfirm }: DeleteItin
             perderá todos os avisos de turistas interessados neste roteiro.
           </CustomText>
 
-          <View className='flex-row justify-center space-x-6'>
+          <View className='flex-row justify-center gap-4 space-x-6'>
             <TouchableOpacity
               onPress={onClose}
               className='rounded-lg border border-white px-8 py-3'>
