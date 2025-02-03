@@ -16,6 +16,7 @@ export function InterestPointCommentsSection({
   const hasComments = comments.length > 0;
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
   const router = useAppRouter();
+  const isGuide = useAuthStore((state) => state.user)?.userType === 'Guide';
 
   const handleSeeMorePress = () => {
     router.push(`/(modals)/full-comments-list?pointId=${pointId}`);
@@ -38,7 +39,7 @@ export function InterestPointCommentsSection({
               {comments.length} Comentários
             </CustomText>
           )}
-          {isAuthenticated && (
+          {isAuthenticated && !isGuide && (
             <TouchableOpacity
               className='h-10 w-10 items-center justify-center rounded-full bg-zinc-800'
               onPress={onAddCommentPress}

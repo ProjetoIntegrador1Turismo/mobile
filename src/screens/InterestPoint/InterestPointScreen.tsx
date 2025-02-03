@@ -22,6 +22,8 @@ import { Stars } from 'src/components/Stars/Stars';
 import { InterestPointCommentsSection } from 'src/components/Comment/InterestPointCommentsSection/InterestPointCommentsSection';
 import { GoBackButton } from '~/src/components/Button/GoBackButton/GoBackButton';
 
+import { useAuthStore } from 'src/common/stores/AuthStore';
+
 interface InterestPointScreenProps {
   pointId: number;
 }
@@ -43,6 +45,8 @@ export function InterestPointScreen({ pointId }: InterestPointScreenProps) {
   } = useInterestPointScreenViewModel(pointId);
   const { goBack } = useAppRouter();
   const router = useAppRouter();
+
+  const isGuide = useAuthStore((state) => state.user)?.userType === 'Guide';
 
   if (isLoading) {
     return (
@@ -108,13 +112,14 @@ export function InterestPointScreen({ pointId }: InterestPointScreenProps) {
               </View>
 
               {/* Botão */}
+              {!isGuide && (
               <View className='mt-8 flex flex-row items-center justify-center'>
                 <TLGradientButton
                   title='Tenho Interesse!'
                   className='w-11/12'
                   onPress={handleInterestPress}
                 />
-              </View>
+              </View>)}
 
               {/* View das coisas */}
               <View className='items-start px-6'>
@@ -130,27 +135,59 @@ export function InterestPointScreen({ pointId }: InterestPointScreenProps) {
                   textSize={16}
                 />
 
-                <View className='mb-4 mt-6 flex w-full flex-row gap-x-12'>
-                  <View>
+                <View className='mb-8 mt-6 flex w-full flex-col gap-y-4'>
+                  <View className='flex-row items-center gap-x-2'>
                     <CustomText size={20} weight='regular' className='text-white'>
                       Preço:
                     </CustomText>
-
                     <Price priceLevel={Math.ceil(point.averageValue / 50)} size={24} variant='dark' />
                   </View>
-                  <View>
-                    <CustomText size={20} weight='regular' className='text-white'>
-                      Duração:
-                    </CustomText>
-                    <View className='flex flex-row items-center gap-x-2'>
-                      <FontAwesome name='clock-o' size={24} color='white' />
-                      <CustomText size={18} weight='regular' className='text-white'>
-                        {point.duration}
+
+                  {/* Informações específicas por tipo */}
+                  {point.starsNumber !== null && (
+                    <View className='flex-row items-center gap-x-2'>
+                      <CustomText size={20} weight='regular' className='text-white'>
+                        Categoria:
+                      </CustomText>
+                      <CustomText size={20} weight='regular' className='text-white'>
+                        {point.starsNumber} estrelas
                       </CustomText>
                     </View>
+                  )}
+
+                  <View className='flex-row flex-wrap gap-2'>
+                    {point.breakfastIncluded && (
+                      <View className='rounded-full bg-zinc-800 px-4 py-2'>
+                        <CustomText size={16} weight='regular' className='text-white'>
+                          Café da manhã incluso
+                        </CustomText>
+                      </View>
+                    )}
+                    {point.isResort && (
+                      <View className='rounded-full bg-zinc-800 px-4 py-2'>
+                        <CustomText size={16} weight='regular' className='text-white'>
+                          Resort
+                        </CustomText>
+                      </View>
+                    )}
+                    {point.foodType && (
+                      <View className='rounded-full bg-zinc-800 px-4 py-2'>
+                        <CustomText size={16} weight='regular' className='text-white'>
+                          {point.foodType}
+                        </CustomText>
+                      </View>
+                    )}
+                    {point.requiredAge && (
+                      <View className='rounded-full bg-zinc-800 px-4 py-2'>
+                        <CustomText size={16} weight='regular' className='text-white'>
+                          Idade mínima: {point.requiredAge} anos
+                        </CustomText>
+                      </View>
+                    )}
                   </View>
                 </View>
-                <View className='mt-4'>
+
+                <View className='mt-2'>
                   <CustomText size={20} weight='bold' className='mb-2 text-white'>
                     Descrição
                   </CustomText>
