@@ -48,8 +48,8 @@ export default function CategoryDetailsScreen({ categoryTitle }: CategoryDetails
           <Divider text='Com base na categoria'></Divider>
         </View>
       </View>
-      
-      <View className='flex-1 mt-4 px-4'>
+
+      <View className='mt-4 flex-1 px-4'>
         <BasicPointCardList {...data} />
       </View>
     </View>
