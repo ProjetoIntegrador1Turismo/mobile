@@ -61,6 +61,7 @@ export function HomeScreen() {
             <CardSlider
               data={firstSlider}
               keyExtractor={(item) => String(item.name)}
+              enableInitialScroll={false}
               renderItem={({ item }) => (
                 <InterestPointCard
                   {...item}
@@ -76,6 +77,7 @@ export function HomeScreen() {
             <CardSlider
               data={secondSlider}
               keyExtractor={(item) => String(item.name)}
+              enableInitialScroll={false}
               renderItem={({ item }) => (
                 <InterestPointCard
                   {...item}
