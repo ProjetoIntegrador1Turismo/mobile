@@ -31,7 +31,11 @@ export default function DynamicTabScreen() {
         <CustomText className='text-center text-white' weight='regular' size={16}>
           Faça login para ver seus roteiros!
         </CustomText>
-        <TLGradientButton title='Login' className='w-11/12' onPress={() => router.push('/(auth)/login')} />
+        <TLGradientButton
+          title='Login'
+          className='w-11/12'
+          onPress={() => router.push('/(auth)/login')}
+        />
       </View>
       <View className='h-32' />
     </SafeAreaView>

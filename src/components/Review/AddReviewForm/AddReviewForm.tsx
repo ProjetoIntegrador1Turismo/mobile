@@ -6,7 +6,12 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { CustomText } from 'src/components/Text/CustomText';
 import { TLGradientButton } from 'src/components/Button/TLGradientButton/TLGradientButton';
 import { useAddReviewFormViewModel } from './AddReviewFormViewModel';
-import { AddReviewFormData, AddReviewFormProps, LIKED_TAGS, DISLIKED_TAGS } from './AddReviewForm.types';
+import {
+  AddReviewFormData,
+  AddReviewFormProps,
+  LIKED_TAGS,
+  DISLIKED_TAGS,
+} from './AddReviewForm.types';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { TagToggle } from 'src/components/Comment/TagToggle/TagToggle';
 import { useAppRouter } from 'src/common/lib/router';

@@ -1,4 +1,7 @@
-import { InterestPointPageModel, InterestPointType } from 'src/common/models/InterestPointScreen/interestPointScreen.model';
+import {
+  InterestPointPageModel,
+  InterestPointType,
+} from 'src/common/models/InterestPointScreen/interestPointScreen.model';
 import { InterestPointByIdModel } from 'src/common/models/interestpointbyid.model';
 import { api } from 'src/common/repositories/client';
 
@@ -20,12 +23,12 @@ function inferInterestPointType(point: any): InterestPointType {
 
 export const fetchTourPageData = async (id: number) => {
   const { data } = await api.get<InterestPointPageModel>(`/page-source/tour/${id}`);
-  
+
   // Adiciona o tipo inferido aos dados
   if (data.interestPoint) {
     data.interestPoint.interestPointType = inferInterestPointType(data.interestPoint);
   }
-  
+
   return data;
 };
 

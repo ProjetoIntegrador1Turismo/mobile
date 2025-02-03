@@ -20,7 +20,7 @@ export default function CategoryDetailsScreen({ categoryTitle }: CategoryDetails
   if (isLoading || !data) {
     return (
       <View className='flex-1 items-center justify-center'>
-        <ActivityIndicator size='large' color='white'/>
+        <ActivityIndicator size='large' color='white' />
       </View>
     );
   }
@@ -31,11 +31,11 @@ export default function CategoryDetailsScreen({ categoryTitle }: CategoryDetails
         <View className='flex-1'>
           <GoBackButton />
         </View>
-        
+
         <View className='flex-1 items-center justify-center'>
           <LogoTl />
         </View>
-        
+
         <View className='flex-1' />
       </View>
 
@@ -48,9 +48,7 @@ export default function CategoryDetailsScreen({ categoryTitle }: CategoryDetails
           <Divider text='Com base na categoria'></Divider>
           <BasicPointCardList {...data} />
         </View>
-        
       </View>
-      
     </View>
   );
 }

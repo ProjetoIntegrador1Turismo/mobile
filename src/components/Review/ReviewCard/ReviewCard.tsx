@@ -34,7 +34,10 @@ export function ReviewCard({ touristName, avatarUrl, text, date, rating }: Revie
         </View>
       </View>
       <View className='mt-2 flex flex-row items-center p-2'>
-        <CustomText className='mr-auto line-clamp-4 max-w-[240px] break-words text-gray-200' size={12} weight='regular'>
+        <CustomText
+          className='mr-auto line-clamp-4 max-w-[240px] break-words text-gray-200'
+          size={12}
+          weight='regular'>
           {text}
         </CustomText>
         <Pressable onPress={() => setModalVisible(true)} className='ml-2'>

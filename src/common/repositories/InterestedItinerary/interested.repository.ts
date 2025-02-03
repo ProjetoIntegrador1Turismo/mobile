@@ -2,7 +2,6 @@ import { InterestedItineraryModel } from '~/src/common/models/InterestedItinerar
 import { api } from '~/src/common/repositories/client';
 import { useAppRouter } from '~/src/common/lib/router';
 
-
 export async function fetchInterestedItinerary(authToken: string) {
   const { data } = await api.get<InterestedItineraryModel>('/user/me', {
     headers: {
@@ -22,7 +21,6 @@ export async function removeInterestedItinerary(itineraryId: number) {
 }
 
 export async function signalItineraryInterest(itineraryId: number) {
-
   try {
     await api.post(`/tourist/signal/${itineraryId}`);
     return true;

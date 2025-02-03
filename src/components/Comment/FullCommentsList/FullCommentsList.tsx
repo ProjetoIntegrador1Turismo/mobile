@@ -10,8 +10,8 @@ export function FullCommentsList({ comments, onClose }: FullCommentsListProps) {
   const { handleClose } = useFullCommentsListViewModel({ onClose });
 
   return (
-    <View className='flex-1 bg-[#171717] items-center pt-12'>
-      <View className='flex-row items-center justify-between border-b border-gray-800 px-4 py-4 w-full'>
+    <View className='flex-1 items-center bg-[#171717] pt-12'>
+      <View className='w-full flex-row items-center justify-between border-b border-gray-800 px-4 py-4'>
         <TouchableOpacity onPress={handleClose}>
           <AntDesign name='close' size={24} color='white' />
         </TouchableOpacity>
@@ -25,7 +25,7 @@ export function FullCommentsList({ comments, onClose }: FullCommentsListProps) {
         className='flex-1 px-4'
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingVertical: 20, alignItems: 'center' }}>
-        <CustomText size={16} weight='regular' className='mb-4 text-gray-300 w-full text-center'>
+        <CustomText size={16} weight='regular' className='mb-4 w-full text-center text-gray-300'>
           {comments.length} avaliações de visitantes
         </CustomText>
 
@@ -42,7 +42,7 @@ export function FullCommentsList({ comments, onClose }: FullCommentsListProps) {
             </View>
           ))
         ) : (
-          <View className='mt-2 rounded-xl border border-gray-700 bg-[#1C1C1E] p-4 w-full'>
+          <View className='mt-2 w-full rounded-xl border border-gray-700 bg-[#1C1C1E] p-4'>
             <CustomText className='text-center text-gray-400' size={14} weight='regular'>
               Nenhuma avaliação disponível ainda!
             </CustomText>

@@ -8,13 +8,17 @@ import { BASE_URL } from '~/src/common/repositories/client';
 import { cn } from '~/src/common/utils/cn';
 import { CustomText } from '~/src/components/Text/CustomText';
 
-export function SelectedInterestPointCard({ id, className, onPressRemove }: SelectedInterestPointCardProps) {
+export function SelectedInterestPointCard({
+  id,
+  className,
+  onPressRemove,
+}: SelectedInterestPointCardProps) {
   const { data, isLoading } = useSelectedInterestPointCardViewModel(id);
 
   if (isLoading) {
     return (
       <View className='h-[90px] w-[362px] flex-1 items-center justify-center overflow-hidden rounded-2xl'>
-        <ActivityIndicator size='large' color='white'/>
+        <ActivityIndicator size='large' color='white' />
       </View>
     );
   }

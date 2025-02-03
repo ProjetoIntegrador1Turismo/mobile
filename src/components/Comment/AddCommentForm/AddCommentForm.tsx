@@ -6,7 +6,12 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { CustomText } from 'src/components/Text/CustomText';
 import { TLGradientButton } from 'src/components/Button/TLGradientButton/TLGradientButton';
 import { useAddCommentFormViewModel } from './AddCommentFormViewModel';
-import { AddCommentFormData, AddCommentFormProps, LIKED_TAGS, DISLIKED_TAGS } from './AddCommentForm.types';
+import {
+  AddCommentFormData,
+  AddCommentFormProps,
+  LIKED_TAGS,
+  DISLIKED_TAGS,
+} from './AddCommentForm.types';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { TagToggle } from 'src/components/Comment/TagToggle/TagToggle';
 import { useAppRouter } from 'src/common/lib/router';

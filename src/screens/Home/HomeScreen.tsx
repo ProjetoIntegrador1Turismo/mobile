@@ -25,7 +25,7 @@ export function HomeScreen() {
   if (isLoading) {
     return (
       <View className='flex-1 items-center justify-center bg-tl-bg'>
-        <ActivityIndicator size='large' color='white'/>
+        <ActivityIndicator size='large' color='white' />
       </View>
     );
   }
@@ -62,7 +62,10 @@ export function HomeScreen() {
               data={firstSlider}
               keyExtractor={(item) => String(item.name)}
               renderItem={({ item }) => (
-                <InterestPointCard {...item} onPress={() => handleInterestPointPress(item.id, item.interestPointType)} />
+                <InterestPointCard
+                  {...item}
+                  onPress={() => handleInterestPointPress(item.id, item.interestPointType)}
+                />
               )}
               className='my-2 w-full'
               ItemSeparatorComponent={() => <View className='w-4' />}
@@ -74,7 +77,10 @@ export function HomeScreen() {
               data={secondSlider}
               keyExtractor={(item) => String(item.name)}
               renderItem={({ item }) => (
-                <InterestPointCard {...item} onPress={() => handleInterestPointPress(item.id, item.interestPointType)} />
+                <InterestPointCard
+                  {...item}
+                  onPress={() => handleInterestPointPress(item.id, item.interestPointType)}
+                />
               )}
               className='my-2 w-full'
               ItemSeparatorComponent={() => <View className='w-4' />}

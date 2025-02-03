@@ -51,7 +51,7 @@ export function InterestPointScreen({ pointId }: InterestPointScreenProps) {
   if (isLoading) {
     return (
       <View className='flex-1 items-center justify-center'>
-        <ActivityIndicator size='large' color='white'/>
+        <ActivityIndicator size='large' color='white' />
       </View>
     );
   }
@@ -75,17 +75,17 @@ export function InterestPointScreen({ pointId }: InterestPointScreenProps) {
         contentContainerStyle={{ paddingBottom: 120 }}
         automaticallyAdjustContentInsets={false}>
         <View className='flex-1'>
-        <View className='flex-row items-center justify-between px-4 pt-12'>
-          <View className='flex-1'>
-            <GoBackButton />
+          <View className='flex-row items-center justify-between px-4 pt-12'>
+            <View className='flex-1'>
+              <GoBackButton />
+            </View>
+
+            <View className='flex-1 items-center justify-center'>
+              <LogoTl />
+            </View>
+
+            <View className='flex-1' />
           </View>
-          
-          <View className='flex-1 items-center justify-center'>
-            <LogoTl />
-          </View>
-          
-          <View className='flex-1' />
-        </View>
           <View className='w-full'>
             <CustomText size={24} weight='bold' className='mt-8 text-center text-white'>
               {point.name}
@@ -113,13 +113,14 @@ export function InterestPointScreen({ pointId }: InterestPointScreenProps) {
 
               {/* Botão */}
               {!isGuide && (
-              <View className='mt-8 flex flex-row items-center justify-center'>
-                <TLGradientButton
-                  title='Tenho Interesse!'
-                  className='w-11/12'
-                  onPress={handleInterestPress}
-                />
-              </View>)}
+                <View className='mt-8 flex flex-row items-center justify-center'>
+                  <TLGradientButton
+                    title='Tenho Interesse!'
+                    className='w-11/12'
+                    onPress={handleInterestPress}
+                  />
+                </View>
+              )}
 
               {/* View das coisas */}
               <View className='items-start px-6'>
@@ -140,7 +141,11 @@ export function InterestPointScreen({ pointId }: InterestPointScreenProps) {
                     <CustomText size={20} weight='regular' className='text-white'>
                       Preço:
                     </CustomText>
-                    <Price priceLevel={Math.ceil(point.averageValue / 50)} size={24} variant='dark' />
+                    <Price
+                      priceLevel={Math.ceil(point.averageValue / 50)}
+                      size={24}
+                      variant='dark'
+                    />
                   </View>
 
                   {/* Informações específicas por tipo */}
@@ -199,15 +204,17 @@ export function InterestPointScreen({ pointId }: InterestPointScreenProps) {
                   </CustomText>
                 </View>
 
-              <View className='mt-8 w-full items-center'>
-                <InterestPointGuidesSection guides={guides || []} pointId={pointId} />
-              </View>
+                <View className='mt-8 w-full items-center'>
+                  <InterestPointGuidesSection guides={guides || []} pointId={pointId} />
+                </View>
 
                 <View className='mt-8 w-full items-center'>
-                  <InterestPointCommentsSection 
-                    comments={comments || []} 
+                  <InterestPointCommentsSection
+                    comments={comments || []}
                     pointId={pointId}
-                    onAddCommentPress={() => router.push(`/(modals)/add-comment?pointId=${pointId}`)}
+                    onAddCommentPress={() =>
+                      router.push(`/(modals)/add-comment?pointId=${pointId}`)
+                    }
                   />
                 </View>
               </View>

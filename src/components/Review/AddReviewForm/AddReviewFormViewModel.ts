@@ -55,7 +55,7 @@ export function useAddReviewFormViewModel({ guideId }: AddReviewViewModelParams)
   const handleSubmit = async (data: AddReviewFormData) => {
     try {
       const formattedText = formatReviewText(data);
-      
+
       await createReview({
         text: formattedText,
         date: new Date().toISOString(),

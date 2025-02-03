@@ -9,7 +9,7 @@ const truncatedPointName = (pointName: string | undefined, maxNameLength: number
 
 function onPressPointCard() {
   const router = useAppRouter();
-  
+
   const handleItineraryPress = (itineraryId: number) => {
     router.replace(`/(tabs)/(search)`);
     setTimeout(() => {

@@ -19,14 +19,18 @@ export function BasicPointCard({ data, className }: { data: Content; className?:
 
   return (
     <TouchableOpacity onPress={() => handlePressPointCard(id, interestPointType)}>
-      <View className={cn('relative h-[90px] w-[100%] flex-row rounded-2xl overflow-hidden bg-black', className)}>
+      <View
+        className={cn(
+          'relative h-[90px] w-[100%] flex-row overflow-hidden rounded-2xl bg-black',
+          className
+        )}>
         <Image
           source={{ uri: BASE_URL + imageCoverUrl }}
           className='h-full w-full rounded-2xl opacity-50'
           resizeMode='cover'
         />
         <View className='absolute h-full w-full flex-row items-center justify-between px-3'>
-          <View className='flex-col flex-1 mr-2'>
+          <View className='mr-2 flex-1 flex-col'>
             <CustomText className='text-white' weight='bold' size={20}>
               {truncatedPointName(displayName, 25)}
             </CustomText>

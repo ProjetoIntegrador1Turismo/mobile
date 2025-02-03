@@ -13,7 +13,11 @@ interface UseCreateCommentMutationParams {
   onError?: (error: any) => void;
 }
 
-export function useCreateCommentMutation({ pointId, onSuccess, onError }: UseCreateCommentMutationParams) {
+export function useCreateCommentMutation({
+  pointId,
+  onSuccess,
+  onError,
+}: UseCreateCommentMutationParams) {
   const queryClient = useQueryClient();
 
   return useMutation({

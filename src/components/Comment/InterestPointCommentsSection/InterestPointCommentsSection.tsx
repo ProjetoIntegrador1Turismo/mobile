@@ -42,8 +42,7 @@ export function InterestPointCommentsSection({
           {isAuthenticated && !isGuide && (
             <TouchableOpacity
               className='h-10 w-10 items-center justify-center rounded-full bg-zinc-800'
-              onPress={onAddCommentPress}
-            >
+              onPress={onAddCommentPress}>
               <AntDesign name='plus' size={24} color='white' />
             </TouchableOpacity>
           )}
@@ -71,7 +70,7 @@ export function InterestPointCommentsSection({
             />
           </>
         ) : (
-          <View className='mt-2 rounded-xl border border-gray-700 bg-[#1C1C1E] p-4 w-full'>
+          <View className='mt-2 w-full rounded-xl border border-gray-700 bg-[#1C1C1E] p-4'>
             <CustomText className='text-center text-gray-400' size={14} weight='regular'>
               Nenhuma avaliação foi feita ainda!
             </CustomText>

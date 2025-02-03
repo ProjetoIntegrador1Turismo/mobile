@@ -44,7 +44,9 @@ export function GuideItineraryActionCard({
             {title}
           </CustomText>
           <View className='flex-row items-center justify-center'>
-            <TouchableOpacity onPress={handleLinkPress} className='items-center justify-center px-6'>
+            <TouchableOpacity
+              onPress={handleLinkPress}
+              className='items-center justify-center px-6'>
               <Feather name='external-link' size={32} color='#3371E3' />
             </TouchableOpacity>
             <TouchableOpacity onPress={onPressEdit} className='items-center justify-center px-6'>

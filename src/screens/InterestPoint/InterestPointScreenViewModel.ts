@@ -11,7 +11,9 @@ export function useInterestPointScreenViewModel(pointId: number) {
   const scrollViewRef = useRef<ScrollView>(null);
 
   const point = pageData?.interestPoint;
-  const buildFullAddress = point ? `${point.address.road} - ${point.address.number}, ${point.address.zipCode}` : '';
+  const buildFullAddress = point
+    ? `${point.address.road} - ${point.address.number}, ${point.address.zipCode}`
+    : '';
 
   const handleImagePress = (image: string) => {
     setSelectedImage(`${BASE_URL}${image}`);

@@ -21,12 +21,14 @@ export function useCategoryDetailsScreenViewModel(categoryTitle: string) {
 
     return {
       ...originalData,
-      content: originalData.content.map(item => ({
-        ...item,
-        interestPointType: isItinerary ? 'ITINERARY' : item.interestPointType
-      })).filter((item: Content) =>
-        (item.name || item.title || '').toLowerCase().includes(searchText.toLowerCase())
-      ),
+      content: originalData.content
+        .map((item) => ({
+          ...item,
+          interestPointType: isItinerary ? 'ITINERARY' : item.interestPointType,
+        }))
+        .filter((item: Content) =>
+          (item.name || item.title || '').toLowerCase().includes(searchText.toLowerCase())
+        ),
     };
   }, [originalData, debouncedSearchText, isItinerary]);
 
@@ -36,13 +38,15 @@ export function useCategoryDetailsScreenViewModel(categoryTitle: string) {
 
   return {
     isLoading,
-    data: filteredData ? {
-      ...filteredData,
-      content: filteredData.content.map(item => ({
-        ...item,
-        interestPointType: isItinerary ? 'ITINERARY' : item.interestPointType
-      }))
-    } : undefined,
+    data: filteredData
+      ? {
+          ...filteredData,
+          content: filteredData.content.map((item) => ({
+            ...item,
+            interestPointType: isItinerary ? 'ITINERARY' : item.interestPointType,
+          })),
+        }
+      : undefined,
     handleSearchAction,
   };
 }
