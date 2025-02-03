@@ -62,7 +62,7 @@ export function HomeScreen() {
               data={firstSlider}
               keyExtractor={(item) => String(item.name)}
               renderItem={({ item }) => (
-                <InterestPointCard {...item} onPress={() => handleInterestPointPress(item.id)} />
+                <InterestPointCard {...item} onPress={() => handleInterestPointPress(item.id, item.interestPointType)} />
               )}
               className='my-2 w-full'
               ItemSeparatorComponent={() => <View className='w-4' />}
@@ -74,7 +74,7 @@ export function HomeScreen() {
               data={secondSlider}
               keyExtractor={(item) => String(item.name)}
               renderItem={({ item }) => (
-                <InterestPointCard {...item} onPress={() => handleInterestPointPress(item.id)} />
+                <InterestPointCard {...item} onPress={() => handleInterestPointPress(item.id, item.interestPointType)} />
               )}
               className='my-2 w-full'
               ItemSeparatorComponent={() => <View className='w-4' />}
