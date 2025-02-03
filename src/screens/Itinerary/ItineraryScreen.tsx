@@ -15,7 +15,7 @@ import { AverageValue } from 'src/components/Price/AverageValue/AverageValue';
 import { BASE_URL } from 'src/common/repositories/client';
 
 export function ItineraryScreen({ itineraryId }: ItineraryScreenProps) {
-  const { guide, itinerary, reviews, isLoading, isError } = useItineraryScreenViewModel({
+  const { guide, itinerary, reviews, isLoading, isError, signalInterest, isSignalingInterest } = useItineraryScreenViewModel({
     itineraryId,
   });
   
@@ -70,7 +70,12 @@ export function ItineraryScreen({ itineraryId }: ItineraryScreenProps) {
           </View>
 
           <View className='mt-4'>
-            <TLGradientButton title='Tenho Interesse!' className='w-full' />
+            <TLGradientButton 
+              title='Tenho Interesse!' 
+              className='w-full' 
+              onPress={() => signalInterest()}
+              disabled={isSignalingInterest}
+            />
           </View>
 
           <View className='mt-6 flex-row items-center justify-between'>
