@@ -18,3 +18,15 @@ export async function removeInterestedItinerary(itineraryId: number) {
     return false;
   }
 }
+
+export async function signalItineraryInterest(itineraryId: number) {
+  try {
+    await api.post(`/tourist/signal/${itineraryId}`);
+    return true;
+  } catch (error: any) {
+    if (error.response?.status === 400) {
+      throw new Error('Você já sinalizou interesse nesse roteiro!');
+    }
+    throw error;
+  }
+}
