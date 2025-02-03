@@ -84,7 +84,7 @@ export function ProfileView() {
   if (!isAuthenticated) {
     return (
       <SafeAreaView className='flex-1 bg-tl-bg px-4'>
-        <View className='flex-row items-center justify-between px-4 pt-5'>
+        <View className='flex-row items-center justify-between px-4'>
           <View className='flex-1' />
           <View className='flex-1 items-center justify-center'>
             <LogoTl />
