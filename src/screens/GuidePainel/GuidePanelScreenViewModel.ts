@@ -3,6 +3,7 @@ import { useGuideItinerariesQuery } from 'src/common/hooks/queries/useGuideItine
 import { useDeleteItineraryMutation } from 'src/common/hooks/mutations/useDeleteItineraryMutation';
 import { useAppRouter } from 'src/common/lib/router';
 import { Itinerary } from 'src/common/models/GuideItineraries/guideItineraries.model';
+import { useQueryClient } from '@tanstack/react-query';
 
 export function useGuidePanel() {
   const { data, isLoading } = useGuideItinerariesQuery();
@@ -11,6 +12,7 @@ export function useGuidePanel() {
   const router = useAppRouter();
   const [deleteModalVisible, setDeleteModalVisible] = useState(false);
   const [selectedItineraryId, setSelectedItineraryId] = useState<number | null>(null);
+  const queryClient = useQueryClient();
 
   const handleTouristButtonPress = () => {
     router.push('(modals)/interested-itinerary-tourists');
@@ -32,6 +34,7 @@ export function useGuidePanel() {
   const handleDeleteConfirm = async () => {
     if (selectedItineraryId) {
       await deleteItineraryMutation.mutateAsync(selectedItineraryId);
+      queryClient.invalidateQueries({ queryKey: ['category', 'Roteiros'] });
       setDeleteModalVisible(false);
       setSelectedItineraryId(null);
     }
