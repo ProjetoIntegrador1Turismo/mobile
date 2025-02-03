@@ -7,9 +7,9 @@ export default function BasicPointCardList(data: CategoryDetailModel) {
     <FlatList
       data={data.content}
       keyExtractor={(basicCard: Content) => basicCard.id.toString()}
-      renderItem={({ item }) => <BasicPointCard data={item} className='mb-[10px]' />}
+      renderItem={({ item }) => <BasicPointCard data={item} className='mb-2' />}
       showsVerticalScrollIndicator={false}
-      ListFooterComponent={<View className='h-[400px]' />}
+      ListFooterComponent={<View className='h-[100px]' />}
     />
   );
 }

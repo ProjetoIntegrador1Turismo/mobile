@@ -17,7 +17,7 @@ export function SearchTextInputBar({
 
   return (
     <TouchableWithoutFeedback>
-      <View className='h-[40px] w-[362px] flex-row items-center rounded-[7px] bg-[#0A0A0A]'>
+      <View className='h-[40px] w-full flex-row items-center rounded-[7px] bg-[#0A0A0A]'>
         <TextInput
           ref={textInputRef}
           placeholder={placeholder ? placeholder : 'Pesquisar'}
@@ -34,7 +34,9 @@ export function SearchTextInputBar({
             }
           }}
         />
-        <Feather name='search' size={24} color='white' className='pr-[12px]' />
+        <View className='px-3'>
+          <Feather name='search' size={24} color='white' />
+        </View>
       </View>
     </TouchableWithoutFeedback>
   );

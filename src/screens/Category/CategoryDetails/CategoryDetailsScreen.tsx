@@ -8,6 +8,7 @@ import { useCategoryDetailsScreenViewModel } from './CategoryDetailsScreenViewMo
 import { BasicPointCard } from '~/src/components/Point/BasicPoint/BasicPointCard';
 import { GoBackButton } from '~/src/components/Button/GoBackButton/GoBackButton';
 import BasicPointCardList from '~/src/components/Point/BasicPointCardList';
+import { LogoTl } from '~/src/components/Logo/LogoTL';
 
 interface CategoryDetailsProps {
   categoryTitle: string;
@@ -25,16 +26,31 @@ export default function CategoryDetailsScreen({ categoryTitle }: CategoryDetails
   }
 
   return (
-    <View>
-      <GoBackButton className='mb-4 mt-8' />
-      <SearchTextInputBar onChangeText={handleSearchAction} />
-      <View className='mt-4 w-full items-center justify-center'>
-        <CustomText size={24} weight='bold' className='items-center justify-center text-white'>
-          {categoryTitle}
-        </CustomText>
-        <Divider text='Com base na categoria'></Divider>
+    <View className='flex-1 bg-black'>
+      <View className='flex-row items-center justify-between px-4 pt-12'>
+        <View className='flex-1'>
+          <GoBackButton />
+        </View>
+        
+        <View className='flex-1 items-center justify-center'>
+          <LogoTl />
+        </View>
+        
+        <View className='flex-1' />
       </View>
-      <BasicPointCardList {...data} />
+
+      <View className='mt-8 px-8'>
+        <SearchTextInputBar onChangeText={handleSearchAction} />
+        <View className='mt-4 items-center justify-center'>
+          <CustomText size={24} weight='bold' className='text-white'>
+            {categoryTitle}
+          </CustomText>
+          <Divider text='Com base na categoria'></Divider>
+          <BasicPointCardList {...data} />
+        </View>
+        
+      </View>
+      
     </View>
   );
 }
