@@ -6,9 +6,8 @@ import { Itinerary } from 'src/common/models/GuideItineraries/guideItineraries.m
 import { useQueryClient } from '@tanstack/react-query';
 
 export function useGuidePanel() {
-  const { data, isLoading } = useGuideItinerariesQuery();
+  const { data: itineraries, isLoading } = useGuideItinerariesQuery();
   const deleteItineraryMutation = useDeleteItineraryMutation();
-  const itineraries: Itinerary[] = data || [];
   const router = useAppRouter();
   const [deleteModalVisible, setDeleteModalVisible] = useState(false);
   const [selectedItineraryId, setSelectedItineraryId] = useState<number | null>(null);
@@ -45,24 +44,23 @@ export function useGuidePanel() {
     setSelectedItineraryId(null);
   };
 
-  const notifiedInterestCards = () => {
-    return itineraries.flatMap((itinerary) =>
-      itinerary.interestedTourists.map((tourist) => ({
-        userName: `${tourist.firstName} ${tourist.lastName}`,
-        imageUrl: tourist.profileImageUrl,
-        phone: tourist.phone,
-        email: tourist.email,
-        itineraryTitle: itinerary.title,
-      }))
-    );
-  };
+  // const notifiedInterestCards = () => {
+  //   return itineraries.flatMap((itinerary) =>
+  //     itinerary.interestedTourists.map((tourist) => ({
+  //       userName: `${tourist.firstName} ${tourist.lastName}`,
+  //       imageUrl: tourist.profileImageUrl,
+  //       phone: tourist.phone,
+  //       email: tourist.email,
+  //       itineraryTitle: itinerary.title,
+  //     }))
+  //   );
+  // };
 
   return {
     itineraries,
     isLoading,
     deleteModalVisible,
     handleTouristButtonPress,
-    notifiedInterestCards,
     handleCreateItineraryButtonPress,
     handleEditItineraryButtonPress,
     handleDeletePress,
