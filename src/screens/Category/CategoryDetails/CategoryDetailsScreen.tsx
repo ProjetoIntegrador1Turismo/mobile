@@ -39,15 +39,18 @@ export default function CategoryDetailsScreen({ categoryTitle }: CategoryDetails
         <View className='flex-1' />
       </View>
 
-      <View className='mt-8 px-8'>
+      <View className='mt-8 px-4'>
         <SearchTextInputBar onChangeText={handleSearchAction} />
         <View className='mt-4 items-center justify-center'>
           <CustomText size={24} weight='bold' className='text-white'>
             {categoryTitle}
           </CustomText>
           <Divider text='Com base na categoria'></Divider>
-          <BasicPointCardList {...data} />
         </View>
+      </View>
+      
+      <View className='flex-1 mt-4 px-4'>
+        <BasicPointCardList {...data} />
       </View>
     </View>
   );

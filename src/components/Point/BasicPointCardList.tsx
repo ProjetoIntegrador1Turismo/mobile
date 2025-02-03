@@ -4,12 +4,14 @@ import { CategoryDetailModel, Content } from '~/src/common/models/Category/categ
 
 export default function BasicPointCardList(data: CategoryDetailModel) {
   return (
-    <FlatList
-      data={data.content}
-      keyExtractor={(basicCard: Content) => basicCard.id.toString()}
-      renderItem={({ item }) => <BasicPointCard data={item} className='mb-2' />}
-      showsVerticalScrollIndicator={false}
-      ListFooterComponent={<View className='h-[100px]' />}
-    />
+    <View className='flex-1'>
+      <FlatList
+        data={data.content}
+        keyExtractor={(basicCard: Content) => basicCard.id.toString()}
+        renderItem={({ item }) => <BasicPointCard data={item} className='mb-2' />}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ paddingBottom: 100 }}
+      />
+    </View>
   );
 }
