@@ -2,7 +2,6 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { createNewItinerary } from 'src/common/repositories/Guide/guide.repository';
 import Toast from 'react-native-toast-message';
 
-
 export const useCreateItineraryMutation = () => {
   const queryClient = useQueryClient();
 

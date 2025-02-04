@@ -13,35 +13,30 @@ import { Content } from '~/src/common/models/Category/categoryDetail.model';
 import { BASE_URL } from '~/src/common/repositories/client';
 
 export function BasicPointCard({ data, className }: { data: Content; className?: string }) {
-  const { name, title, averageRating, averageValue, imageCoverUrl, id } = data;
+  const { name, title, imageCoverUrl, id, interestPointType } = data;
   const { handlePressPointCard } = onPressPointCard();
   const displayName = title || name;
+
   return (
-    <TouchableOpacity onPress={() => handlePressPointCard(id)}>
-      <View className={cn('relative h-[85px] w-[100%] flex-row rounded-2xl border-2', className)}>
+    <TouchableOpacity onPress={() => handlePressPointCard(id, interestPointType)}>
+      <View
+        className={cn(
+          'relative h-[90px] w-[100%] flex-row overflow-hidden rounded-2xl bg-black',
+          className
+        )}>
         <Image
           source={{ uri: BASE_URL + imageCoverUrl }}
-          className='h-full w-full rounded-2xl opacity-60'
+          className='h-full w-full rounded-2xl opacity-50'
           resizeMode='cover'
         />
-        <View className='absolute h-full w-full flex-row items-center justify-between px-4'>
-          <View className='flex-col'>
-            <CustomText className='mt-[5px] text-white' weight='bold' size={20}>
-              {truncatedPointName(displayName, 20)}
+        <View className='absolute h-full w-full flex-row items-center justify-between px-3'>
+          <View className='mr-2 flex-1 flex-col'>
+            <CustomText className='text-white' weight='bold' size={20}>
+              {truncatedPointName(displayName, 25)}
             </CustomText>
-            <View className='mt-1 flex-row'>
-              <Entypo name='star' size={16} color='#FF007F' />
-              <CustomText className='ml-[2px] mt-[-4px] text-white' size={16} weight='bold'>
-                {averageRating}
-              </CustomText>
-              <View className='mb-[8px] ml-[20px] flex-row items-center'>
-                <AntDesign name='right' size={12} color='white' />
-                <AverageValue value={averageValue} />
-              </View>
-            </View>
           </View>
-          <View>
-            <AntDesign name='arrowright' size={30} color='white' />
+          <View className='h-full justify-center'>
+            <AntDesign name='arrowright' size={24} color='white' />
           </View>
         </View>
       </View>

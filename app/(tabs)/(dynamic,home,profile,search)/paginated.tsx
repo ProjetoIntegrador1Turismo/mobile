@@ -1,7 +1,7 @@
 import { useSegments, useLocalSearchParams } from 'expo-router';
 import { Pressable } from 'react-native';
 import { useAppRouter } from 'src/common/lib/router';
-import { Container } from 'src/components/Container/Container';
+import { SafeAreaView } from 'react-native';
 import { CustomText } from 'src/components/Text/CustomText';
 import CategoryDetailsView from '~/src/screens/Category/CategoryDetails/CategoryDetailsScreen';
 
@@ -16,8 +16,8 @@ export default function Paginated() {
   // }
 
   return (
-    <Container className='bg-tl-bg p-8'>
+    <SafeAreaView className='flex-1 bg-tl-bg'>
       <CategoryDetailsView categoryTitle={String(pointType)} />
-    </Container>
+    </SafeAreaView>
   );
 }

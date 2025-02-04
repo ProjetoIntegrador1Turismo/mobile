@@ -8,10 +8,23 @@ const truncatedPointName = (pointName: string | undefined, maxNameLength: number
 };
 
 function onPressPointCard() {
-  const { push } = useAppRouter();
-  async function handlePressPointCard(id: number) {
-    push(`/point/${id}`);
+  const router = useAppRouter();
+
+  const handleItineraryPress = (itineraryId: number) => {
+    router.replace(`/(tabs)/(search)`);
+    setTimeout(() => {
+      router.push(`/(tabs)/(search)/itinerary/${itineraryId}`);
+    }, 0);
+  };
+
+  async function handlePressPointCard(id: number, type?: string) {
+    if (type === 'ITINERARY') {
+      handleItineraryPress(id);
+    } else {
+      router.push(`/point/${id}`);
+    }
   }
+
   return {
     handlePressPointCard,
   };

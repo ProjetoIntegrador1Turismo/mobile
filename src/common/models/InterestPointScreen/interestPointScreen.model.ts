@@ -4,23 +4,26 @@ export interface InterestPointPageModel {
   comments: Comment[];
 }
 
+export type InterestPointType = 'HOTEL' | 'RESTAURANT' | 'TOURIST_POINT' | 'EXPERIENCE' | 'EVENT';
+
 export interface InterestPoint {
   id: number;
   name: string;
   address: Address;
   averageValue: number;
   shortDescription: string;
-  longDescription: string;
-  starsNumber: any;
-  isResort: any;
-  breakfastIncluded: any;
-  foodType: any;
-  date: any;
-  duration: string;
-  requiredAge: string;
+  longDescription?: string;
+  starsNumber?: number;
+  isResort?: boolean;
+  breakfastIncluded?: boolean;
+  foodType?: string;
+  date?: string;
+  duration?: string;
+  requiredAge?: string;
   imageCoverUrl: string;
   images: string[];
   averageRating: string;
+  interestPointType: InterestPointType;
 }
 
 export interface Address {

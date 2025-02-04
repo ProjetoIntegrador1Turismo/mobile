@@ -12,16 +12,20 @@ import { GuideItineraryCard } from 'src/components/Guide/GuideItineraryCard/Guid
 import { ReviewCard } from 'src/components/Review/ReviewCard/ReviewCard';
 import { Avatar } from 'src/components/Avatar/Avatar';
 import { BASE_URL } from 'src/common/repositories/client';
+import { useAuthStore } from 'src/common/stores/AuthStore';
 
 export function GuideProfileScreen({ guideId }: GuideProfileScreenProps) {
   const { guide, isLoading, isError } = useGuideProfileScreenViewModel({ guideId });
   const { goBack } = useAppRouter();
   const router = useAppRouter();
+  const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
+
+  const isGuide = useAuthStore((state) => state.user)?.userType === 'Guide';
 
   if (isLoading) {
     return (
       <View className='flex-1 items-center justify-center'>
-        <ActivityIndicator size='large' color='white'/>
+        <ActivityIndicator size='large' color='white' />
       </View>
     );
   }
@@ -41,11 +45,11 @@ export function GuideProfileScreen({ guideId }: GuideProfileScreenProps) {
       contentContainerStyle={{ paddingBottom: 120 }}
       automaticallyAdjustContentInsets={false}>
       <View className='flex-1'>
-      <View className='flex-row items-center justify-between px-4 pt-12'>
+        <View className='flex-row items-center justify-between px-4 pt-12'>
           <View className='flex-1'>
             <GoBackButton />
           </View>
-          
+
           <View className='flex-1 items-center justify-center'>
             <LogoTl />
           </View>
@@ -73,13 +77,15 @@ export function GuideProfileScreen({ guideId }: GuideProfileScreenProps) {
             textSize={16}
           />
 
-          <View className='mt-8 w-full'>
-            <TLGradientButton 
-              title='Avaliar este Guia!' 
-              className='w-full'
-              onPress={() => router.push(`/(modals)/add-review?guideId=${guideId}`)}
-            />
-          </View>
+          {isAuthenticated && !isGuide && (
+            <View className='mt-8 w-full'>
+              <TLGradientButton
+                title='Avaliar este Guia!'
+                className='w-full'
+                onPress={() => router.push(`/(modals)/add-review?guideId=${guideId}`)}
+              />
+            </View>
+          )}
 
           {guide.itineraries.length > 0 && (
             <View className='mt-8 w-full'>

@@ -10,7 +10,10 @@ export function useInterestPointScreenViewModel(pointId: number) {
   const { data: pageData, isLoading, isError } = useTourPageQuery(pointId);
   const scrollViewRef = useRef<ScrollView>(null);
 
-  const buildFullAddress = `${pageData?.interestPoint.address.road} - ${pageData?.interestPoint.address.number}, ${pageData?.interestPoint.address.zipCode}`;
+  const point = pageData?.interestPoint;
+  const buildFullAddress = point
+    ? `${point.address.road} - ${point.address.number}, ${point.address.zipCode}`
+    : '';
 
   const handleImagePress = (image: string) => {
     setSelectedImage(`${BASE_URL}${image}`);
@@ -32,17 +35,17 @@ export function useInterestPointScreenViewModel(pointId: number) {
   };
 
   return {
-    point: pageData?.interestPoint,
-    guides: pageData?.guidesWhoOfferThisTour,
-    comments: pageData?.comments,
+    point,
+    guides: pageData?.guidesWhoOfferThisTour || [],
+    comments: pageData?.comments || [],
     isLoading,
     isError,
-    selectedImage,
-    isModalOpen,
-    buildFullAddress,
     handleImagePress,
-    handleCloseViewer,
     handleInterestPress,
+    isModalOpen,
+    selectedImage,
+    handleCloseViewer,
+    buildFullAddress,
     scrollViewRef,
   };
 }

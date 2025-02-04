@@ -13,18 +13,23 @@ import { ReviewCard } from 'src/components/Review/ReviewCard/ReviewCard';
 import { ItineraryPointCard } from 'src/components/Itinerary/ItineraryPointCard/ItineraryPointCard';
 import { AverageValue } from 'src/components/Price/AverageValue/AverageValue';
 import { BASE_URL } from 'src/common/repositories/client';
+import { useAuthStore } from '~/src/common/stores/AuthStore';
+import Toast from 'react-native-toast-message';
 
 export function ItineraryScreen({ itineraryId }: ItineraryScreenProps) {
-  const { guide, itinerary, reviews, isLoading, isError } = useItineraryScreenViewModel({
-    itineraryId,
-  });
-  
+  const { guide, itinerary, reviews, isLoading, isError, signalInterest, isSignalingInterest } =
+    useItineraryScreenViewModel({
+      itineraryId,
+    });
+  const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
+  const isGuide = useAuthStore((state) => state.user)?.userType === 'Guide';
+
   const router = useAppRouter();
 
   if (isLoading) {
     return (
       <View className='flex-1 items-center justify-center bg-[#171717]'>
-        <ActivityIndicator size='large'color='white' />
+        <ActivityIndicator size='large' color='white' />
       </View>
     );
   }
@@ -69,9 +74,33 @@ export function ItineraryScreen({ itineraryId }: ItineraryScreenProps) {
             />
           </View>
 
-          <View className='mt-4'>
-            <TLGradientButton title='Tenho Interesse!' className='w-full' />
-          </View>
+          {isAuthenticated && !isGuide && (
+            <View className='mt-4'>
+              <TLGradientButton
+                title='Tenho Interesse!'
+                className='w-full'
+                onPress={() => signalInterest()}
+                disabled={isSignalingInterest}
+              />
+            </View>
+          )}
+          {!isAuthenticated && (
+            <View className='mt-6'>
+              <TLGradientButton
+                title='Tenho Interesse!'
+                className='w-full'
+                onPress={() => {
+                  router.push('/(auth)/login');
+                  Toast.show({
+                    type: 'error',
+                    text1: 'Login Necessário!',
+                    text2: 'Para marcar interesse, precisa estar logado!',
+                  });
+                }}
+                disabled={isSignalingInterest}
+              />
+            </View>
+          )}
 
           <View className='mt-6 flex-row items-center justify-between'>
             <View>

@@ -24,7 +24,7 @@ export function GuidePanelScreen() {
   if (isLoading) {
     return (
       <View className='flex-1 items-center justify-center bg-tl-bg'>
-        <ActivityIndicator size='large' color='white'/>
+        <ActivityIndicator size='large' color='white' />
       </View>
     );
   }

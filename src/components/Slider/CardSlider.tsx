@@ -11,6 +11,7 @@ interface CardSliderProps<T> {
   className?: string;
   initialIndex?: number;
   keyExtractor?: (item: T, index: number) => string;
+  enableInitialScroll?: boolean;
 }
 
 export function CardSlider<T>({
@@ -23,11 +24,31 @@ export function CardSlider<T>({
   className,
   initialIndex = 0,
   keyExtractor,
+  enableInitialScroll = false,
 }: CardSliderProps<T>) {
   const flatListRef = useRef<FlatList>(null);
 
+  const getItemLayout = (_: any, index: number) => ({
+    length: 280, // Adjust this value based on your card width + margin
+    offset: 280 * index,
+    index,
+  });
+
+  const handleScrollToIndexFailed = (info: {
+    index: number;
+    highestMeasuredFrameIndex: number;
+    averageItemLength: number;
+  }) => {
+    setTimeout(() => {
+      flatListRef.current?.scrollToIndex({
+        index: info.index,
+        animated: false,
+      });
+    }, 100);
+  };
+
   useEffect(() => {
-    if (initialIndex > 0) {
+    if (enableInitialScroll && initialIndex > 0 && data.length > initialIndex) {
       setTimeout(() => {
         flatListRef.current?.scrollToIndex({
           index: initialIndex,
@@ -35,7 +56,7 @@ export function CardSlider<T>({
         });
       }, 100);
     }
-  }, [initialIndex]);
+  }, [initialIndex, data, enableInitialScroll]);
 
   return (
     <View className={className}>
@@ -48,6 +69,8 @@ export function CardSlider<T>({
         contentContainerStyle={contentContainerStyle}
         ItemSeparatorComponent={ItemSeparatorComponent}
         keyExtractor={keyExtractor}
+        getItemLayout={getItemLayout}
+        onScrollToIndexFailed={handleScrollToIndexFailed}
       />
     </View>
   );

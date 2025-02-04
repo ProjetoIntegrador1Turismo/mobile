@@ -4,12 +4,14 @@ import TLLogoWhite from 'src/components/Auth/TLLogoWhite/TLLogoWhite';
 import UnauthenticatedImage2 from 'src/components/Auth/UnauthenticatedImage/UnauthenticatedImage2';
 import { TLGradientButton } from 'src/components/Button/TLGradientButton/TLGradientButton';
 import { CustomText } from 'src/components/Text/CustomText';
-
 import { GuidePanelScreen } from '../GuidePainel/GuidePanelScreen';
 import { InterestedItinerariesScreen } from '../Interested/InterestedItinerariesScreen';
+import { useRouter } from 'expo-router';
+import { useAppRouter } from '~/src/common/lib/router';
 
 export default function DynamicTabScreen() {
   const userType = useAuthStore((state) => state.user?.userType);
+  const router = useRouter();
 
   if (userType === 'Guide') {
     return <GuidePanelScreen />;
@@ -29,7 +31,11 @@ export default function DynamicTabScreen() {
         <CustomText className='text-center text-white' weight='regular' size={16}>
           Faça login para ver seus roteiros!
         </CustomText>
-        <TLGradientButton title='Login' className='w-11/12' onPress={() => {}} />
+        <TLGradientButton
+          title='Login'
+          className='w-11/12'
+          onPress={() => router.push('/(auth)/login')}
+        />
       </View>
       <View className='h-32' />
     </SafeAreaView>

@@ -20,7 +20,7 @@ export function TopGuideCard({ id, profileImage, name, rating }: TopGuideCardPro
   return (
     <TouchableOpacity onPress={handleGuidePress}>
       <View className='mx-auto my-auto w-[362px] rounded-xl border border-white bg-transparent'>
-      <View className='flex h-[55px] flex-row items-center px-2 py-2'>
+        <View className='flex h-[55px] flex-row items-center px-2 py-2'>
           <Avatar imageUrl={profileImage} size={40} />
 
           <View className='ml-4  flex-auto overflow-hidden'>

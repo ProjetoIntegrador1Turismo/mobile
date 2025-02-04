@@ -42,8 +42,19 @@ export const useHomeScreenViewModel = () => {
     rating: guide.averageRating,
   }));
 
-  const handleInterestPointPress = (id: number) => {
-    router.push(`/(home)/point/${id}`);
+  const handleItineraryPress = (itineraryId: number) => {
+    router.replace(`/(tabs)/(search)`);
+    setTimeout(() => {
+      router.push(`/(tabs)/(search)/itinerary/${itineraryId}`);
+    }, 0);
+  };
+
+  const handleInterestPointPress = (id: number, type?: string) => {
+    if (type === 'ITINERARY') {
+      handleItineraryPress(id);
+    } else {
+      router.push(`/(home)/point/${id}`);
+    }
   };
 
   const handleTopInterestPointPress = (id: number) => {

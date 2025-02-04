@@ -43,7 +43,6 @@ export function InterestPointGuidesSection({ guides, pointId }: InterestPointGui
             ))}
             <GradientBorderButton
               title='Ver mais guias'
-              size='sm'
               className='mt-4 self-center'
               onPress={handleSeeMorePress}
             />

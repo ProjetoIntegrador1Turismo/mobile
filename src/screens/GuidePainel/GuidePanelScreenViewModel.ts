@@ -1,16 +1,17 @@
+import { useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
-import { useGuideItinerariesQuery } from 'src/common/hooks/queries/useGuideItinerariesQuery';
+import Toast from 'react-native-toast-message';
 import { useDeleteItineraryMutation } from 'src/common/hooks/mutations/useDeleteItineraryMutation';
+import { useGuideItinerariesQuery } from 'src/common/hooks/queries/useGuideItinerariesQuery';
 import { useAppRouter } from 'src/common/lib/router';
-import { Itinerary } from 'src/common/models/GuideItineraries/guideItineraries.model';
 
 export function useGuidePanel() {
-  const { data, isLoading } = useGuideItinerariesQuery();
-  const deleteItineraryMutation = useDeleteItineraryMutation();
-  const itineraries: Itinerary[] = data || [];
+  const { data: itineraries, isLoading } = useGuideItinerariesQuery();
+  const { mutate: deleteItinerary } = useDeleteItineraryMutation();
   const router = useAppRouter();
   const [deleteModalVisible, setDeleteModalVisible] = useState(false);
   const [selectedItineraryId, setSelectedItineraryId] = useState<number | null>(null);
+  const queryClient = useQueryClient();
 
   const handleTouristButtonPress = () => {
     router.push('(modals)/interested-itinerary-tourists');
@@ -31,7 +32,29 @@ export function useGuidePanel() {
 
   const handleDeleteConfirm = async () => {
     if (selectedItineraryId) {
-      await deleteItineraryMutation.mutateAsync(selectedItineraryId);
+      deleteItinerary(selectedItineraryId, {
+        onSuccess: () => {
+          queryClient.invalidateQueries({ queryKey: ['guide-itineraries'] });
+          queryClient.invalidateQueries({ queryKey: ['guideProfile'] });
+          queryClient.invalidateQueries({ queryKey: ['homePage'] });
+          queryClient.invalidateQueries({ queryKey: ['interested'] });
+          queryClient.invalidateQueries({ queryKey: ['tourPage'] });
+          queryClient.invalidateQueries({ queryKey: ['category', 'Roteiros'] });
+
+          Toast.show({
+            type: 'success',
+            text1: 'Sucesso!',
+            text2: 'Roteiro deletado com sucesso',
+          });
+        },
+        onError: () => {
+          Toast.show({
+            type: 'error',
+            text1: 'Erro ao deletar roteiro',
+            text2: 'Tente novamente mais tarde',
+          });
+        },
+      });
       setDeleteModalVisible(false);
       setSelectedItineraryId(null);
     }
@@ -43,7 +66,7 @@ export function useGuidePanel() {
   };
 
   const notifiedInterestCards = () => {
-    return itineraries.flatMap((itinerary) =>
+    return itineraries!.flatMap((itinerary) =>
       itinerary.interestedTourists.map((tourist) => ({
         userName: `${tourist.firstName} ${tourist.lastName}`,
         imageUrl: tourist.profileImageUrl,
@@ -57,9 +80,9 @@ export function useGuidePanel() {
   return {
     itineraries,
     isLoading,
+    notifiedInterestCards,
     deleteModalVisible,
     handleTouristButtonPress,
-    notifiedInterestCards,
     handleCreateItineraryButtonPress,
     handleEditItineraryButtonPress,
     handleDeletePress,

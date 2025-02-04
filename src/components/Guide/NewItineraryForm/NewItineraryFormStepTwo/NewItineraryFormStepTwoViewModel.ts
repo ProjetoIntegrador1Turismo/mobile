@@ -63,6 +63,7 @@ export const useNewItineraryFormStepTwoViewModel = () => {
                   text2: 'Roteiro criado com sucesso!',
                 });
                 queryClient.invalidateQueries({ queryKey: ['guide-itineraries'] });
+                queryClient.invalidateQueries({ queryKey: ['category', 'Roteiros'] });
                 dismiss(1);
                 goBack();
               },

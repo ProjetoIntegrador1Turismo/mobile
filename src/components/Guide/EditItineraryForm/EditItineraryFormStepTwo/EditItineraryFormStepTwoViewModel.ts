@@ -3,17 +3,13 @@ import { useQueryClient } from '@tanstack/react-query';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import Toast from 'react-native-toast-message';
-import { useCreateItineraryMutation } from 'src/common/hooks/mutations/useCreateItineraryMutation';
+import { useEditItineraryMutation } from 'src/common/hooks/mutations/useEditItineraryMutation';
 import { useUploadItineraryCoverMutation } from 'src/common/hooks/mutations/useUploadItineraryCoverMutation';
-import NewItineraryStepTwoFormSchema from 'src/common/schemas/NewItinerary/NewItineraryStepTwoSchema';
-import { useNewItineraryFormStore } from 'src/common/stores/NewItineraryFormStore';
+import { useAppRouter } from 'src/common/lib/router';
+import EditItineraryStepTwoFormSchema from 'src/common/schemas/EditItinerary/EditItinerarySchemaStepTwo';
+import { useEditItineraryFormStore } from 'src/common/stores/EditItineraryStore';
 
 import { EditItineraryStepTwoFormData } from './EditItineraryFormStepTwo.types';
-
-import { useEditItineraryMutation } from '~/src/common/hooks/mutations/useEditItineraryMutation';
-import { useAppRouter } from '~/src/common/lib/router';
-import EditItineraryStepTwoFormSchema from '~/src/common/schemas/EditItinerary/EditItinerarySchemaStepTwo';
-import { useEditItineraryFormStore } from '~/src/common/stores/EditItineraryStore';
 
 export const useEditItineraryFormStepTwoViewModel = () => {
   const {
@@ -80,6 +76,9 @@ export const useEditItineraryFormStepTwoViewModel = () => {
                   });
                   queryClient.invalidateQueries({ queryKey: ['guide-itineraries'] });
                   queryClient.invalidateQueries({ queryKey: ['itinerary-by-id', stepOneData.id] });
+                  queryClient.invalidateQueries({ queryKey: ['itinerary', stepOneData.id] });
+                  queryClient.invalidateQueries({ queryKey: ['category', 'Roteiros'] });
+
                   dismiss(1);
                   goBack();
                 },
@@ -104,6 +103,8 @@ export const useEditItineraryFormStepTwoViewModel = () => {
           });
           queryClient.invalidateQueries({ queryKey: ['guide-itineraries'] });
           queryClient.invalidateQueries({ queryKey: ['itinerary-by-id', stepOneData.id] });
+          queryClient.invalidateQueries({ queryKey: ['itinerary', stepOneData.id] });
+          queryClient.invalidateQueries({ queryKey: ['category', 'Roteiros'] });
           dismiss(1);
           goBack();
         },

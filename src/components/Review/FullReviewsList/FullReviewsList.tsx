@@ -6,8 +6,8 @@ import { FullReviewsListProps } from './FullReviewsList.types';
 
 export function FullReviewsList({ reviews, onClose }: FullReviewsListProps) {
   return (
-    <View className='flex-1 bg-[#171717] items-center pt-12'>
-      <View className='flex-row items-center justify-between border-b border-gray-800 px-4 py-4 w-full'>
+    <View className='flex-1 items-center bg-[#171717] pt-12'>
+      <View className='w-full flex-row items-center justify-between border-b border-gray-800 px-4 py-4'>
         <TouchableOpacity onPress={onClose}>
           <AntDesign name='close' size={24} color='white' />
         </TouchableOpacity>
@@ -18,14 +18,14 @@ export function FullReviewsList({ reviews, onClose }: FullReviewsListProps) {
       </View>
 
       <ScrollView
-        className='flex-1 px-4 w-full'
+        className='w-full flex-1 px-4'
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingVertical: 20, alignItems: 'center' }}>
         <CustomText size={16} weight='regular' className='mb-4 text-gray-300'>
           Todas as avaliações deste guia
         </CustomText>
 
-        <View className='gap-y-4 w-full'>
+        <View className='w-full gap-y-4'>
           {reviews.map((review) => (
             <ReviewCard
               key={review.id}

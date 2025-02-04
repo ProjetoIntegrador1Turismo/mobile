@@ -6,6 +6,7 @@ export function useCategoryDetailsScreenViewModel(categoryTitle: string) {
   const { data: originalData, isLoading } = useCategoryDetailQuery(categoryTitle);
   const [searchText, setSearchText] = useState('');
   const [debouncedSearchText, setDebouncedSearchText] = useState('');
+  const isItinerary = categoryTitle.toLowerCase() === 'roteiros';
 
   useEffect(() => {
     const handler = setTimeout(() => {
@@ -20,11 +21,16 @@ export function useCategoryDetailsScreenViewModel(categoryTitle: string) {
 
     return {
       ...originalData,
-      content: originalData.content.filter((item: Content) =>
-        (item.name || item.title || '').toLowerCase().includes(searchText.toLowerCase())
-      ),
+      content: originalData.content
+        .map((item) => ({
+          ...item,
+          interestPointType: isItinerary ? 'ITINERARY' : item.interestPointType,
+        }))
+        .filter((item: Content) =>
+          (item.name || item.title || '').toLowerCase().includes(searchText.toLowerCase())
+        ),
     };
-  }, [originalData, debouncedSearchText]);
+  }, [originalData, debouncedSearchText, isItinerary]);
 
   const handleSearchAction = (search: string) => {
     setSearchText(search);
@@ -32,7 +38,15 @@ export function useCategoryDetailsScreenViewModel(categoryTitle: string) {
 
   return {
     isLoading,
-    data: filteredData,
+    data: filteredData
+      ? {
+          ...filteredData,
+          content: filteredData.content.map((item) => ({
+            ...item,
+            interestPointType: isItinerary ? 'ITINERARY' : item.interestPointType,
+          })),
+        }
+      : undefined,
     handleSearchAction,
   };
 }

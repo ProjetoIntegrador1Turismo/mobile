@@ -23,7 +23,7 @@ export function InterestedItinerariesScreen() {
       <SearchTextInputBar placeholder='Pesquise seu roteiro' />
       {isLoading ? (
         <View className='flex-1 items-center justify-center'>
-          <ActivityIndicator size='large' color='white'/>
+          <ActivityIndicator size='large' color='white' />
         </View>
       ) : data?.interestedItineraries && data.interestedItineraries.length > 0 ? (
         <InterestedItineraryCardList
