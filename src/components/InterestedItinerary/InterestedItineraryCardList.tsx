@@ -13,6 +13,7 @@ export function InterestedItineraryCardList({
 }: InterestedItineraryCardListProps) {
   return (
     <FlatList
+      className=''
       data={interestedItineraries}
       keyExtractor={(interested: InterestedItinerary) => interested.id.toString()}
       renderItem={({ item }) => (
