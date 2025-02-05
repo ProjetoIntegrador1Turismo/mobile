@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import { useAuthStore } from '../stores/AuthStore';
 
-export const BASE_URL = 'http://104.236.219.8:8081';
+export const BASE_URL = 'https://api2.tourlink.com.br';
 
 export const api = axios.create({
   baseURL: BASE_URL,
