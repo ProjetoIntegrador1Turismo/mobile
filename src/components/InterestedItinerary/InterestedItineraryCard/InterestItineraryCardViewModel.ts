@@ -9,7 +9,7 @@ export function useInterestedItineraryCardViewModel() {
 
   //Essa rota deve levar para a pagina do roteiro
   async function handleSeeDetails(id: number) {
-    push(`/point/${id}`);
+    push(`/itinerary/${id}`);
   }
 
   return {
