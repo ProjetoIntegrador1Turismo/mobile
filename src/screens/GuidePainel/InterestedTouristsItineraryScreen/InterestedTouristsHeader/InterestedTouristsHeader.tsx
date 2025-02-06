@@ -5,7 +5,7 @@ import { CustomText } from '~/src/components/Text/CustomText';
 
 export function InterestedTouristsHeader() {
   return (
-    <View className='bg-black/50 p-4'>
+    <View className='bg-tl-bg p-4'>
       <GoBackButton />
       <View className='items-center'>
         <LogoTl />
