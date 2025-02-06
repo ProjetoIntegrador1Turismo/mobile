@@ -1,8 +1,14 @@
 import { Alert, Linking } from 'react-native';
+import { useAppRouter } from 'src/common/lib/router';
 
 export const useNotifiedInterestCardViewModel = () => {
+  const router = useAppRouter();
+
   const handleOnPressItineraryRef = (itineraryId: number) => {
-    console.log('Link do roteiro acionado: ', itineraryId);
+    router.replace(`/(tabs)/(search)`);
+    setTimeout(() => {
+      router.push(`/(tabs)/(search)/itinerary/${itineraryId}`);
+    }, 0);
   };
 
   const formatPhoneNumber = (phone: string): string => {
@@ -20,11 +26,11 @@ export const useNotifiedInterestCardViewModel = () => {
         if (supported) {
           Linking.openURL(whatsappUrl);
         } else {
-          Alert.alert('Erro', 'Não foi possível abrir o WhatsApp.');
+          Alert.alert('Erro', 'WhatsApp não está instalado no dispositivo');
         }
       })
       .catch(() => {
-        Alert.alert('Erro', 'Ocorreu um erro ao tentar abrir o WhatsApp.');
+        Alert.alert('Erro', 'Não foi possível abrir o WhatsApp');
       });
   };
 
