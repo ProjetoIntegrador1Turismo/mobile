@@ -11,10 +11,7 @@ function onPressPointCard() {
   const router = useAppRouter();
 
   const handleItineraryPress = (itineraryId: number) => {
-    router.replace(`/(tabs)/(search)`);
-    setTimeout(() => {
-      router.push(`/(tabs)/(search)/itinerary/${itineraryId}`);
-    }, 0);
+    router.push(`/itinerary/${itineraryId}`);
   };
 
   async function handlePressPointCard(id: number, type?: string) {
