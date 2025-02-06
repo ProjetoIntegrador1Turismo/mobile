@@ -13,7 +13,7 @@ const EditItineraryStepOneFormSchema = z.object({
   description: z
     .string({ required_error: 'Descrição é obrigatória!' })
     .min(1, 'Descrição é obrigatória!')
-    .max(300, 'Descrição deve ter no máximo 300 caracteres!'),
+    .max(1000, 'Descrição deve ter no máximo 1000 caracteres!'),
   imgCover: z.string({ required_error: 'Imagem de capa é obrigatória!' }),
 });
 

@@ -36,7 +36,7 @@ export default function EditItineraryFormStepTwo() {
       </View>
 
       <TLGradientButton
-        title='Criar roteiro'
+        title='Salvar alterações'
         className='mt-10'
         disabled={isPending}
         onPress={handleSubmit(onPressCreate)}

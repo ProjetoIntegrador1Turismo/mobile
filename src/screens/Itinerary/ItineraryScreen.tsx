@@ -108,7 +108,10 @@ export function ItineraryScreen({ itineraryId }: ItineraryScreenProps) {
                 Preço:
               </CustomText>
               <View className='flex-row'>
-                <AverageValue value={itinerary.mediumCost} />
+                <CustomText size={20} weight='bold' className='text-white'>
+                  R$ {itinerary.mediumCost}
+                </CustomText>
+                {/* <AverageValue value={itinerary.mediumCost} /> */}
               </View>
             </View>
             <View>

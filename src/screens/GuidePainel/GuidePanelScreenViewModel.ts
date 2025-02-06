@@ -73,6 +73,7 @@ export function useGuidePanel() {
         phone: tourist.phone,
         email: tourist.email,
         itineraryTitle: itinerary.title,
+        itineraryId: itinerary.id,
       }))
     );
   };
