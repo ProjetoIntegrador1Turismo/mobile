@@ -10,6 +10,11 @@ import { FullCommentModal } from 'src/components/Comment/FullCommentModal/FullCo
 export function CommentCard({ name, date, text, rating, avatarUrl }: CommentCardProps) {
   const [modalVisible, setModalVisible] = useState(false);
 
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('pt-BR');
+  };
+
   return (
     <>
       <View className='flex max-h-[180px] min-h-[100px] w-[360px] flex-col rounded-lg bg-[#1C1C1E] p-4'>
@@ -22,7 +27,7 @@ export function CommentCard({ name, date, text, rating, avatarUrl }: CommentCard
               {name}
             </CustomText>
             <CustomText className='text-gray-400' weight='regular' size={10}>
-              Comentou em: {date}
+              Comentou em: {formatDate(date)}
             </CustomText>
           </View>
           <View className='flex flex-col items-center'>
