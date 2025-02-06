@@ -4,6 +4,7 @@ import { UserAvatar } from '../User/UserAvatar';
 import { CustomText } from '../Text/CustomText';
 import Feather from '@expo/vector-icons/Feather';
 import { useNotifiedInterestCardViewModel } from '~/src/components/NotifiedInterestCard/NotifiedInterestCardViewModel';
+import { colors } from 'src/common/utils/colors';
 
 export function NotifiedInterestCard({
   userName,
@@ -16,7 +17,7 @@ export function NotifiedInterestCard({
   const { handleOnPressItineraryRef, openWhatsApp } = useNotifiedInterestCardViewModel();
 
   return (
-    <View className='h-[160px] w-full rounded-[9px] border-2 border-gray-800 bg-[#1C1C1E] p-4'>
+    <View className='h-[160px] w-full rounded-[9px] border-2 border-[#151515] bg-[#1C1C1E] p-4'>
       <View className='flex-row items-center space-x-3'>
         <UserAvatar userName={userName} imageUrl={imageUrl} />
         {/* <CustomText className='text-white' weight='bold' size={16}>
